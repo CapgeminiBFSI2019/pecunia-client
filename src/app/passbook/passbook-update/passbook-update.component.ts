@@ -9,7 +9,9 @@ export class PassbookUpdateComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+    onClickSubmit(data) {
+      alert("Entered Account id : " + data.accountid);
   }
 
 }
