@@ -18,6 +18,7 @@ import { PassbookUpdateComponent } from './passbook/passbook-update/passbook-upd
 import { LoanRequestComponent } from './loan/loan-request/loan-request.component';
 import { LoanDisbursalComponent } from './loan/loan-disbursal/loan-disbursal.component';
 import { AccountMenuComponent } from './account/account-menu/account-menu.component';
+import { LoanMenuComponent } from './loan/loan-menu/loan-menu.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AccountMenuComponent } from './account/account-menu/account-menu.compon
     PassbookUpdateComponent,
     LoanRequestComponent,
     LoanDisbursalComponent,
-    AccountMenuComponent
+    AccountMenuComponent,
+    LoanMenuComponent
   ],
   imports: [
     BrowserModule,
