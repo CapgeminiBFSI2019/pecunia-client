@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-update-name',
@@ -11,5 +12,9 @@ export class UpdateNameComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  accountId = new FormControl('');
+  name = new FormControl('');
+  
 
 }

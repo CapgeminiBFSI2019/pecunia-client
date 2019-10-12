@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { LoanDisbursalComponent } from './loan/loan-disbursal/loan-disbursal.com
 import { AccountMenuComponent } from './account/account-menu/account-menu.component';
 import { LoanMenuComponent } from './loan/loan-menu/loan-menu.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,10 +41,12 @@ import { LoanMenuComponent } from './loan/loan-menu/loan-menu.component';
     LoanDisbursalComponent,
     AccountMenuComponent,
     LoanMenuComponent
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

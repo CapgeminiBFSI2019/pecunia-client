@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-update-contact',
@@ -11,5 +12,8 @@ export class UpdateContactComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  accountId = new FormControl('');
+  contact = new FormControl('');
 
 }
