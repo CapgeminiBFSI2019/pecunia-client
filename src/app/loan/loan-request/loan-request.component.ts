@@ -15,8 +15,8 @@ export class LoanRequestComponent implements OnInit {
   constructor(private formBuilder:FormBuilder) { }
 
   ngOnInit() {
-    this.loanRequestForm=this.formBuilder.group({
-      accountId:['',Validators.required] ,
+    // this.loanRequestForm=this.formBuilder.group({
+    //   accountId:['',Validators.required] ,
 
     })
   }
