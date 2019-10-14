@@ -1,4 +1,5 @@
 <p>loan-request works!</p>
+<router-outlet> </router-outlet>
 <div [hidden]="submitted">
     <h1>Loan Request Form</h1>
     <form (ngSubmit)="onSubmit()" #loanRequestForm="ngForm">
@@ -10,72 +11,80 @@
         <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
             Numeric format
         </div>
+    
         <label for="amount">Enter loan Amount </label>
         <input type="number" class="form-control" id="amount" required [(ngModel)]="model.amount" name="amount" #amount="ngModel">
         <div [hidden]="amount.valid || amount.pristine " class="alert alert-danger "></div>
             Amount is required
         </div>
+        <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
+            Numeric format
         <label for="type">Loan Type</label>
         <input type="text" class="form-control" id="type" required [(ngModel)]="model.type" name="type" #type="ngModel">
         <div [hidden]="category.valid || category.pristine " class="alert alert-danger ">
             Loan Type is required
         </div>
+        <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
+            Numeric format
         <label for="tenure">Tenure</label>
         <input type="number" class="form-control" id="tenure" required [(ngModel)]="model.tenure" name="tenure" #tenure="ngModel">
         <div [hidden]="category.valid || category.pristine " class="alert alert-danger ">
             Tenure is required
         </div>
+        <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
+            Numeric format
         <label for="roi">Loan Type</label>
         <input type="number" class="form-control" id="roi" required [(ngModel)]="model.roi" name="roi" #roi="ngModel">
         <div [hidden]="roi.valid || roi.pristine " class="alert alert-danger ">
             Rate of Interest is required
         </div>
+        <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
+            Numeric format
         <label for="creditScore">Credit Score</label>
         <input type="number" class="form-control" id="creditScore" required [(ngModel)]="model.creditScore" name="creditScore" #creditScore="ngModel">
         <div [hidden]="creditScore.valid || creditScore.pristine " class="alert alert-danger ">
             Credit Score is required
         </div>
+        <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
+            Numeric format
         <label for="status">Loan Status</label>
         <input type="text" class="form-control" id="status" required [(ngModel)]="model.status" name="status" #status="ngModel">
         <div [hidden]="status.valid || status.pristine " class="alert alert-danger ">
             Loan Status is required
         </div>
-        <label for="type">Loan Type</label>
-        <input type="text" class="form-control" id="type" required [(ngModel)]="model.type" name="type" #type="ngModel">
-        <div [hidden]="category.valid || category.pristine " class="alert alert-danger ">
-            Loan Type is required
-        </div>
+        <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
+            Numeric format
         <button type="submit " class="btn btn-success " [disabled]="!loanRequest.form.valid ">Submit</button>
     </form>
 </div>
 <div [hidden]="!submitted ">
     <h2>You submitted the following:</h2>
     <div class="row ">
-        <div class="col-xs-3 ">Account Id</div>
+        <div class="col-md-8 offset-md-2">Account Id</div>
         <div class="col-xs-9 ">{{ model.accountId }}</div>
     </div>
     <div class="row ">
-        <div class="col-xs-3 ">Loan Amount</div>
+        <div class="col-md-4 offset-md-2 ">Loan Amount</div>
         <div class="col-xs-9 ">{{ model.amount }}</div>
     </div>
     <div class="row ">
-        <div class="col-xs-3 ">Type of Loan</div>
+        <div class="col-md-4 offset-md-2">Type of Loan</div>
         <div class="col-xs-9 ">{{ model.type }}</div>
     </div>
     <div class="row ">
-        <div class="col-xs-3 ">Enter Tenure</div>
+        <div class="col-md-4 offset-md-2 ">Enter Tenure</div>
         <div class="col-xs-9 ">{{ model.tenure }}</div>
     </div>
     <div class="row ">
-        <div class="col-xs-3 ">Rate of Interest</div>
+        <div class="col-md-4 offset-md-2 ">Rate of Interest</div>
         <div class="col-xs-9 ">{{ model.roi }}</div>
     </div>
     <div class="row ">
-        <div class="col-xs-3 ">Credit Score</div>
+        <div class="col-md-4 offset-md-2 ">Credit Score</div>
         <div class="col-xs-9 ">{{ model.creditScore }}</div>
     </div>
     <div class="row ">
-        <div class="col-xs-3 ">Loan Status</div>
+        <div class="col-md-4 offset-md-2 ">Loan Status</div>
         <div class="col-xs-9 ">{{ model.status }}</div>
     </div>
     <br>
