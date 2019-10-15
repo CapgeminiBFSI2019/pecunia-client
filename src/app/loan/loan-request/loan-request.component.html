@@ -1,4 +1,4 @@
-<p>loan-request works!</p>
+<!-- <p>loan-request works!</p>
 <router-outlet> </router-outlet>
 <div [hidden]="submitted">
     <h1>Loan Request Form</h1>
@@ -14,7 +14,7 @@
     
         <label for="amount">Enter loan Amount </label>
         <input type="number" class="form-control" id="amount" required [(ngModel)]="model.amount" name="amount" #amount="ngModel">
-        <div [hidden]="amount.valid || amount.pristine " class="alert alert-danger "></div>
+        <div [hidden]="amount.valid || amount.pristine " class="alert alert-danger ">
             Amount is required
         </div>
         <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
@@ -54,6 +54,7 @@
         </div>
         <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
             Numeric format
+        </div>
         <button type="submit " class="btn btn-success " [disabled]="!loanRequest.form.valid ">Submit</button>
     </form>
 </div>
@@ -89,4 +90,4 @@
     </div>
     <br>
     <button class="btn btn-primary " (click)="submitted=false ">Edit</button>
-</div>
+</div> -->
