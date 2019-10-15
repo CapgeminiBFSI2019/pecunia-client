@@ -21,6 +21,7 @@ import { PassbookUpdateComponent } from './passbook/passbook-update/passbook-upd
 
 const routes: Routes = [
   //add your routes here
+  
   {path: 'login', component: LoginComponent},
   {path: 'account/account-menu', component: AccountMenuComponent},
   {path: 'account/add-account', component: AddAccountComponent},
