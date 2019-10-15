@@ -1,18 +1,26 @@
 
 <div [hidden]="submitted">
-    <h1>Update Passbook</h1>
+    <div class="form-group col-md-3 offset-md-4">
+    <h1 align="center">Update Passbook</h1>
+    </div>
     <form (ngSubmit)="onSubmit()" #passbook="ngForm">
+        <div class="form-group col-md-3 offset-md-4">
         <label for="AccountID">Account ID</label>
-        <input type="text" numbersOnly required class="form-control" title="Enter Account ID" pattern="[0-9]*" minlength="12" maxlength="12" id="AccountID" required [(ngModel)]="passbook.accountID" name="Account ID" #accountID="ngModel">
-        <div *ngIf="accountID.invalid && accountID.touched" class="alert alert-danger ">
-
-                <div *ngIf="accountID.errors.required">
+        <input type="text" class="form-control" title="Enter Account ID" pattern="[0-9]*" minlength="12" maxlength="12" id="AccountID" required [(ngModel)]="passbook.accountID" name="Account ID" #accountID="ngModel">
+        <div *ngIf="accountID.invalid && (accountID.touched || accountID.dirty)" class="alert alert-danger ">
+                      <div *ngIf="accountID.errors.required">
                         Account ID is required.
                       </div>
                       <div *ngIf="accountID.errors.minlength">
                         Account ID must be 12 characters long.
                       </div>
+                      <div *ngIf="accountID.errors.pattern">
+                        Invalid Format. Only numbers allowed.
+                      </div>             
         </div>
+        <div class="d-flex justify-content-center ">
         <button type="submit " class="btn btn-success " [disabled]="!passbook.form.valid ">Submit</button>
+        </div>
+    </div>
     </form>
 </div>
