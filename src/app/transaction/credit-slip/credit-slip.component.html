@@ -5,7 +5,7 @@
         
         <div class="form-group col-md-3">
         <label for="Account Id">Account ID</label>
-        <input type="number" class="form-control" title="Account Id" pattern="[0-9]*" id="accId" required [(ngModel)]="creditSlip.accountId" name="accId" #accId="ngModel">
+        <input type="number" class="form-control" title="Account Id" pattern="[0-9]*" minlength="12" maxlength="12" id="accId" required [(ngModel)]="creditSlip.accountId" name="accId" #accId="ngModel">
         <div *ngIf="accId.invalid && accId.touched" class="alert alert-danger ">
             Account ID is required
         </div>
