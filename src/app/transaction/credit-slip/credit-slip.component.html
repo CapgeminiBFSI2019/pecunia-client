@@ -15,11 +15,11 @@
             </div>
             <label for="Amount">Amount</label>
             <input type="number" class="form-control" title="Amount" id="amount" required
-                [(ngModel)]="creditSlip.amount " name="amount"  #amount="ngModel">
+                [(ngModel)]="creditSlip.amount " name="amount"  #amount="ngModel" min="100" max="100000">
             <div *ngIf="amount.touched && amount.invalid" class="alert alert-danger ">
                 Amount is required
             </div>
-            <div *ngIf="(amount < 100 || amount>100000)&& amount.dirty" class="alert alert-danger ">
+            <div *ngIf="amount.invalid && amount.dirty" class="alert alert-danger ">
                 Amount invalid
             </div>
             <div class="d-flex justify-content-center ">
