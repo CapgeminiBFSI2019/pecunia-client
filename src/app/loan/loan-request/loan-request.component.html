@@ -1,61 +1,85 @@
-<!-- <p>loan-request works!</p>
+ <p>loan-request works!</p>
 <router-outlet> </router-outlet>
 <div [hidden]="submitted">
     <h1>Loan Request Form</h1>
+
     <form (ngSubmit)="onSubmit()" #loanRequestForm="ngForm">
+
         <label for="accountId">Account Id</label>
-        <input type="number" class="form-control" title="Enter account Id" id="accountId" required [(ngModel)]="model.accountId" name="accountId" #accountId="ngModel">
-        <div *ngIf="accountId.invalid && accountId.touched" class="alert alert-danger ">
+        <input type="number" class="form-control" title="Enter Account Id" id="accountId" required [(ngModel)]="model.accountId" name="accountId" #accountId="ngModel">
+        <div [hidden]="accountId.valid || accountId.pristine " class="alert alert-danger "></div>
             Account Id is required
-        </div>
+        
+
         <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
             Numeric format
         </div>
     
-        <label for="amount">Enter loan Amount </label>
+        <label for="amount">Enter Loan Amount </label>
         <input type="number" class="form-control" id="amount" required [(ngModel)]="model.amount" name="amount" #amount="ngModel">
         <div [hidden]="amount.valid || amount.pristine " class="alert alert-danger ">
             Amount is required
         </div>
-        <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
+
+        <div *ngIf="amount.invalid && amount.dirty" class="alert alert-danger ">
             Numeric format
+        </div>
+
         <label for="type">Loan Type</label>
         <input type="text" class="form-control" id="type" required [(ngModel)]="model.type" name="type" #type="ngModel">
         <div [hidden]="category.valid || category.pristine " class="alert alert-danger ">
             Loan Type is required
         </div>
+
         <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
             Numeric format
+        </div>
+
         <label for="tenure">Tenure</label>
         <input type="number" class="form-control" id="tenure" required [(ngModel)]="model.tenure" name="tenure" #tenure="ngModel">
-        <div [hidden]="category.valid || category.pristine " class="alert alert-danger ">
+        <div [hidden]="number.valid || number.pristine " class="alert alert-danger ">
             Tenure is required
         </div>
-        <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
+
+        <div *ngIf="tenure.invalid && tenure.dirty" class="alert alert-danger ">
             Numeric format
+        </div>
+
         <label for="roi">Loan Type</label>
         <input type="number" class="form-control" id="roi" required [(ngModel)]="model.roi" name="roi" #roi="ngModel">
         <div [hidden]="roi.valid || roi.pristine " class="alert alert-danger ">
             Rate of Interest is required
         </div>
-        <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
+
+        <div *ngIf="roi.invalid && roi.dirty" class="alert alert-danger ">
             Numeric format
+        </div>
+
         <label for="creditScore">Credit Score</label>
         <input type="number" class="form-control" id="creditScore" required [(ngModel)]="model.creditScore" name="creditScore" #creditScore="ngModel">
         <div [hidden]="creditScore.valid || creditScore.pristine " class="alert alert-danger ">
             Credit Score is required
         </div>
-        <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
+        
+        <div *ngIf="creditScore.invalid && creditScore.dirty" class="alert alert-danger ">
             Numeric format
+        </div>
+
         <label for="status">Loan Status</label>
         <input type="text" class="form-control" id="status" required [(ngModel)]="model.status" name="status" #status="ngModel">
         <div [hidden]="status.valid || status.pristine " class="alert alert-danger ">
             Loan Status is required
         </div>
-        <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
+
+        <div *ngIf="status.invalid && status.dirty" class="alert alert-danger ">
             Numeric format
         </div>
+
+        <button type="submit" class="btn btn-success " [disabled]="!loanRequest.form.valid ">Submit</button>
+
+        
         <button type="submit " class="btn btn-success " [disabled]="!loanRequest.form.valid ">Submit</button>
+
     </form>
 </div>
 <div [hidden]="!submitted ">
@@ -90,4 +114,4 @@
     </div>
     <br>
     <button class="btn btn-primary " (click)="submitted=false ">Edit</button>
-</div> -->
+</div> 
