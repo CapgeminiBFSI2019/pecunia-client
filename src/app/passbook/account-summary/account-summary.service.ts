@@ -11,18 +11,19 @@ export class DemoServiceService {
     this.httpClient = http;
   }
   
-  doSummary(accId : string,stDate : Date ,endDate : Date) {
+  // doSummary(accId : string,stDate : Date ,endDate : Date) {
   
-    this.httpClient
-      .post("http://localhost:9091/pecunianew/AccountSummaryServlet?accountID="+accId"&startDate="+stDate"&endDate="+endDate)
-      .subscribe(
-        data => {
-          console.log("Response : "+JSON.stringify(data));
-        },
-        error => {
-          console.log("Error :"+JSON.stringify(error));
-        }
-      );
-      }
-  }
+  //   this.httpClient
+  //     .post("http://localhost:9091/pecunianew/AccountSummaryServlet?accountID=", {+accId"&startDate="+stDate"&endDate="+endDate);
+  //     .subscribe(
+  //       data => {
+  //         console.log("Response : "+JSON.stringify(data));
+  //       },
+  //       error => {
+  //         console.log("Error :"+JSON.stringify(error));
+  //       }
+  //     );
+  //     }
+  // 
+}
 
