@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Passbook } from 'src/app/model/Passbook';
 
 @Component({
   selector: 'app-passbook-update',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./passbook-update.component.css']
 })
 export class PassbookUpdateComponent implements OnInit {
-  model = new Todo();
+  model = new Passbook();
   submitted = false;
   constructor() { }
 
