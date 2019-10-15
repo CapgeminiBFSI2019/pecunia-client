@@ -12,11 +12,8 @@ export class PassbookUpdateComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {}
-    
-  showModel() {}
 
   onSubmit() {
     this.submitted = true;
-    alert(this.showModel());
   }
 }

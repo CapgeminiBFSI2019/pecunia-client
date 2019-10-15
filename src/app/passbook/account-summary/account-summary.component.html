@@ -1,29 +1,47 @@
-<p>account-summary works!</p>
 <div [hidden]="submitted">
-  <h1>Account Summary</h1>
-  <form (ngSubmit)="onSubmit()" #AccountSummary="ngForm">
+  <div class="form-group col-md-3 offset-md-4">
+    <h1 align="center">Account Summary</h1>
+  </div>
+  <form (ngSubmit)="onSubmit()" #accountSummaryForm="ngForm">
+    <div class="form-group col-md-3 offset-md-4">
       <label for="accountID">Account ID</label>
-      <input type="text" class="form-control" title="Enter Account ID" pattern="[0-9]*" minlength=12 maxlength=12 id="accountID" required [(ngModel)]="passbook.accountID" name="account ID" #accountID="ngModel"><br>
-  
-   <div *ngIf="accountID.invalid && accountID.touched" class="alert alert-danger ">
-        Account ID is required
-      </div>
-      <div *ngIf="accountID.invalid && accountID.dirty" class="alert alert-danger ">
-        Enter 12 digit account number
+      <input type="text" class="form-control" title="Enter Account ID" pattern="[0-9]*" minlength=12 maxlength=12
+        id="accountID" required [(ngModel)]="passbook.accountID" name="account ID" #accountID="ngModel"><br>
+
+      <div *ngIf="accountID.invalid && accountID.touched" class="alert alert-danger ">
+        <div *ngIf="accountID.errors.required">
+          Account ID is required
+        </div>
+
+        <div *ngIf="accountID.errors.minlength">
+          Account ID must be 12 characters long
+        </div>
+
+        <div *ngIf="accountID.errors.pattern">
+          Account ID must be numeric
+        </div>
+
+
       </div>
 
-  
       <label for="startDate">Start Date</label>
-      <input type="date" class="form-control" title="Enter Start Date" pattern="[0-9]*" id="startDate" required [(ngModel)]="passbook.startDate" name="Start Date" #startDate="ngModel">
-      <div [hidden]="startDate.valid || startDate.pristine " class="alert alert-danger ">
+      <input type="date" class="form-control" title="Enter Start Date" id="startDate" required
+        [(ngModel)]="passbook.startDate" name="startDate" #startDate="ngModel">
+
+      <div *ngIf="startDate.valid && startDate.pristine " class="alert alert-danger ">
         Enter start date in correct format
       </div>
 
-    <label for="endDate">End Date</label>
-      <input type="date" class="form-control" title="Enter End Date" pattern="[0-9]*" id="endDate" required [(ngModel)]="passbook.endDate" name="End Date" #endDate="ngModel"><br>
-      <div [hidden]="endDate.valid || endDate.pristine " class="alert alert-danger ">
+      <label for="endDate">End Date</label>
+      <input type="date" class="form-control" title="Enter End Date" id="endDate" required
+        [(ngModel)]="passbook.endDate" name="endDate" #endDate="ngModel"><br>
+
+      <div *ngIf="endDate.valid && endDate.pristine " class="alert alert-danger ">
         Enter end date in correct format
       </div>
-      <button type="submit " class="btn btn-success " [disabled]="!AccountSummary.form.valid ">Submit</button>
+      <div class="d-flex justify-content-center ">
+        <button type="submit " class="btn btn-success " [disabled]="!accountSummaryForm.form.valid ">Submit</button>
+      </div>
+    </div>
   </form>
 </div>

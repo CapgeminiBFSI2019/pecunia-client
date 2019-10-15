@@ -1,176 +1,140 @@
 
 <p>Add Account form</p>
-<!-- <p>Create a new account</p>
-<form id="new-account-form" class="container account-form"
-		action="AddAccountServlet" method="post">
-		<div class="row">
-			<div class="form-group col-md-6">
-				<label for="name">Name</label> <input type="text"
-					class="form-control" id="name" name="name" placeholder="Enter Name"
-					 pattern= "[A-Za-z\s]*" title="Only alphabets allowed" required>
-			</div>
-			<div class="form-group col-md-6l">
-				<label for="gender">Gender</label> <select required id="gender"
-					class="form-control">
-					<option value="Male">Male</option>
-					<option value="Female">Female</option>
 
-
-
-
-				</select>
-			</div>
+  <h1>Add Account form</h1>
+  <form (ngSubmit)="onSubmit()" #addAccount="ngForm">
+	  <label for="name">Name</label>
+	  <input type="text" class="form-control" title="Enter your name" pattern="[A-Za-z\s]*" id="name" required [(ngModel)]="cust.name" name="Only alphabets allowed" #name="ngModel">
+	  <div *ngIf="!name.value &&name.touched " class="alert alert-danger ">
+		Field required
+	  </div>
+		<div *ngIf="name.invalid && name.dirty && name.value" class="alert alert-danger">
+           Alphabets allowed
 		</div>
-
-
-
-
-
-
-
-
-		<div class="row">
-			<div class="form-group col-md-6">
-				<label for="date-of-birth">Date of birth</label> <input type="date"
-					class="form-control" id="date-of-birth" name="dateofbirth"
-					placeholder="yyyy-mm-dd" required>
-			</div>
-			<div class="form-group col-md-6">
-				<label for="contact">Contact Details</label> <input type="tel"
-					minlength="10" maxlength="10" class="form-control" id="contact"
-					name="contact" placeholder="Enter contact number"  pattern="^\d{10}$" title="10 digit phone number" required>
-			</div>
-
-
-
-		</div>
-		<div class="row">
-			<div class="form-group col-md-6">
-				<label for="address-line1">Address line 1</label> <input type="text"
-					class="form-control" id="address-line1" name="addressline1"
-					placeholder="Enter address line 1" pattern= "[A-Za-z0-9\s/-]*" title= "Only alphabets, numbers and / and - allowed"  required>
-			</div>
-
-
-
-
-			<div class="form-group col-md-6">
-				<label for="address-line2">Address line 2</label> <input type="text"
-					class="form-control " id="address-line2" name="addressline2"
-					placeholder="Enter address line 2" pattern= "[A-Za-z0-9\s/-]*" title= "Only alphabets, numbers and / and - allowed"  required >
-			</div>
-
-
-
-			<div class="form-group col-md-6">
-				<label for="city">City</label> <input type="text"
-					class="form-control" id="city" name="city" placeholder="Enter city"
-					 pattern= "[A-Za-z\s]*" title="Only alphabets allowed" required>
-			</div>
-			<div class="form-group col-md-6">
-				<label for="state">State</label> <input type="text"
-					class="form-control" id="state" name="state"
-					placeholder="Enter state"  pattern= "[A-Za-z\s]*" title="Only alphabets allowed"required>
-			</div>
-
-
-
-			<div class="form-group col-md-6 ">
-				<label for="country">Country</label> <input type="text"
-					class="form-control" id="country" name="country"
-					placeholder="Enter Country"  pattern= "[A-Za-z\s]*" title="Only alphabets allowed"required>
-			</div>
-
-
-
-			<div class="form-group col-md-6">
-				<label for="zipcode">ZIP code</label> <input type="text"
-					class="form-control" id="zipcode" name="zipcode"
-					placeholder="Enter zipcode"  minlength="6" maxlength="6"  pattern= "[0-9]*" title="Only 6 digit number allowed"required>
-			</div>
-
-
-
-
-			<div class="form-group col-md-6">
-				<label for="aadhar">Aadhar number</label> <input type="text"
-					class="form-control" id="aadhar" name="aadhar"
-					placeholder="Enter aadhar number" minlength="12"
-					maxlength="12"  pattern= "[0-9]*" title="Only 12 digit number allowed" required>
-			</div>
-
-
-
-			<div class="form-group col-md-6">
-				<label for="pan">PAN</label> <input type="text" class="form-control"
-					id="pan" name="pan" placeholder="Enter PAN number" 
-					minlength="10" maxlength="10" pattern= "[A-Z]{5}[0-9]{4}[A-Z]{1}" title="Enter a valid 10 digit PAN number" required>
-			</div>
-			<div class="form-group col-md-3">
-				<label for="account-type">Account type</label> <select required
-					id="accounttype" name="accounttype" class="form-control">
-					<option value="Savings">Savings</option>
-					<option value="Current">Current</option>
-					<option value="FD">FD</option>
-					<option value="Loan">Loan</option>
-
-
-
-				</select>
-			</div>
-			<div class="form-group col-md-3">
-				<label for="branch-id">Branch Id</label> <input type="text"
-					class="form-control" id="branch-id" name="branchid"
-					placeholder="Enter branch id"  minlength="4" maxlength="4" pattern= "[0-9]*" title="Only 4 digit number allowed"required>
-			</div>
-			<div class="form-group col-md-3">
-				<label for="account-balance">Account balance</label> <input
-					type="number" step= "0.01" class="form-control" id="account-balance"
-					name="accountbalance" placeholder="Enter account balance"
-					min="0" title= "Enter only monetary value" required>
-			</div>
-			<div class="form-group col-md-3">
-				<label for="account-interest">Account interest</label> <input
-					type="number" step= "0.01" class="form-control" id="account-interest"
-					name="accountinterest" placeholder="Enter account interest"
-					 min="0" title= "Enter valid account interest" required>
-			</div>
-		</div>
-	
-			<button type="submit" class="btn btn-primary">Add new
-				account</button>
 		
-
-
-
-
-	</form> -->
-	<br>
-<label>  
-    Name:  
-    <input type="text" [formControl]="name">  
-  </label>
-  <br>
-<label>  
-    Contact:  
-    <input type="text" [formControl]="contact" required>  
-  </label>  
-  <br>
-  <label>  
-    Gender:  
-    <input type="text" [formControl]="gender" required>  
-  </label> 
-
-<br>
-<label>  
-    Date of birth:  
-    <input type="text" [formControl]="date-of-birth" required>  
-  </label> 
-  <br>
-  <label>  
-    Contact Details:  
-    <input type="tel" [formControl]="contact" required>  
-  </label> 
-  
-
-
+		<div class="form-group col-md-6l">
+			<label for="gender">Gender</label> <select required id="gender"
+				class="form-control">
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+			</select>
+		</div>
+	  <label for="dob">Date of birth</label>
+	  <input type="date" 
+	  (click) ="SetMaxDate()"
+	  [max] = "todayFormat"
+	  class="form-control" id="dob" required [(ngModel)]="cust.dob" name="dob" #dob="ngModel">
+	  <div *ngIf="!dob.value && dob.touched " class="alert alert-danger ">
+		Field required
+	  </div>
+	  <div *ngIf="dob.invalid && dob.dirty && dob.value" class="alert alert-danger">
+		Date allowed
+	 </div>
+	  <label for="Contact">Contact</label>
+	  <input type="text" class="form-control" maxlength="10" pattern= "[0-9]*" title="10 digit phone number" id="contact" required [(ngModel)]="cust.contact" name="contact" #contact="ngModel">
+	  <div *ngIf="!contact.value && contact.touched " class="alert alert-danger ">
+		Field required
+	  </div>
+	  <div *ngIf="contact.invalid && contact.dirty &&contact.value" class="alert alert-danger">
+		Only number allowed
+	 </div>
+	  <label for="Address line 1">Address line 1</label>
+	  <input type="text" class="form-control" pattern= "[A-Za-z0-9\s/-]*" title= "Only alphabets, numbers and / and - allowed"  id="line1" required [(ngModel)]="add.line1" name="line1" #line1="ngModel">
+	  <div *ngIf="!line1.value && line1.touched " class="alert alert-danger ">
+		Field required
+	  </div>
+	  <div *ngIf="line1.invalid && line1.dirty &&line1.value" class="alert alert-danger">
+		Invalid address 
+	 </div>
+	  <label for="Address line 2">Address line 2</label>
+	  <input type="text" class="form-control" pattern= "[A-Za-z0-9\s/-]*" title= "Only alphabets, numbers and / and - allowed"  id="line2" required [(ngModel)]="add.line2" name="line2" #line2="ngModel">
+	  <div *ngIf="!line2.value && line2.touched " class="alert alert-danger ">
+		Field required
+	  </div>
+	  <div *ngIf="line2.invalid && line2.dirty &&line2.value" class="alert alert-danger">
+		Invalid address 
+	 </div>
+	  <label for="City">City</label>
+	  <input type="text" class="form-control" pattern= "[A-Za-z\s]*" title="Only alphabets allowed" id="city" required [(ngModel)]="add.city" name="city" #city="ngModel">
+	  <div *ngIf="!city.value && city.touched " class="alert alert-danger ">
+		Field required
+	  </div>
+	  <div *ngIf="city.invalid && city.dirty && city.value" class="alert alert-danger">
+		Only alphabets allowed
+	 </div>
+	  <label for="State">State</label>
+	  <input type="text" class="form-control" pattern= "[A-Za-z\s]*" title="Only alphabets allowed" id="state" required [(ngModel)]="add.state" name="state" #state="ngModel">
+	  <div *ngIf="!state.value && state.touched " class="alert alert-danger ">
+		Field required
+	  </div>
+	  <div *ngIf="state.invalid && state.dirty && state.value" class="alert alert-danger">
+		Only alphabets allowed 
+	 </div>
+	  <label for="Country">Country</label>
+	  <input type="text" class="form-control" pattern= "[A-Za-z\s]*" title="Only alphabets allowed" id="country" required [(ngModel)]="add.country" name="country" #country="ngModel">
+	  <div *ngIf="!country.value && country.touched " class="alert alert-danger ">
+		Field required
+	  </div>
+	  <div *ngIf="country.invalid && country.dirty &&country.value " class="alert alert-danger">
+		Only alphabets allowed
+	 </div>
+	  <label for="Zipcode">Zipcode</label>
+	  <input type="text" class="form-control" minlength="6" maxlength="6"  pattern= "[0-9]*" title="Only 6 digit number allowed" id="zipcode" required [(ngModel)]="add.zipcode" name="zipcode" #zipcode="ngModel">
+	  <div *ngIf="!zipcode.value && zipcode.touched " class="alert alert-danger ">
+		Field required
+	  </div>
+	  <div *ngIf="zipcode.invalid && zipcode.dirty &&zipcode.value" class="alert alert-danger">
+		Invalid zipcode 
+	 </div>
+	  <label for="Aadhar number">Aadhar number</label>
+	  <input type="text" class="form-control" minlength="12"
+	  maxlength="12"  pattern= "[0-9]*" title="Only 12 digit number allowed" id="aadhar" required [(ngModel)]="cust.aadhar" name="aadhar" #aadhar="ngModel">
+	  <div *ngIf="!aadhar.value && aadhar.touched " class="alert alert-danger ">
+		Field required
+	  </div>
+	  <div *ngIf="aadhar.invalid && aadhar.dirty && aadhar.value" class="alert alert-danger">
+		Invalid aadhar number
+	 </div>
+	  <label for="PAN number">PAN number</label>
+	  <input type="text" class="form-control" minlength="10" maxlength="10" pattern= "[A-Z]{5}[0-9]{4}[A-Z]{1}" title="Enter a valid 10 digit PAN number" id="pan" required [(ngModel)]="cust.pan" name="pan" #pan="ngModel">
+	  <div *ngIf="!pan.value &&pan.touched " class="alert alert-danger ">
+		Field required
+	  </div>
+	  <div *ngIf="pan.invalid && pan.dirty &&pan.value" class="alert alert-danger">
+		Invalid PAN number
+	 </div>
+	 <div class="form-group col-md-61">
+		<label for="account-type">Account type</label> <select required
+			id="accounttype" name="accounttype" class="form-control">
+			<option value="Savings">Savings</option>
+			<option value="Current">Current</option>
+			<option value="FD">FD</option>
+			<option value="Loan">Loan</option>
+		</select>
+	</div>
+	  <label for="Branch Id">Branch Id</label>
+	  <input type="text" class="form-control"  minlength="4" maxlength="4" pattern= "[0-9]*" title="Only 4 digit number allowed" id="branchId" required [(ngModel)]="cust.branchId" name="branchId" #branchId="ngModel">
+	  <div *ngIf="!branchId.value && branchId.touched " class="alert alert-danger ">
+		Field required
+	  </div>
+	  <div *ngIf="branchId.invalid && branchId.dirty && branchId.value" class="alert alert-danger">
+		Invalid branch Id
+	 </div>
+	  <label for="Account Balance">Account Balance</label>
+	  <input type="number" class="form-control" min="0" title= "Enter only monetary value" min="0" id="balance" required [(ngModel)]="acc.balance" name="balance" #balance="ngModel">
+	  <div *ngIf="balance.invalid && balance.touched " class="alert alert-danger ">
+		Field required
+	  </div>
+	  <div *ngIf="balance.invalid && balance.dirty " class="alert alert-danger">
+		Only positive values accepted
+	 </div>
+	  <label for="Interest">Interest</label>
+	  <input type="number" class="form-control" min="0" title= "Enter valid account interest" min="0" id="interest" required [(ngModel)]="acc.interest" name="interest" #interest="ngModel">
+	  <div *ngIf="interest.invalid && interest.touched " class="alert alert-danger ">
+	Field required
+	  </div>
+	  <div *ngIf="interest.invalid && interest.dirty" class="alert alert-danger">
+		Only positive values accepted
+	 </div>
+	  <button type="submit " class="btn btn-success " [disabled]="!addAccount.form.valid ">Add account</button>
+  </form>

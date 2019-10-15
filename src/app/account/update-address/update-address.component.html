@@ -1,41 +1,68 @@
-<!-- <form id="update-address-form " class="container address-updation-form " method="POST" action="UpdateCustomerAddress"> -->
 
-    <!-- <div class="row ">
-        <div class="form-group col-md-12 ">
-            <label for="account-id ">Account Id</label> <input type="text" class="form-control " id="account-id " name="account-id" placeholder="Enter account id" pattern="[0-9]*" title="12 digit account id" required minlength=12 maxlength=12 required>
+<div [hidden]="submitted">
+    <h1>Customer Address Updation Form</h1>
+    <form (ngSubmit)="onSubmit()" #updateAddressForm="ngForm">
+        <label for="accountId">Account Id</label>
+        <input type="text" class="form-control" title="12 digit account id" pattern="[0-9]*" id="accountId" required [(ngModel)]="account.id" name="accountId" #accountId="ngModel">
+        <div *ngIf="!accountId.value && accountId.touched" class="alert alert-danger">
+            Account Id is required
+        </div>
+        <div *ngIf="accountId.invalid && accountId.dirty && accountId.value" class="alert alert-danger">
+            Invalid Account ID
+        </div>
+        <label for="line1">Address Line 1</label>
+        <input type="text" class="form-control" title="Only alphabets, numbers and / and - allowed" pattern="[A-Za-z0-9\s/-]*" id="line1" required [(ngModel)]="address.line1" name="line1" #line1="ngModel">
+        <div *ngIf="!line1.value && line1.touched" class="alert alert-danger">
+            Address Line 1 is required
+        </div>
+        <div *ngIf="line1.invalid && line1.dirty && line1.value" class="alert alert-danger">
+            Only alphabets, numbers and / and - allowed
         </div>
 
-    </div>
-    <div class="row ">
-        <div class="form-group col-md-6 ">
-            <label for="address-line1">Address line 1</label>
-            <input type="text" class="form-control" id="address-line1" name="address-line1" placeholder="Enter address line 1 "  pattern= "[A-Za-z0-9\s/-]*" title= "Only alphabets, numbers and / and - allowed"  required>
+        <label for="line2">Address Line 2</label>
+        <input type="text" class="form-control" title="Only alphabets, numbers and / and - allowed" pattern="[A-Za-z0-9\s/-]*" id="line2" required [(ngModel)]="address.line2" name="line2" #line2="ngModel">
+        <div *ngIf="!line2.value && line2.touched" class="alert alert-danger">
+            Address Line 2 is required
+        </div>
+        <div *ngIf="line2.invalid && line2.dirty && line2.value" class="alert alert-danger">
+            Only alphabets, numbers and / and - allowed
         </div>
 
-
-        <div class="form-group col-md-6">
-            <label for="address-line2">Address line 2</label> <input type="text" class="form-control" id="address-line2" name="address-line2" placeholder="Enter address line 2" pattern= "[A-Za-z0-9\s/-]*" title= "Only alphabets, numbers and / and - allowed" required>
+        <label for="city">City</label>
+        <input type="text" class="form-control" title="City should only contain alphabets" pattern="[a-zA-Z\s]*" id="city" required [(ngModel)]="address.city" name="city" #city="ngModel">
+        <div *ngIf="!city.value && city.touched" class="alert alert-danger">
+            City is required
+        </div>
+        <div *ngIf="city.invalid && city.dirty && city.value" class="alert alert-danger">
+            Only alphabets allowed
         </div>
 
-        <div class="form-group col-md-6 ">
-            <label for="city">City</label> <input type="text" class="form-control" id="city" name="city" placeholder="Enter city" pattern= "[A-Za-z]*" title= "Only alphabets allowed" required>
+        <label for="state">State</label>
+        <input type="text" class="form-control" title="State should only contain alphabets" pattern="[a-zA-Z\s]*" id="state" required [(ngModel)]="address.state" name="state" #state="ngModel">
+        <div *ngIf="!state.value && state.touched" class="alert alert-danger">
+            State is required
         </div>
-        <div class="form-group col-md-6 ">
-            <label for="state">State</label> <input type="text" class="form-control" id="state" name="state" placeholder="Enter state" pattern= "[A-Za-z]*" title= "Only alphabets allowed" required>
-        </div>
-
-        <div class="form-group col-md-6 ">
-            <label for="country">Country</label> <input type="text" class="form-control" id="country" name="country" placeholder="Enter Country" pattern= "[A-Za-z]*" title= "Only alphabets allowed"  required>
+        <div *ngIf="state.invalid && state.dirty && state.value" class="alert alert-danger">
+            Only alphabets allowed
         </div>
 
-        <div class="form-group col-md-6 ">
-            <label for="zipcode">ZIP code</label> <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="Enter zipcode" minlength= "6" maxlength= "6" pattern= "[0-9]*" title= "Only digits allowed"  required>
+        <label for="country">Country</label>
+        <input type="text" class="form-control" title="Country should only contain alphabets" pattern="[a-zA-Z\s]*" id="country" required [(ngModel)]="address.country" name="country" #country="ngModel">
+        <div *ngIf="!country.value && country.touched" class="alert alert-danger">
+            Country is required
+        </div>
+        <div *ngIf="country.invalid && country.dirty && country.value" class="alert alert-danger">
+            Only alphabets allowed
         </div>
 
-
-    </div>
-    
-    <button type="submit" class="btn btn-primary ">Update
-        address</button>
-    
-</form> --> 
+        <label for="zipcode">Zipcode</label>
+        <input type="text" class="form-control" title="Zipcode should only contain 6 digits" pattern="[a-zA-Z\s]*" minlength=6 maxlength=6 id="zipcode" required [(ngModel)]="address.zipcode" name="zipcode" #zipcode="ngModel">
+        <div *ngIf="!zipcode.value && zipcode.touched" class="alert alert-danger">
+            Zipcode is required
+        </div>
+        <div *ngIf="zipcode.invalid && zipcode.dirty && zipcode.value" class="alert alert-danger">
+            Invalid Zipcode
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!updateAddressForm.form.valid ">Submit</button>
+    </form>
+</div>
