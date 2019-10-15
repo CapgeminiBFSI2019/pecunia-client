@@ -15,7 +15,7 @@
             </div>
             <label for="Amount">Amount</label>
             <input type="number" class="form-control" title="Amount" id="amount"  pattern= "[0-9]*" min="0" required
-                [(ngModel)]="creditSlip.amount " name="amount"  #amount="ngModel" min="100" max="100000">
+                [(ngModel)]="creditSlip.amount " name="amount"  #amount="ngModel" min="100" max="100000"><br>
             <div *ngIf="amount.touched && amount.invalid" class="alert alert-danger ">
                 Amount is required
             </div>
