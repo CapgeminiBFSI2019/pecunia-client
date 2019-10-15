@@ -8,16 +8,18 @@ import { Passbook } from 'src/app/model/Passbook';
 })
 export class AccountSummaryComponent implements OnInit {
 
-  model = new Passbook();
+  passbook = new Passbook();
   submitted = false;
   constructor() { }
 
   ngOnInit() {}
     
-  showModel() {}
+  showPassbook() {
+    return JSON.stringify(this.passbook);
+  }
 
   onSubmit() {
     this.submitted = true;
-    alert(this.showModel());
+    alert(this.showPassbook());
   }
 }

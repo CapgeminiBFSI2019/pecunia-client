@@ -1,1 +1,33 @@
-<p>credit-slip works!</p>
+<div [hidden]="submitted">
+
+    <h3 align="center">Credit With Slip</h3>
+    <form (ngSubmit)="onSubmit()" #creditSlipForm="ngForm">
+
+        <div class="form-group col-md-3">
+            <label for="Account Id">Account ID</label>
+            <input type="text" class="form-control" title="Account Id" pattern="^\d{12}$" id="accId" 
+                [(ngModel)]="creditSlip.accountId" name="accId" #accId="ngModel" required>
+            
+            <div *ngIf="accId.required && accId.touched" class="alert alert-danger ">
+                Account ID is required
+            </div>
+
+            <div *ngIf="accId.pattern && accId.touched" class="alert alert-danger ">
+                Numeric format and 12 digit required
+            </div>
+            <label for="Amount">Amount</label>
+            <input type="number" class="form-control" title="Amount" id="amount" required
+                [(ngModel)]="creditSlip.amount " name="amount" min=100 max=100000 #amount="ngModel">
+            <div *ngIf="amount.invalid && amount.touched" class="alert alert-danger ">
+                Amount is required
+            </div>
+             <div *ngIf="amount.invalid && amount.dirty" class="alert alert-danger ">
+                    Amount invalid
+             </div>
+            <div class="d-flex justify-content-center ">
+                <button type="submit " class="btn btn-success " [disabled]="!creditSlipForm.form.valid ">Submit</button>
+            </div>
+        </div>
+
+    </form>
+</div>
