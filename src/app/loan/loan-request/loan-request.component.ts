@@ -12,6 +12,7 @@ import {RouterModule,Routes} from '@angular/router' ;
 export class LoanRequestComponent implements OnInit {
   model = new Loan();
   submitted = false;
+  loanRequestForm: FormGroup;
   constructor(private formBuilder:FormBuilder) { }
 
   ngOnInit() {
