@@ -6,12 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./passbook-update.component.css']
 })
 export class PassbookUpdateComponent implements OnInit {
-
+  model = new Todo();
+  submitted = false;
   constructor() { }
 
   ngOnInit() {}
-    onClickSubmit(data) {
-      alert("Entered Account id : " + data.accountid);
-  }
+    
+  showModel() {}
 
+  onSubmit() {
+    this.submitted = true;
+    alert(this.showModel());
+  }
 }
