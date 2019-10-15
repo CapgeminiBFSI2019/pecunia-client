@@ -22,6 +22,7 @@ import { AccountMenuComponent } from './account/account-menu/account-menu.compon
 import { LoanMenuComponent } from './loan/loan-menu/loan-menu.component';
 import { DemoServiceService } from './service/demo-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoanRequestComponent,
     LoanDisbursalComponent,
     AccountMenuComponent,
-    LoanMenuComponent
+    LoanMenuComponent,
+    NavComponent
     
   ],
   imports: [
