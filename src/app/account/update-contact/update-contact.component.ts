@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms'
+import { AccountModel } from 'src/app/model/AccountModel';
+import { CustomerModel } from 'src/app/model/CustomerModel';
 
 @Component({
   selector: 'app-update-contact',
@@ -8,12 +10,25 @@ import { FormControl } from '@angular/forms'
 })
 export class UpdateContactComponent implements OnInit {
 
+  account = new AccountModel();
+  customer = new CustomerModel();
+  submitted = false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  accountId = new FormControl('');
-  contact = new FormControl('');
+  showAcc() {
+    return JSON.stringify(this.account);
+  }
+  showCust() {
+    return JSON.stringify(this.customer);
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    alert(this.showAcc() + this.showCust());
+  }
 
 }

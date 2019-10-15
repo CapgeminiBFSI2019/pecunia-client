@@ -1,31 +1,22 @@
- <!-- <form id="update-contact-form" class="container contact-updation-form" method="POST" action="UpdateCustomerContact">
-
-    <div class="row">
-        <div class="form-group col-md-12 ">
-            <label for="account-id">Account Id</label> <input type="text" class="form-control" id="account-id" name="account-id" placeholder="Enter account id" minlength="12" maxlength="12" pattern= "[0-9]*" title="12 digit account id" required>
+<div [hidden]="submitted">
+    <h1>Customer Contact Updation Form</h1>
+    <form (ngSubmit)="onSubmit()" #updateContactForm="ngForm">
+        <label for="accountId">Account Id</label>
+        <input type="text" class="form-control" title="12 digit account id" pattern="[0-9]*" minlength=12 maxlength="12" id="accountId" required [(ngModel)]="account.id" name="accountId" #accountId="ngModel">
+        <div *ngIf="!accountId.value && accountId.untouched" class="alert alert-danger">
+            Account Id is required
         </div>
-
-        <div class="form-group col-md-6 ">
-            <label for="contact">Contact Details</label> <input type="tel" class="form-control" id="contact" name="contact" placeholder="Enter contact number"  pattern="^\d{10}$" title="10 digit phone number" required>
+        <div *ngIf="accountId.invalid && accountId.dirty && accountId.value" class="alert alert-danger">
+            Invalid Account ID
         </div>
-    </div>
-    
-        <button type="submit" class="btn btn-primary">Update contact
-            details</button>
-    
-
-
-</form>  -->
-
-
-
-<br>
-<label>  
-    AccountId:  
-    <input type="text" [formControl]="account-id">  
-  </label>
-  <br>
-<label>  
-    Contact:  
-    <input type="text" [formControl]="contact">  
-  </label>  
+        <label for="contact">Contact</label>
+        <input type="text" class="form-control" title="Contact should only contain numbers" pattern="[0-9]*" minlength=10 maxlength="12" id="contact" required [(ngModel)]="customer.contact" name="contact" #contact="ngModel">
+        <div *ngIf="!contact.value && contact.touched" class="alert alert-danger">
+            Contact is required
+        </div>
+        <div *ngIf="contact.invalid && contact.dirty && contact.value" class="alert alert-danger">
+            Invalid contact number
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!updateContactForm.form.valid ">Submit</button>
+    </form>
+</div>
