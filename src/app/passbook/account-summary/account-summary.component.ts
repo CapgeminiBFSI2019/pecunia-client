@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Passbook } from 'src/app/model/Passbook';
 
 @Component({
   selector: 'app-account-summary',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountSummaryComponent implements OnInit {
 
+  passbook = new Passbook();
+  submitted = false;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+    
+  showPassbook() {
+    return JSON.stringify(this.passbook);
   }
 
+  onSubmit() {
+    this.submitted = true;
+    alert(this.showPassbook());
+  }
 }

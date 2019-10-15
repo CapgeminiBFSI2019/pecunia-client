@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TransactionModel } from 'src/app/model/TransactionModel';
+
+
 
 @Component({
   selector: 'app-credit-slip',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreditSlipComponent implements OnInit {
 
+  creditSlip = new TransactionModel();
+  submitted = false;
   constructor() { }
 
   ngOnInit() {
   }
 
+
+  onSubmit() {
+    this.submitted = true;
+  }
 }
