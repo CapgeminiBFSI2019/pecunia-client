@@ -20,7 +20,10 @@
 			</select>
 		</div>
 	  <label for="dob">Date of birth</label>
-	  <input type="date" class="form-control" id="dob" required [(ngModel)]="cust.dob" name="dob" #dob="ngModel">
+	  <input type="date" 
+	  (click) ="SetMaxDate()"
+	  [max] = "todayFormat"
+	  class="form-control" id="dob" required [(ngModel)]="cust.dob" name="dob" #dob="ngModel">
 	  <div *ngIf="!dob.value && dob.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -109,16 +112,16 @@
 			<option value="Loan">Loan</option>
 		</select>
 	</div>
-	  <!-- <label for="Branch Id">Branch Id</label>
+	  <label for="Branch Id">Branch Id</label>
 	  <input type="text" class="form-control"  minlength="4" maxlength="4" pattern= "[0-9]*" title="Only 4 digit number allowed" id="branchId" required [(ngModel)]="cust.branchId" name="branchId" #branchId="ngModel">
 	  <div *ngIf="!branchId.value && branchId.touched " class="alert alert-danger ">
 		Field required
 	  </div>
-	  <div *ngIf="branchId.invalid && branchId.dirty &branchId.value" class="alert alert-danger">
+	  <div *ngIf="branchId.invalid && branchId.dirty && branchId.value" class="alert alert-danger">
 		Invalid branch Id
-	 </div> -->
+	 </div>
 	  <label for="Account Balance">Account Balance</label>
-	  <input type="number" class="form-control" min="0" title= "Enter only monetary value"  id="balance" required [(ngModel)]="acc.balance" name="balance" #balance="ngModel">
+	  <input type="number" class="form-control" min="0" title= "Enter only monetary value" min="0" id="balance" required [(ngModel)]="acc.balance" name="balance" #balance="ngModel">
 	  <div *ngIf="balance.invalid && balance.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -126,7 +129,7 @@
 		Only positive values accepted
 	 </div>
 	  <label for="Interest">Interest</label>
-	  <input type="number" class="form-control" min="0" title= "Enter valid account interest"  id="interest" required [(ngModel)]="acc.interest" name="interest" #interest="ngModel">
+	  <input type="number" class="form-control" min="0" title= "Enter valid account interest" min="0" id="interest" required [(ngModel)]="acc.interest" name="interest" #interest="ngModel">
 	  <div *ngIf="interest.invalid && interest.touched " class="alert alert-danger ">
 	Field required
 	  </div>
