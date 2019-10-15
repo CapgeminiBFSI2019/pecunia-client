@@ -1,5 +1,18 @@
-<!-- <form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)"> 
-    <input type="text" class="form-control" placeholder="Enter accountID" id="accountID" name="accountID" pattern = "[0-9]*" minlength=12 maxlength=12 required ngModel> 
-    <br/> 
-    <input type = "submit" value = "submit"> 
- </form> -->
+<!-- <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+<div [hidden]="submitted">
+    <h1>Update Passbook</h1>
+    <form (ngSubmit)="onSubmit()" #passbook="ngForm">
+        <label for="AccountID">Account ID</label>
+        <input type="text" class="form-control" title="Enter Account ID" pattern="[0-9]*" minlength="12" maxlength="12" id="AccountID" required [(ngModel)]="passbook.accountID" name="Account ID" #accountID="ngModel">
+        <div *ngIf="accountID.invalid && accountID.touched" class="alert alert-danger ">
+            Account ID is required
+        </div>
+        <button type="submit " class="btn btn-success " [disabled]="!passbook.form.valid ">Submit</button>
+    </form>
+</div>
