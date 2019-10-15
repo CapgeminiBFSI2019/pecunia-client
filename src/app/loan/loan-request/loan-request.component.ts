@@ -19,16 +19,16 @@ export class LoanRequestComponent implements OnInit {
     // this.loanRequestForm=this.formBuilder.group({
     //   accountId:['',Validators.required] ,
 
-    })
+    }
   }
   
-  showModel() {
-    return JSON.stringify(this.model);
-  }
+  // showModel() {
+  //   return JSON.stringify(this.model);
+  // }
 
-  onSubmit() {
-    this.submitted = true;
-    alert(this.showModel());
-  }
+  // onSubmit() {
+  //   this.submitted = true;
+  //   alert(this.showModel());
+  // }
 
-}
+
