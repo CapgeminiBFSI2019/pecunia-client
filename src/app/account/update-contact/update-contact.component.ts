@@ -32,3 +32,4 @@ export class UpdateContactComponent implements OnInit {
   }
 
 }
+
