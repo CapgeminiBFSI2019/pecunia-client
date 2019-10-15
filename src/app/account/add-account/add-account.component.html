@@ -121,19 +121,19 @@
 		Invalid branch Id
 	 </div>
 	  <label for="Account Balance">Account Balance</label>
-	  <input type="number" class="form-control" min="0" title= "Enter only monetary value" min="0" id="balance" required [(ngModel)]="acc.balance" name="balance" #balance="ngModel">
-	  <div *ngIf="balance.invalid && balance.touched " class="alert alert-danger ">
+	  <input type="text" class="form-control"  title= "Enter only monetary value" pattern= "[0-9]*" min="0" id="balance" required [(ngModel)]="acc.balance" name="balance" #balance="ngModel">
+	  <div *ngIf="!balance.value && balance.touched " class="alert alert-danger ">
 		Field required
 	  </div>
-	  <div *ngIf="balance.invalid && balance.dirty " class="alert alert-danger">
+	  <div *ngIf="balance.invalid && balance.dirty && balance.value" class="alert alert-danger">
 		Only positive values accepted
 	 </div>
 	  <label for="Interest">Interest</label>
-	  <input type="number" class="form-control" min="0" title= "Enter valid account interest" min="0" id="interest" required [(ngModel)]="acc.interest" name="interest" #interest="ngModel">
-	  <div *ngIf="interest.invalid && interest.touched " class="alert alert-danger ">
+	  <input type="text" class="form-control"  title= "Enter valid account interest" pattern= "[0-9]*" min="0" id="interest" required [(ngModel)]="acc.interest" name="interest" #interest="ngModel">
+	  <div *ngIf="!interest.value && interest.touched " class="alert alert-danger ">
 	Field required
 	  </div>
-	  <div *ngIf="interest.invalid && interest.dirty" class="alert alert-danger">
+	  <div *ngIf="interest.invalid && interest.dirty && interest.value" class="alert alert-danger">
 		Only positive values accepted
 	 </div>
 	  <button type="submit " class="btn btn-success " [disabled]="!addAccount.form.valid ">Add account</button>
