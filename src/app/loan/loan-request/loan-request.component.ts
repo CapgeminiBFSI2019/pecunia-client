@@ -12,22 +12,23 @@ import {RouterModule,Routes} from '@angular/router' ;
 export class LoanRequestComponent implements OnInit {
   model = new Loan();
   submitted = false;
+  loanRequestForm: FormGroup;
   constructor(private formBuilder:FormBuilder) { }
 
   ngOnInit() {
-    this.loanRequestForm=this.formBuilder.group({
-      accountId:['',Validators.required] ,
+    // this.loanRequestForm=this.formBuilder.group({
+    //   accountId:['',Validators.required] ,
 
-    })
+    }
   }
   
-  showModel() {
-    return JSON.stringify(this.model);
-  }
+  // showModel() {
+  //   return JSON.stringify(this.model);
+  // }
 
-  onSubmit() {
-    this.submitted = true;
-    alert(this.showModel());
-  }
+  // onSubmit() {
+  //   this.submitted = true;
+  //   alert(this.showModel());
+  // }
 
-}
+
