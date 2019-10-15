@@ -3,7 +3,7 @@
     <form (ngSubmit)="onSubmit()" #updateContactForm="ngForm">
         <label for="accountId">Account Id</label>
         <input type="text" class="form-control" title="12 digit account id" pattern="[0-9]*" minlength=12 maxlength="12" id="accountId" required [(ngModel)]="account.id" name="accountId" #accountId="ngModel">
-        <div *ngIf="!accountId.value && accountId.untouched" class="alert alert-danger">
+        <div *ngIf="!accountId.value && accountId.touched" class="alert alert-danger">
             Account Id is required
         </div>
         <div *ngIf="accountId.invalid && accountId.dirty && accountId.value" class="alert alert-danger">
