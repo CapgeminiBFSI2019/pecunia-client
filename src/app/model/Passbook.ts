@@ -1,5 +1,5 @@
 export class Passbook {
-    AccountID: string;
+    accountID: string;
     startDate: Date;
     endDate: Date
 }

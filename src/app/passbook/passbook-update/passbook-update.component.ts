@@ -7,7 +7,7 @@ import { Passbook } from 'src/app/model/Passbook';
   styleUrls: ['./passbook-update.component.css']
 })
 export class PassbookUpdateComponent implements OnInit {
-  model = new Passbook();
+  passbook = new Passbook();
   submitted = false;
   constructor() { }
 
