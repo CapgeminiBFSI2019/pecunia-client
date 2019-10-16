@@ -20,7 +20,9 @@ import { LoanRequestComponent } from './loan/loan-request/loan-request.component
 import { LoanDisbursalComponent } from './loan/loan-disbursal/loan-disbursal.component';
 import { AccountMenuComponent } from './account/account-menu/account-menu.component';
 import { LoanMenuComponent } from './loan/loan-menu/loan-menu.component';
-
+import { DemoServiceService } from './service/demo-service.service';
+import { HttpClientModule } from '@angular/common/http';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -40,16 +42,18 @@ import { LoanMenuComponent } from './loan/loan-menu/loan-menu.component';
     LoanRequestComponent,
     LoanDisbursalComponent,
     AccountMenuComponent,
-    LoanMenuComponent
+    LoanMenuComponent,
+    NavComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DemoServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
