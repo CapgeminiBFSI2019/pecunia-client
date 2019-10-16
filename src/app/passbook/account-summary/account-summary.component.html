@@ -6,9 +6,9 @@
     <div class="form-group col-md-3 offset-md-4">
       <label for="accountID">Account ID</label>
       <input type="text" class="form-control" title="Enter Account ID" pattern="[0-9]*" minlength=12 maxlength=12
-        id="accountID" required [(ngModel)]="passbook.accountID" name="account ID" #accountID="ngModel"><br>
+        id="accountID" required [(ngModel)]="model.accountID" name="account ID" #accountID="ngModel"><br>
 
-      <div *ngIf="accountID.invalid && accountID.touched" class="alert alert-danger ">
+      <div *ngIf="accountID.invalid && accountID.touched" class="alert alert-danger">
         <div *ngIf="accountID.errors.required">
           Account ID is required
         </div>
@@ -26,7 +26,7 @@
 
       <label for="startDate">Start Date</label>
       <input type="date" class="form-control" title="Enter Start Date" id="startDate" required
-        [(ngModel)]="passbook.startDate" name="startDate" #startDate="ngModel">
+        [(ngModel)]="model.startDate" name="startDate" #startDate="ngModel">
 
       <div *ngIf="startDate.valid && startDate.pristine " class="alert alert-danger ">
         Enter start date in correct format
@@ -34,7 +34,7 @@
 
       <label for="endDate">End Date</label>
       <input type="date" class="form-control" title="Enter End Date" id="endDate" required
-        [(ngModel)]="passbook.endDate" name="endDate" #endDate="ngModel"><br>
+        [(ngModel)]="model.endDate" name="endDate" #endDate="ngModel"><br>
 
       <div *ngIf="endDate.valid && endDate.pristine " class="alert alert-danger ">
         Enter end date in correct format
@@ -48,23 +48,38 @@
 
 <div>
 
-<div ng-controller="WithFixedColumnsCtrl as showCase">
-    
-        
-        <table id="showcase-fixedcolumns" datatable=""  cellspacing="10" cellpadding="10" border="1" width=1200 align="center">
-        <thead>
-        <tr align="center">
-            <th>Id</th> 
-					  <th>Date</th>
-						<th>Amount</th>
-					  <th>From</th> 
-					  <th>To</th> 
-					  <th>Type</th> 
-					  <th>Option</th>
-					  <th>Cheque ID</th> 
-					  <th>Closing Balance</th>
-        </tr>
-        </thead>
-        </table>
-        </div>
-        </div>
+  <table *ngIf = "dataReceived" id="showcase-fixedcolumns" datatable=""  cellspacing="10" cellpadding="10" border="1" width=1200 align="center">
+    <thead>
+    <tr align="center">
+        <th>Id</th> 
+        <th>Date</th>
+        <th>Amount</th>
+        <th>From</th> 
+        <th>To</th> 
+        <th>Type</th> 
+        <th>Option</th>
+        <th>Cheque ID</th> 
+        <th>Closing Balance</th>
+    </tr>
+    <tr *ngFor = "let trans of dataResponse">
+        <th>{{trans.id}}</th>
+        <th>{{trans.transDate}}</th>
+        <th>{{trans.amount}}</th>
+        <th>{{trans.transFrom}}</th>
+        <th>{{trans.transTo}}</th>
+        <th>{{trans.type}}</th>
+        <th>{{trans.option}}</th>
+        <th>{{trans.chequeId}}</th>
+        <th>{{trans.closingBalance}}</th>
+    </tr>
+    </thead>
+    </table> 
+
+<div>
+  
+  <ul>
+    <li *ngFor = "let tr of dataResponse; let i = index">
+      {{tr['name']}}
+    </li>
+    </ul>
+</div>
