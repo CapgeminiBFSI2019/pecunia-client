@@ -22,7 +22,7 @@ export class UpdateNameComponent implements OnInit {
   submitted = false;
   httpClient : HttpClient;
 
-  constructor(private doUpdate : UpdateNameService) { }
+  constructor(private updateName : UpdateNameService) { }
 
   ngOnInit() {
     
@@ -45,11 +45,10 @@ export class UpdateNameComponent implements OnInit {
 
 
   onSubmit() {
-
-    let updateName = new UpdateNameService(this.httpClient);
+    console.log("Submitted");
     this.submitted = true;
     this.updateNameObject = {"accountId": this.account.id, "name": this.customer.name};
-    updateName.doUpdate(this.updateNameObject,this.onDataReceived);
+    this.updateName.doUpdate(this.updateNameObject,this.onDataReceived);
   }
 
 }
