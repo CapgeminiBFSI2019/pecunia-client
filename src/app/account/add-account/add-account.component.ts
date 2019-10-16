@@ -4,7 +4,7 @@ import { CustomerModel } from 'src/app/model/CustomerModel';
 import { AddressModel } from 'src/app/model/AddressModel';
 import { AddAccountServiceService } from 'src/app/service/add-account-service.service';
 import { HttpClient } from '@angular/common/http';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-account',
@@ -19,19 +19,22 @@ address = new AddressModel();
 submitted = false;
 todayFormat: string;
   httpClient: HttpClient;
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit() {
   }
   showAcc() {
+    this.toastr.success('Hello account!', 'Toastr fun!');
      return JSON.stringify(this.account);
   }
   showCust()
   {
+    this.toastr.success('Hello customer!', 'Toastr fun!');
      return JSON.stringify(this.customer);
   }
   showAdd()
   {
+    this.toastr.success('Hello address!', 'Toastr fun!');
      return JSON.stringify(this.address);
   }
  name : String;
@@ -51,7 +54,7 @@ branchId: String;
 accountBalance: String;
 interest: String;
 
-obj: Object = {"name": this.customer.name,
+obj: Object = { "name": this.customer.name,
 "gender": this.customer.gender, 
 "dateOfBirth": this.customer.dob, 
 "contact": this.customer.contact,
@@ -71,6 +74,7 @@ obj: Object = {"name": this.customer.name,
   onSubmit() {
     let addAccount = new  AddAccountServiceService(this.httpClient);
     this.submitted = true;
+    console.log('Yaar');
     addAccount.doAdd(this.obj);
   }
   public SetMaxDate() {
