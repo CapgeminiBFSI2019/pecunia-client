@@ -3,15 +3,12 @@
 <form>
 
 
-  <div>
+  <div class = "form-group">
     <label for="show-loan-requests">Show Loan Requests</label>
     <br>
-    <select name="show-loan-requests" class="form-control" id="show-loan-requests" required
-      [(ngModel)]="listOption.show-loan-requests">
-      <option value="" disabled selected hidden>Please Choose...</option>
-      <option value="retrieve all">Retrieve all loan requests</option>
-      <option value="retrieve approved">Show the loan requests to be accepted</option>
-      <option value="retrieve rejected">Show the loan requests to be rejected</option>
+    <select name="show-loan-requests" class="custom-select" id="show-loan-requests">
+      <option selected>Please Choose...</option>
+      <option *ngFor = "let request of loanDataRetrievals">{{request}}</option> 
     </select>
     <br>
     <button type="submit" class="btn btn-primary ">Submit</button>
@@ -19,7 +16,7 @@
   </div>
 
 
-  <div>
+  <div class = "form-group">
     <label for="show-approved-loan-requests">Show Loan Disbursed Data</label>
     <br>
     <button type="submit" class="btn btn-primary ">Yes</button>
@@ -27,7 +24,7 @@
   </div>
 
 
-  <div>
+  <div class = "form-group">
     <label for="update-account-balance">Update Account Balance</label>
     <br>
     <button type="submit" class="btn btn-primary ">Yes</button>
