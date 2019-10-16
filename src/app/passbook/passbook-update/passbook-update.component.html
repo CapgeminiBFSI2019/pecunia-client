@@ -6,7 +6,7 @@
     <form (ngSubmit)="onSubmit()" #passbook="ngForm">
         <div class="form-group col-md-3 offset-md-4">
         <label for="AccountID">Account ID</label>
-        <input type="text" class="form-control" title="Enter Account ID" pattern="[0-9]*" minlength="12" maxlength="12" id="AccountID" required [(ngModel)]="passbook.accountID" name="Account ID" #accountID="ngModel">
+        <input type="text" class="form-control" title="Enter Account ID" pattern="[0-9]*" minlength="12" maxlength="12" id="AccountID" required [(ngModel)]="model.accountID" name="Account ID" #accountID="ngModel">
         <div *ngIf="accountID.invalid && (accountID.touched || accountID.dirty)" class="alert alert-danger ">
                       <div *ngIf="accountID.errors.required">
                         Account ID is required.
