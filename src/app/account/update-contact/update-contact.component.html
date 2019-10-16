@@ -10,7 +10,7 @@
             Invalid Account ID
         </div>
         <label for="contact">Contact</label>
-        <input type="text" class="form-control" title="Contact should only contain numbers" pattern="[0-9]*" minlength=10 maxlength="12" id="contact" required [(ngModel)]="customer.contact" name="contact" #contact="ngModel">
+        <input type="text" class="form-control" title="Contact should only contain numbers" pattern="[0-9]*" minlength=10 maxlength="10" id="contact" required [(ngModel)]="customer.contact" name="contact" #contact="ngModel">
         <div *ngIf="!contact.value && contact.touched" class="alert alert-danger">
             Contact is required
         </div>
