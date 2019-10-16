@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CrediSlipModel } from 'src/app/model/CreditSlipModel';
 import { CreditSlipService } from 'src/app/service/credit-slip.service';
 
@@ -15,7 +15,11 @@ export class CreditSlipComponent implements OnInit {
   model = new CrediSlipModel();
   dataResponse : object;
   submitted = false;
+  
+  @ViewChild('creditSlipForm' , {static: false}) form: any;
+
   constructor(private creditService : CreditSlipService) { }
+
 
   ngOnInit() {
   }
@@ -42,6 +46,6 @@ export class CreditSlipComponent implements OnInit {
 
   closeToast() {
     this.showToast = false;
-    this.model = new CrediSlipModel();
+    this.form.reset();
   }
 }
