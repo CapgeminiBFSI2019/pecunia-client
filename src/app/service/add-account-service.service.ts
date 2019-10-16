@@ -8,21 +8,15 @@ export class AddAccountServiceService {
   httpClient: HttpClient;
 
   constructor(private http: HttpClient) {
-    this.httpClient = http;
+    
   }
-  doAdd(objectName) {
-    const httpOptions : any    = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'POST',
-        'Access-Control-Allow-Origin': '*'
-      })
-    };
-    this.httpClient
+  doAdd(objectName,addAccountFunction : any) {
+    
+    this.http
     .post("http://localhost:9090/pecunianew/account/add-account",objectName)
     .subscribe(
       data => {
+        addAccountFunction(data);
         console.log("Response : "+JSON.stringify(data));
       },
       error => {

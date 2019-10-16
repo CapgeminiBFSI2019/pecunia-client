@@ -4,7 +4,7 @@ import { CustomerModel } from 'src/app/model/CustomerModel';
 import { AddressModel } from 'src/app/model/AddressModel';
 import { AddAccountServiceService } from 'src/app/service/add-account-service.service';
 import { HttpClient } from '@angular/common/http';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-account',
@@ -19,59 +19,62 @@ address = new AddressModel();
 submitted = false;
 todayFormat: string;
   httpClient: HttpClient;
-  constructor() { }
+  constructor(private toastr: ToastrService,private addAccount : AddAccountServiceService) { }
 
   ngOnInit() {
   }
-  showAcc() {
-     return JSON.stringify(this.account);
-  }
-  showCust()
+  onDataReceived(data)
   {
-     return JSON.stringify(this.customer);
+    console.log("aaya idhar"+JSON.stringify(data));
+    // this.dataResponse = data;
+    alert(JSON.stringify(data));
+    if(data["success"])
+    {
+      console.log("Success");
+    }
+    else
+    {
+      console.log(data["message"]);
+    }
   }
-  showAdd()
-  {
-     return JSON.stringify(this.address);
-  }
- name : String;
-gender :String;
-dob= Date;
-contact= String;
-addressLine1: String;
-addressLine2: String;
-city: String;
-state: String;
-country:String;
-zipcode:String;
-aadhar: String;
-pan: String;
-accountType: String;
-branchId: String;
-accountBalance: String;
-interest: String;
+//  name : String;
+// gender :String;
+// dob= Date;
+// contact= String;
+// addressLine1: String;
+// addressLine2: String;
+// city: String;
+// state: String;
+// country:String;
+// zipcode:String;
+// aadhar: String;
+// pan: String;
+// accountType: String;
+// branchId: String;
+// accountBalance: String;
+// interest: String;
 
-obj: Object = {"name": this.customer.name,
-"gender": this.customer.gender, 
-"dateOfBirth": this.customer.dob, 
-"contact": this.customer.contact,
-"addressLine1": this.address.line1,
-"addressLine2": this.address.line2,
-"city": this.address.city,
-"state": this.address.state,
-"country":this.address.state,
-"zipcode":this.address.zipcode,
-"aadhar":this.customer.aadhar,
-"pan":this.customer.pan,
-"accountType":this.account.accountType,
-"branchId":this.account.branchId,
-"accountBalance":this.account.balance,
-"interest":this.account.interest
-  };
+obj: Object;
   onSubmit() {
-    let addAccount = new  AddAccountServiceService(this.httpClient);
     this.submitted = true;
-    addAccount.doAdd(this.obj);
+    this.obj  = { "name": this.customer.name,
+    "gender": this.customer.gender, 
+    "dateOfBirth": this.customer.dob, 
+    "contact": this.customer.contact,
+    "addressLine1": this.address.line1,
+    "addressLine2": this.address.line2,
+    "city": this.address.city,
+    "state": this.address.state,
+    "country":this.address.state,
+    "zipcode":this.address.zipcode,
+    "aadhar":this.customer.aadhar,
+    "pan":this.customer.pan,
+    "accountType":this.account.accountType,
+    "branchId":this.account.branchId,
+    "accountBalance":this.account.balance,
+    "interest":this.account.interest
+      };
+    this.addAccount.doAdd(this.obj,this.onDataReceived);
   }
   public SetMaxDate() {
     
