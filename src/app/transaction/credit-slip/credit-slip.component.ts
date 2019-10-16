@@ -1,9 +1,9 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TransactionModel } from 'src/app/model/TransactionModel';
 import { ToastrService } from 'ngx-toastr';
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { CrediSlipModel } from 'src/app/model/CreditSlipModel';
 import { CreditSlipService } from 'src/app/service/credit-slip.service';
 
@@ -22,10 +22,10 @@ export class CreditSlipComponent implements OnInit {
   dataResponse : object;
   submitted = false;
 
-  constructor(private toastr: ToastrService) { }
 
   
   @ViewChild('creditSlipForm' , {static: false}) form: any;
+  toastr: any;
 
   constructor(private creditService : CreditSlipService) { }
 
