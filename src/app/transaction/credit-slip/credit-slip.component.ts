@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TransactionModel } from 'src/app/model/TransactionModel';
+import { CrediSlipModel } from 'src/app/model/CreditSlipModel';
+import { CreditSlipService } from 'src/app/service/credit-slip.service';
 
 
 
@@ -10,15 +11,32 @@ import { TransactionModel } from 'src/app/model/TransactionModel';
 })
 export class CreditSlipComponent implements OnInit {
 
-  creditSlip = new TransactionModel();
+  model = new CrediSlipModel();
+  dataResponse : object;
   submitted = false;
-  constructor() { }
+  constructor(private creditService : CreditSlipService) { }
 
   ngOnInit() {
   }
 
+  onDataReceived(data)
+  {
+    console.log("aaya idhar"+JSON.stringify(data));
+    // this.dataResponse = data;
+    alert(JSON.stringify(data));
+    if(data["success"])
+    {
+      console.log("Success");
+    }
+    else
+    {
+      console.log(data["message"]);
+    }
+  }
 
   onSubmit() {
+    // alert(JSON.stringify(this.model))
     this.submitted = true;
+    this.creditService.creditAmount(this.model,this.onDataReceived);
   }
 }
