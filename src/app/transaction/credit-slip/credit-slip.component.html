@@ -30,10 +30,10 @@
     <div class="spinner-border text-info" role="status">
         <!-- <span class="sr-only">Loading...</span> -->
     </div>
-    <h6 class="mt-2">Please wait ...</h6>
+
 </div>
 
-<div *ngIf="showToast" class="toast-container d-flex align-items-center justify-content-center flex-column ">
+<div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
     <div class="card text-center m-3">
         <div class="card-header">
             Slip Transaction
@@ -41,7 +41,7 @@
         <div class="card-body">
             <h5 class="card-title">{{dataResponse["message"]}}</h5>
             <p class="card-text">{{dataResponse["message"]}}</p>
-            <a (click)="closeToast()" class="btn btn-primary text-white">Close</a>
+            <button (click)="closeToast()" class="btn btn-primary text-white">Close</button>
         </div>
     </div>
 </div>
