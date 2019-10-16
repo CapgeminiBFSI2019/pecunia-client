@@ -42,5 +42,6 @@ export class CreditSlipComponent implements OnInit {
 
   closeToast() {
     this.showToast = false;
+    this.model = new CrediSlipModel();
   }
 }
