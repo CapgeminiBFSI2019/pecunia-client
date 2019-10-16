@@ -10,7 +10,8 @@ import { CreditSlipService } from 'src/app/service/credit-slip.service';
   styleUrls: ['./credit-slip.component.css']
 })
 export class CreditSlipComponent implements OnInit {
-
+  isProcessing : boolean = false;
+  showToast = false;
   model = new CrediSlipModel();
   dataResponse : object;
   submitted = false;
@@ -21,22 +22,26 @@ export class CreditSlipComponent implements OnInit {
 
   onDataReceived(data)
   {
-    console.log("aaya idhar"+JSON.stringify(data));
-    // this.dataResponse = data;
-    alert(JSON.stringify(data));
-    if(data["success"])
-    {
-      console.log("Success");
-    }
-    else
-    {
-      console.log(data["message"]);
-    }
+    this.dataResponse = data;
+    this.showToast = true;
   }
 
   onSubmit() {
-    // alert(JSON.stringify(this.model))
+    this.isProcessing = true;
     this.submitted = true;
-    this.creditService.creditAmount(this.model,this.onDataReceived);
+    this.creditService.creditAmount(this.model).subscribe(
+      data => {
+        this.isProcessing = false;
+        this.onDataReceived(data);
+      },
+      error => {
+        this.isProcessing = false;
+      }
+    );
+  }
+
+  closeToast() {
+    this.showToast = false;
+    this.model = new CrediSlipModel();
   }
 }
