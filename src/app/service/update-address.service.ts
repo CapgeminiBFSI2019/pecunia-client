@@ -12,7 +12,7 @@ export class UpdateAddressService {
 
 
     this.http
-      .post("http://localhost:9090/pecunianew/UpdateCustomerAddress",updateAddress)
+      .post("http://localhost:8061/pecunianew/UpdateCustomerAddress",updateAddress)
       .subscribe(
         data => {
           updateAddressFunction(data);

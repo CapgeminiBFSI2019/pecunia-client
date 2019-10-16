@@ -14,7 +14,7 @@ export class UpdateNameService {
   doUpdate(updateName, updateNameFunction : any){
 
     this.http
-      .post("http://localhost:9090/pecunianew/UpdateCustomerName",updateName)
+      .post("http://localhost:8061/pecunianew/UpdateCustomerName",updateName)
       .subscribe(
         data => {
           updateNameFunction(data);
