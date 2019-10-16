@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginModel } from '../model/LoginModel';
 
 @Component({
   selector: 'app-login',
@@ -7,15 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-
+ LoginModel = new LoginModel();
+  submitted = false;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+    
+  showLogin() {
+    return JSON.stringify(this.LoginModel);
   }
 
-
-
-
+  onSubmit() {
+    this.submitted = true;
+    alert(this.showLogin());
+  }
 }
-
-
