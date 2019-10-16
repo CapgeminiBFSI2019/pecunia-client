@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { AccountModel } from 'src/app/model/AccountModel';
 import { CustomerModel } from 'src/app/model/CustomerModel';
+import { HttpClient } from '@angular/common/http';
+import { UpdateNameService } from 'src/app/service/update-name.service';
+
 
 
 @Component({
@@ -15,27 +17,39 @@ export class UpdateNameComponent implements OnInit {
 
   account = new AccountModel();
   customer = new CustomerModel();
+  dataResponse : Object;
+  updateNameObject: Object;
   submitted = false;
+  httpClient : HttpClient;
 
-  constructor() { }
+  constructor(private updateName : UpdateNameService) { }
 
   ngOnInit() {
-
     
   }
 
-  showAcc() {
-    return JSON.stringify(this.account);
+  onDataReceived(data)
+  {
+    console.log("aaya idhar"+JSON.stringify(data));
+    // this.dataResponse = data;
+    alert(JSON.stringify(data));
+    if(data["success"])
+    {
+      console.log("Success");
+    }
+    else
+    {
+      console.log(data["message"]);
+    }
   }
-  showCust() {
-    return JSON.stringify(this.customer);
-  }
+
 
   onSubmit() {
+    console.log("Submitted");
     this.submitted = true;
-    alert(this.showAcc() + this.showCust());
+    this.updateNameObject = {"accountId": this.account.id, "name": this.customer.name};
+    this.updateName.doUpdate(this.updateNameObject,this.onDataReceived);
   }
-  
 
 }
-
+  
