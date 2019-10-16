@@ -5,26 +5,23 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
   providedIn: 'root'
 })
 export class PassbookService {
-  httpClient : HttpClient;
 
   constructor(private http: HttpClient) {
-    this.httpClient = http;
   }
 
- doUpdate( accId: String) {
 
-  this.httpClient
-  .get("http://localhost:9090/pecunianew/PassbookServlet?accountID="+accId)
+  updatePassbook(dataObject,fn : any) {
+  this.http
+  .post("http://localhost:9090/pecunianew/PassbookServlet",dataObject)
   .subscribe(
     data => {
+      fn(data);
       console.log("Response : "+JSON.stringify(data));
     },
     error => {
+      console.log("okay done");
       console.log("Error :"+JSON.stringify(error));
     }
-  );
-
+  )
   }
-
-
 }
