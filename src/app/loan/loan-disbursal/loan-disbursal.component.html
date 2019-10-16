@@ -1,1 +1,34 @@
 <p>loan-disbursal works!</p>
+
+<form>
+
+
+  <div class = "form-group">
+    <label for="show-loan-requests">Show Loan Requests</label>
+    <br>
+    <select name="show-loan-requests" class="custom-select" id="show-loan-requests">
+      <option selected>Please Choose...</option>
+      <option *ngFor = "let request of loanDataRetrievals">{{request}}</option> 
+    </select>
+    <br>
+    <button type="submit" class="btn btn-primary ">Submit</button>
+
+  </div>
+
+
+  <div class = "form-group">
+    <label for="show-approved-loan-requests">Show Loan Disbursed Data</label>
+    <br>
+    <button type="submit" class="btn btn-primary ">Yes</button>
+
+  </div>
+
+
+  <div class = "form-group">
+    <label for="update-account-balance">Update Account Balance</label>
+    <br>
+    <button type="submit" class="btn btn-primary ">Yes</button>
+  </div>
+
+
+</form>

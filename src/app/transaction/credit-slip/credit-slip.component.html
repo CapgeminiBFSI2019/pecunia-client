@@ -5,8 +5,7 @@
 
         <div class="form-group col-md-3">
             <label for="accountId">Account Id</label>
-            <input type="text" class="form-control" title="12 digit account Id" pattern="[0-9]*" minlength=12
-                maxlength="12" id="accountId" required [(ngModel)]="creditSlip.accountId" name="accountId" #accountId="ngModel">
+            <input type="text" class="form-control" title="12 digit account Id" pattern="[0-9]*" minlength=12 maxlength="12" id="accountId" required [(ngModel)]="model.accountNumber" name="accountId" #accountId="ngModel">
             <div *ngIf="!accountId.value && accountId.touched" class="alert alert-danger">
                 Account Id is required
             </div>
@@ -14,8 +13,7 @@
                 Account Id should only consists 12 digits
             </div>
             <label for="Amount">Amount</label>
-            <input type="number" class="form-control" title="Amount" id="amount" required
-                [(ngModel)]="creditSlip.amount " name="amount"  #amount="ngModel" min="100" max="100000">
+            <input type="number" class="form-control" title="Amount" id="amount" pattern="[0-9]*" min="0" required [(ngModel)]="model.creditSlipAmount " name="amount" #amount="ngModel" min="100" max="100000"><br>
             <div *ngIf="amount.touched && amount.invalid" class="alert alert-danger ">
                 Amount is required
             </div>
