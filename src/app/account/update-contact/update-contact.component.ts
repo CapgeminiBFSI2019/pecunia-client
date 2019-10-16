@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms'
 import { AccountModel } from 'src/app/model/AccountModel';
 import { CustomerModel } from 'src/app/model/CustomerModel';
+import { UpdateContactService } from 'src/app/service/update-contact.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-update-contact',
@@ -12,23 +14,35 @@ export class UpdateContactComponent implements OnInit {
 
   account = new AccountModel();
   customer = new CustomerModel();
+  dataResponse : Object;
+  updateContactObject: Object;
   submitted = false;
+  httpClient : HttpClient;
 
-  constructor() { }
+  constructor(private updateContact : UpdateContactService) { }
 
   ngOnInit() {
   }
 
-  showAcc() {
-    return JSON.stringify(this.account);
-  }
-  showCust() {
-    return JSON.stringify(this.customer);
+  onDataReceived(data)
+  {
+    console.log(JSON.stringify(data));
+    // this.dataResponse = data;
+    alert(JSON.stringify(data));
+    if(data["success"])
+    {
+      console.log("Success");
+    }
+    else
+    {
+      console.log(data["message"]);
+    }
   }
 
   onSubmit() {
     this.submitted = true;
-    alert(this.showAcc() + this.showCust());
+    this.updateContactObject = {"accountId": this.account.id, "contact": this.customer.contact};
+    this.updateContact.doUpdate(this.updateContactObject,this.onDataReceived);
   }
 
 }

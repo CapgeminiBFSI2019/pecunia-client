@@ -8,11 +8,11 @@ export class AddAccountServiceService {
   httpClient: HttpClient;
 
   constructor(private http: HttpClient) {
-    this.httpClient = http;
+    
   }
   doAdd(objectName,addAccountFunction : any) {
     
-    this.httpClient
+    this.http
     .post("http://localhost:9090/pecunianew/account/add-account",objectName)
     .subscribe(
       data => {
