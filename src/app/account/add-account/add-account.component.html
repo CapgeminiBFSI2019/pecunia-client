@@ -4,7 +4,7 @@
   <h1>Add Account form</h1>
   <form (ngSubmit)="onSubmit()" #addAccount="ngForm">
 	  <label for="name">Name</label>
-	  <input type="text" class="form-control" title="Enter your name" pattern="[A-Za-z\s]*" id="name" required [(ngModel)]="cust.name" name="Only alphabets allowed" #name="ngModel">
+	  <input type="text" class="form-control" title="Enter your name" pattern="[A-Za-z\s]*" id="name" required [(ngModel)]="customer.name" name="Only alphabets allowed" #name="ngModel">
 	  <div *ngIf="!name.value &&name.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -23,7 +23,7 @@
 	  <input type="date" 
 	  (click) ="SetMaxDate()"
 	  [max] = "todayFormat"
-	  class="form-control" id="dob" required [(ngModel)]="cust.dob" name="dob" #dob="ngModel">
+	  class="form-control" id="dob" required [(ngModel)]="customer.dob" name="dob" #dob="ngModel">
 	  <div *ngIf="!dob.value && dob.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -31,7 +31,7 @@
 		Date allowed
 	 </div>
 	  <label for="Contact">Contact</label>
-	  <input type="text" class="form-control" maxlength="10" pattern= "[0-9]*" title="10 digit phone number" id="contact" required [(ngModel)]="cust.contact" name="contact" #contact="ngModel">
+	  <input type="text" class="form-control" maxlength="10" pattern= "[0-9]*" title="10 digit phone number" id="contact" required [(ngModel)]="customer.contact" name="contact" #contact="ngModel">
 	  <div *ngIf="!contact.value && contact.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -39,7 +39,7 @@
 		Only number allowed
 	 </div>
 	  <label for="Address line 1">Address line 1</label>
-	  <input type="text" class="form-control" pattern= "[A-Za-z0-9\s/-]*" title= "Only alphabets, numbers and / and - allowed"  id="line1" required [(ngModel)]="add.line1" name="line1" #line1="ngModel">
+	  <input type="text" class="form-control" pattern= "[A-Za-z0-9\s/-]*" title= "Only alphabets, numbers and / and - allowed"  id="line1" required [(ngModel)]="address.line1" name="line1" #line1="ngModel">
 	  <div *ngIf="!line1.value && line1.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -47,7 +47,7 @@
 		Invalid address 
 	 </div>
 	  <label for="Address line 2">Address line 2</label>
-	  <input type="text" class="form-control" pattern= "[A-Za-z0-9\s/-]*" title= "Only alphabets, numbers and / and - allowed"  id="line2" required [(ngModel)]="add.line2" name="line2" #line2="ngModel">
+	  <input type="text" class="form-control" pattern= "[A-Za-z0-9\s/-]*" title= "Only alphabets, numbers and / and - allowed"  id="line2" required [(ngModel)]="address.line2" name="line2" #line2="ngModel">
 	  <div *ngIf="!line2.value && line2.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -55,7 +55,7 @@
 		Invalid address 
 	 </div>
 	  <label for="City">City</label>
-	  <input type="text" class="form-control" pattern= "[A-Za-z\s]*" title="Only alphabets allowed" id="city" required [(ngModel)]="add.city" name="city" #city="ngModel">
+	  <input type="text" class="form-control" pattern= "[A-Za-z\s]*" title="Only alphabets allowed" id="city" required [(ngModel)]="address.city" name="city" #city="ngModel">
 	  <div *ngIf="!city.value && city.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -63,7 +63,7 @@
 		Only alphabets allowed
 	 </div>
 	  <label for="State">State</label>
-	  <input type="text" class="form-control" pattern= "[A-Za-z\s]*" title="Only alphabets allowed" id="state" required [(ngModel)]="add.state" name="state" #state="ngModel">
+	  <input type="text" class="form-control" pattern= "[A-Za-z\s]*" title="Only alphabets allowed" id="state" required [(ngModel)]="address.state" name="state" #state="ngModel">
 	  <div *ngIf="!state.value && state.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -71,7 +71,7 @@
 		Only alphabets allowed 
 	 </div>
 	  <label for="Country">Country</label>
-	  <input type="text" class="form-control" pattern= "[A-Za-z\s]*" title="Only alphabets allowed" id="country" required [(ngModel)]="add.country" name="country" #country="ngModel">
+	  <input type="text" class="form-control" pattern= "[A-Za-z\s]*" title="Only alphabets allowed" id="country" required [(ngModel)]="address.country" name="country" #country="ngModel">
 	  <div *ngIf="!country.value && country.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -79,7 +79,7 @@
 		Only alphabets allowed
 	 </div>
 	  <label for="Zipcode">Zipcode</label>
-	  <input type="text" class="form-control" minlength="6" maxlength="6"  pattern= "[0-9]*" title="Only 6 digit number allowed" id="zipcode" required [(ngModel)]="add.zipcode" name="zipcode" #zipcode="ngModel">
+	  <input type="text" class="form-control" minlength="6" maxlength="6"  pattern= "[0-9]*" title="Only 6 digit number allowed" id="zipcode" required [(ngModel)]="address.zipcode" name="zipcode" #zipcode="ngModel">
 	  <div *ngIf="!zipcode.value && zipcode.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -88,7 +88,7 @@
 	 </div>
 	  <label for="Aadhar number">Aadhar number</label>
 	  <input type="text" class="form-control" minlength="12"
-	  maxlength="12"  pattern= "[0-9]*" title="Only 12 digit number allowed" id="aadhar" required [(ngModel)]="cust.aadhar" name="aadhar" #aadhar="ngModel">
+	  maxlength="12"  pattern= "[0-9]*" title="Only 12 digit number allowed" id="aadhar" required [(ngModel)]="customer.aadhar" name="aadhar" #aadhar="ngModel">
 	  <div *ngIf="!aadhar.value && aadhar.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -96,7 +96,7 @@
 		Invalid aadhar number
 	 </div>
 	  <label for="PAN number">PAN number</label>
-	  <input type="text" class="form-control" minlength="10" maxlength="10" pattern= "[A-Z]{5}[0-9]{4}[A-Z]{1}" title="Enter a valid 10 digit PAN number" id="pan" required [(ngModel)]="cust.pan" name="pan" #pan="ngModel">
+	  <input type="text" class="form-control" minlength="10" maxlength="10" pattern= "[A-Z]{5}[0-9]{4}[A-Z]{1}" title="Enter a valid 10 digit PAN number" id="pan" required [(ngModel)]="customer.pan" name="pan" #pan="ngModel">
 	  <div *ngIf="!pan.value &&pan.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -113,7 +113,7 @@
 		</select>
 	</div>
 	  <label for="Branch Id">Branch Id</label>
-	  <input type="text" class="form-control"  minlength="4" maxlength="4" pattern= "[0-9]*" title="Only 4 digit number allowed" id="branchId" required [(ngModel)]="cust.branchId" name="branchId" #branchId="ngModel">
+	  <input type="text" class="form-control"  minlength="4" maxlength="4" pattern= "[0-9]*" title="Only 4 digit number allowed" id="branchId" required [(ngModel)]="customer.branchId" name="branchId" #branchId="ngModel">
 	  <div *ngIf="!branchId.value && branchId.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -121,7 +121,7 @@
 		Invalid branch Id
 	 </div>
 	  <label for="Account Balance">Account Balance</label>
-	  <input type="text" class="form-control"  title= "Enter only monetary value" pattern= "[0-9]*" min="0" id="balance" required [(ngModel)]="acc.balance" name="balance" #balance="ngModel">
+	  <input type="text" class="form-control"  title= "Enter only monetary value" pattern= "[0-9]*" min="0" id="balance" required [(ngModel)]="account.balance" name="balance" #balance="ngModel">
 	  <div *ngIf="!balance.value && balance.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -129,7 +129,7 @@
 		Only positive values accepted
 	 </div>
 	  <label for="Interest">Interest</label>
-	  <input type="text" class="form-control"  title= "Enter valid account interest" pattern= "[0-9]*" min="0" id="interest" required [(ngModel)]="acc.interest" name="interest" #interest="ngModel">
+	  <input type="text" class="form-control"  title= "Enter valid account interest" pattern= "[0-9]*" min="0" id="interest" required [(ngModel)]="account.interest" name="interest" #interest="ngModel">
 	  <div *ngIf="!interest.value && interest.touched " class="alert alert-danger ">
 	Field required
 	  </div>
