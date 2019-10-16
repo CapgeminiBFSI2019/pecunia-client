@@ -17,6 +17,7 @@ export class CreditSlipComponent implements OnInit {
   submitted = false;
   
   @ViewChild('creditSlipForm' , {static: false}) form: any;
+  toastr: any;
 
   constructor(private creditService : CreditSlipService) { }
 
