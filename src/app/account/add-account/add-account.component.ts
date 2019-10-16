@@ -56,6 +56,7 @@ todayFormat: string;
 
 obj: Object;
   onSubmit() {
+    console.log("onSubmit");
     this.submitted = true;
     this.obj  = { "name": this.customer.name,
     "gender": this.customer.gender, 
