@@ -1,23 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class UpdateNameService {
- 
-  constructor(private http: HttpClient) {
-   
-  }
+export class UpdateAddressService {
 
-  doUpdate(updateName, updateNameFunction : any){
+  constructor(private http: HttpClient) { }
+
+  doUpdate(updateAddress, updateAddressFunction : any){
+
 
     this.http
-      .post("http://localhost:9090/pecunianew/UpdateCustomerName",updateName)
+      .post("http://localhost:9090/pecunianew/UpdateCustomerAddress",updateAddress)
       .subscribe(
         data => {
-          updateNameFunction(data);
+          updateAddressFunction(data);
           // console.log("Response : "+JSON.stringify(data));
         },
         error => {
@@ -26,7 +24,4 @@ export class UpdateNameService {
         }
       );
   }
-
-  
- 
 }

@@ -30,7 +30,7 @@ export class UpdateNameComponent implements OnInit {
 
   onDataReceived(data)
   {
-    console.log("aaya idhar"+JSON.stringify(data));
+    console.log(JSON.stringify(data));
     // this.dataResponse = data;
     alert(JSON.stringify(data));
     if(data["success"])
@@ -45,7 +45,6 @@ export class UpdateNameComponent implements OnInit {
 
 
   onSubmit() {
-    console.log("Submitted");
     this.submitted = true;
     this.updateNameObject = {"accountId": this.account.id, "name": this.customer.name};
     this.updateName.doUpdate(this.updateNameObject,this.onDataReceived);
