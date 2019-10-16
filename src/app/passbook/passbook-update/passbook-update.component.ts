@@ -9,6 +9,7 @@ import { PassbookService } from 'src/app/service/passbook.service';
 })
 export class PassbookUpdateComponent implements OnInit {
   
+  isProcessing : boolean = false;
   model = new Passbook();
   dataResponse : object;
   submitted = false;
@@ -19,22 +20,21 @@ export class PassbookUpdateComponent implements OnInit {
 
   onDataReceived(data)
   {
-    console.log("done" + JSON.stringify(data));
-    // this.dataResponse = data;
-    alert(JSON.stringify(data));
-    if(data["success"])
-    {
-      console.log("Success");
-    }
-    else
-    {
-      console.log(data["message"]);
-    }
+    this.dataResponse = data;
   }
 
   onSubmit() {
-    // alert(JSON.stringify(this.model))
+    
+    this.isProcessing = true;
     this.submitted = true;
-    this.passbookService.updatePassbook(this.model,this.onDataReceived);
+    this.passbookService.updatePassbook(this.model).subscribe(
+      data => {
+        this.isProcessing = false;
+        this.onDataReceived(data);
+      },
+      error => {
+        this.isProcessing = false;
+      }
+    );
   }
 }
