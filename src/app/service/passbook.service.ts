@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +11,9 @@ export class PassbookService {
   }
 
 
-  updatePassbook(dataObject,fn : any) {
-  this.http
-  .post("http://localhost:9090/pecunianew/PassbookServlet",dataObject)
-  .subscribe(
-    data => {
-      fn(data);
-      console.log("Response : "+JSON.stringify(data));
-    },
-    error => {
-      console.log("okay done");
-      console.log("Error :"+JSON.stringify(error));
-    }
-  )
+  updatePassbook(dataObject): Observable<any> {
+    return this.http
+      .post("http://localhost:9090/pecunianew/PassbookServlet",dataObject);
+      
   }
 }

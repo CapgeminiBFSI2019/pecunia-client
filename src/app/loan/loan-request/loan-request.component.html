@@ -12,13 +12,13 @@
             <br>
 
 
-                <div *ngIf="accountId.valid && accountId.pristine" class="alert alert-danger ">
+                <div *ngIf="!accountId.value && accountId.touched" class="alert alert-danger ">
                     Account Id is required
                 </div>
 
 
-                <div *ngIf="accountId.invalid && accountId.dirty" class="alert alert-danger ">
-                    Account Id must be an integer
+                <div *ngIf="accountId.invalid && accountId.dirty && accountId.value" class="alert alert-danger ">
+                    Account Id must be a 12 digit positive integer
                 </div>
             </div>
         </div>
@@ -26,16 +26,16 @@
         <div class="row ">
             <div class="col-md-4 offset-md-2 ">
                 <label for="amount">Enter Loan Amount </label>
-                <input type="text" class="form-control" id="amount" required pattern="[0-9]*" [(ngModel)]="model.amount" name="amount" minlength="1000" maxlength="1000000000"
+                <input type="text" class="form-control" id="amount" required pattern="[0-9]*" [(ngModel)]="model.amount" name="amount" minlength="4" maxlength="10"
                     #amount="ngModel">
                     <br>
 
-                <div *ngIf="amount.valid && amount.pristine" class="alert alert-danger ">
+                <div *ngIf="!amount.value && amount.touched" class="alert alert-danger ">
                     Amount is required
                 </div>
 
-                <div *ngIf="amount.invalid && amount.dirty" class="alert alert-danger ">
-                    Amount must be an integer
+                <div *ngIf="amount.invalid && amount.dirty && amount.value" class="alert alert-danger ">
+                    Amount must be a positive integer 
                 </div>
             </div>
         </div>
@@ -58,14 +58,14 @@
             <div class="col-md-4 offset-md-2 ">
                 <label for="tenure">Tenure(in months)</label>
                 <input type="text" class="form-control" id="tenure" required [(ngModel)]="model.tenure"  pattern="[0-9]*" name="tenure" 
-                    #tenure="ngModel" minlength="2" maxlength="240" required>
+                    #tenure="ngModel" minlength="1" maxlength="3" required>
                     <br>
-                <div *ngIf="tenure.valid && tenure.pristine " class="alert alert-danger ">
+                <div *ngIf="!tenure.value && tenure.touched " class="alert alert-danger ">
                     Tenure is required
                 </div>
 
-                <div *ngIf="tenure.invalid && tenure.dirty" class="alert alert-danger ">
-                    Tenure must be an Integer
+                <div *ngIf="tenure.invalid && tenure.dirty && tenure.value" class="alert alert-danger ">
+                    Tenure must be a positive integer between 2 and 240 
                 </div>
                 
             </div>
@@ -74,7 +74,7 @@
         <div class="row ">
             <div class="col-md-4 offset-md-2 ">
                 <label for="roi">Enter Rate of Interest </label>
-                <input type="text" class="form-control" id="roi" required pattern="[0-9]*" [(ngModel)]="model.roi" name="roi" minlength="4.0" maxlength="15" step="0.01"
+                <input type="text" class="form-control" id="roi" required pattern="[0-9]*" [(ngModel)]="model.roi" name="roi" minlength="1" maxlength="2" 
                     #roi="ngModel">
                     <br>
                 <div *ngIf="!roi.value && roi.touched " class="alert alert-danger ">
@@ -82,7 +82,7 @@
                 </div>
 
                 <div *ngIf="roi.invalid && roi.dirty && roi.value" class="alert alert-danger ">
-                    Rate of Interest must be an Integer
+                    Rate of Interest must be a number between 4 & 15 
                 </div>
             </div>
         </div>
@@ -90,15 +90,15 @@
         <div class="row ">
             <div class="col-md-4 offset-md-2 ">
                 <label for="creditScore">Credit Score </label>
-                <input type="text" class="form-control" id="creditScore" required pattern="[0-9]*" [(ngModel)]="model.creditScore" minlength="100" maxlength="1000"
+                <input type="text" class="form-control" id="creditScore" required pattern="[0-9]*" [(ngModel)]="model.creditScore" minlength="3" maxlength="3"
                     name="creditScore" #creditScore="ngModel">
                     <br>
                 <div *ngIf="!creditScore.value && creditScore.touched " class="alert alert-danger ">
                     Credit Score is required
                 </div>
 
-                <div *ngIf="creditScore.invalid && creditScore.dirty &&creditScore.value" class="alert alert-danger ">
-                    Credit Score must be an Integer 
+                <div *ngIf="creditScore.invalid && creditScore.dirty && creditScore.value" class="alert alert-danger ">
+                    Credit Score must be a positive integer between 100 & 1000 
                 </div>
             </div>
         </div>
