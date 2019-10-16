@@ -22,8 +22,8 @@ export class CreditSlipComponent implements OnInit {
   onDataReceived(data)
   {
     console.log("aaya idhar"+JSON.stringify(data));
-    // this.dataResponse = data;
-    alert(JSON.stringify(data));
+    this.dataResponse = data;
+    alert(JSON.stringify(this.dataResponse));
     if(data["success"])
     {
       console.log("Success");
@@ -37,6 +37,14 @@ export class CreditSlipComponent implements OnInit {
   onSubmit() {
     // alert(JSON.stringify(this.model))
     this.submitted = true;
-    this.creditService.creditAmount(this.model,this.onDataReceived);
+    this.creditService.creditAmount(this.model).subscribe(
+      data => {
+        this.onDataReceived(data);
+        // console.log("Data Receieved  :" + JSON.stringify(data));
+      },
+      error => {
+        console.log("Error occured :" + JSON.stringify(error));
+      }
+    );
   }
 }
