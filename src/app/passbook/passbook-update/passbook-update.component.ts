@@ -14,6 +14,7 @@ export class PassbookUpdateComponent implements OnInit {
   dataReceived : boolean = false;
   dataResponse : any;
   submitted = false;
+  showToast = false;
  
   constructor(private passbookService : PassbookService) { }
   
@@ -22,8 +23,17 @@ export class PassbookUpdateComponent implements OnInit {
 
   onDataReceived(data)
   {
-    this.dataResponse = this.getJson(data["data"]);
-    this.dataReceived = true;
+    if(data["data"])
+    {
+      this.dataResponse = this.getJson(data["data"]); 
+      this.dataReceived = true;
+    }
+    else{
+      this.dataResponse= data;
+      this.showToast = true;
+    }
+    
+    
   }
 
   getJson(myData) {
@@ -56,7 +66,6 @@ export class PassbookUpdateComponent implements OnInit {
      myarr.push(objectData);
       
     }
-   // console.log("Full json object : "+myarr);
     return myarr;
   }
 
@@ -74,5 +83,9 @@ export class PassbookUpdateComponent implements OnInit {
         this.isProcessing = false;
       }
     );
+  }
+
+  closeToast() {
+    this.showToast = false;
   }
 }
