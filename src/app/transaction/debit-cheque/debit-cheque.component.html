@@ -3,7 +3,6 @@
     <form (ngSubmit)="onSubmit()" #debitChequeForm="ngForm" class="align-items-center">
 
         <div class="row">
-            <div class="form-group col-md-3 offset-md-3">
 
       
             <div class="form-group col-md-4 offset-md-4 ">
@@ -19,8 +18,6 @@
                     Account Id should only consists 12 digits
                 </div>
             </div>
-
-            <div class="form-group col-md-3 ">
 
         
         
@@ -89,7 +86,7 @@
                 </div>
             </div>
        
-
+        </div>
         <br>
         <div class="d-flex justify-content-center ">
             <button type="submit " class="btn btn-success " [disabled]="!debitChequeForm.form.valid ">Submit</button>
