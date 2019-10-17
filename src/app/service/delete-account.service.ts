@@ -14,7 +14,7 @@ export class DeleteAccountService {
   doDelete(deleteAccount, deleteAccountFunction : any){
 
     this.http
-      .post("http://localhost:8061/pecunianew/DeleteAccountServlet",deleteAccount)
+      .post("http://localhost:9090/pecunianew/DeleteAccountServlet",deleteAccount)
       .subscribe(
         data => {
           deleteAccountFunction(data);
