@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
 
 .ng-valid[required],
 .ng-valid.required {
@@ -12,9 +11,17 @@
     /* red */
 }
 
+.spinner-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
 
-textarea {
-    outline: none !important;
-    box-shadow: none !important;
-    border: 1px solid #ccc !important;
-}     
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
