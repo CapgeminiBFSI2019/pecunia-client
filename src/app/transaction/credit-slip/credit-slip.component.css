@@ -31,3 +31,17 @@
     text-align: center;
     color:rgb(20, 196, 209);
 }
+
+.pecuniaforms{
+    margin:5% 20%;
+    padding :5%;
+    background-color:#dbdbdb;
+    border-radius: 5px;
+    width : 60%
+}
+
+.nopadding {
+    width:30%;
+    padding: 0 !important;
+    margin: 0 auto;
+ }
