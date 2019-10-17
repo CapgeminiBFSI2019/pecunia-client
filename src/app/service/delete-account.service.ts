@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Injectable({
   providedIn: 'root'
 })
+export class DeleteAccountService {
+ 
+  constructor(private http: HttpClient) {
+   
+  }
 
-export class UpdateContactService {
-
-  constructor(private http: HttpClient) { }
-
-  doUpdate(updateContact, updateContactFunction : any){
+  doDelete(deleteAccount, deleteAccountFunction : any){
 
     this.http
-      .post("http://localhost:8061/pecunianew/UpdateCustomerContact",updateContact)
+      .post("http://localhost:8061/pecunianew/DeleteAccountServlet",deleteAccount)
       .subscribe(
         data => {
-          updateContactFunction(data);
+          deleteAccountFunction(data);
           console.log("Response : "+JSON.stringify(data));
         },
         error => {
@@ -25,4 +27,6 @@ export class UpdateContactService {
       );
   }
 
+  
+ 
 }
