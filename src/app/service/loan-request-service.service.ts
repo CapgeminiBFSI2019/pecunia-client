@@ -9,14 +9,13 @@ export class LoanRequestServiceService {
 
 
   constructor(private http: HttpClient) { 
-   console.log('http service inside LoanRequestServiceService ' + http);
+   
  
   }
 
   doLoanRequest(loanRequest,loanRequestFunction:any){
  
-    this.http.post("http://localhost:8090/pecunianew/LoanRequestServlet",loanRequest)
-  
+    this.http.post("http://localhost:9080/pecunianew/LoanRequestServlet",loanRequest)
       .subscribe(
         data => {
           console.log("in subscribe");

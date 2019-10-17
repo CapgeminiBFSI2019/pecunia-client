@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild} from '@angular/core';
 import { DebitChequeModel } from 'src/app/model/DebitChequeModel';
 import { DebitChequeService } from 'src/app/service/debit-cheque.service';
 
@@ -15,6 +15,8 @@ export class DebitChequeComponent implements OnInit {
   todayFormat: string;
   dataResponse : object;
   submitted = false;
+
+  @ViewChild('debitChequeForm' , {static: false}) form: any;
 
   constructor(private debitService : DebitChequeService) { }
 
@@ -69,6 +71,7 @@ export class DebitChequeComponent implements OnInit {
 
   closeToast() {
     this.showToast = false;
+    this.form.reset();
   }
 
 }
