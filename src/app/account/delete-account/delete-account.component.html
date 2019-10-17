@@ -1,5 +1,5 @@
 <div [hidden]="submitted">
-    <h1>Account Deletion Form</h1>
+    <h1 align="center">Account Deletion Form</h1>
     <form (ngSubmit)="onSubmit()" #accountDeletionForm="ngForm">
         <label for="accountId">Account Id</label>
         <input type="text" class="form-control" title="12 digit account id" pattern="[0-9]*" minlength=12 maxlength="12" id="accountId" required [(ngModel)]="account.id" name="accountId" #accountId="ngModel">
@@ -9,7 +9,7 @@
         <div *ngIf="accountId.invalid && accountId.dirty && accountId.value" class="alert alert-danger">
             Invalid Account ID
         </div>
-        
+
         <button type="submit" class="btn btn-success" [disabled]="!accountDeletionForm.form.valid ">Delete Account</button>
     </form>
 </div>
