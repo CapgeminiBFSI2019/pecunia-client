@@ -69,12 +69,12 @@
                     Date allowed
                 </div><br>
                 <div class="d-flex justify-content-center ">
-                    <button type="submit " class="btn btn-success"[disabled]="!debitChequeForm.form.valid ">Submit</button>
+                    <button type="submit " class="btn btn-info"[disabled]="!debitChequeForm.form.valid ">Submit</button>
                 </div>
             </div>
         </form>
     </div>
-</div>
+</div><br>
 <div *ngIf="isProcessing" class="spinner-container d-flex align-items-center justify-content-center flex-column">
     <div class="spinner-border text-info" role="status">
         <!-- <span class="sr-only">Loading...</span> -->
@@ -85,10 +85,10 @@
 <div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
     <div class="card text-center m-3">
         <div class="card-header">
-            Cheque Transaction
+           <strong>Cheque Transaction</strong>
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{dataResponse["message"]}}</h5>
+            <!-- <h5 class="card-title">{{dataResponse["message"]}}</h5> -->
             <p class="card-text">{{dataResponse["message"]}}</p>
             <button (click)="closeToast()" class="btn btn-primary text-white">Close</button>
         </div>

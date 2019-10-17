@@ -26,6 +26,24 @@ textarea {
 }
 
 .spinner-border {
-    width: 3rem;
-    height: 3rem;
+    width: 5rem;
+    height: 5rem;
 }
+.style {
+    background: white;
+    text-align: center;
+    color:rgb(20, 196, 209);
+}
+.pecuniaforms{
+    margin:2% 10%;
+    padding :5%;
+    background-color:#dbdbdb;
+    border-radius: 5px;
+    width : 60%
+}
+
+.nopadding {
+    width:70%;
+    padding: 0 !important;
+    margin: 0 auto;
+ }
