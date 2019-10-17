@@ -39,21 +39,20 @@
         <th>Closing Balance</th>
     </tr>
     <tr *ngFor = "let trans of dataResponse">
-        <th>{{trans.id}}</th>
-        <th>{{trans.transDate}}</th>
-        <th>{{trans.amount}}</th>
-        <th>{{trans.transFrom}}</th>
-        <th>{{trans.transTo}}</th>
-        <th>{{trans.type}}</th>
-        <th>{{trans.option}}</th>
-        <th>{{trans.chequeId}}</th>
-        <th>{{trans.closingBalance}}</th>
+        <td>{{trans.id}}</td>
+        <td>{{trans.transDate}}</td>
+        <td>{{trans.amount}}</td>
+        <td>{{trans.transFrom}}</td>
+        <td>{{trans.transTo}}</td>
+        <td>{{trans.type}}</td>
+        <td>{{trans.option}}</td>
+        <td>{{trans.chequeId}}</td>
+        <td>{{trans.closingBalance}}</td>
     </tr>
     </thead>
     </table> 
 
 <div>
-  <h1>Hello</h1>
   <ul>
     <li *ngFor = "let tr of dataResponse; let i = index">
       {{tr['name']}}

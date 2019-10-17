@@ -5,23 +5,26 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LoanRequestServiceService {
-  // httpClient : HttpClient;
   
 
-  constructor(private httpClient: HttpClient) { 
-    // this.httpClient = http;
+
+  constructor(private http: HttpClient) { 
+   console.log('http service inside LoanRequestServiceService ' + http);
+ 
   }
 
-  doLoanRequest(loanRequest){
+  doLoanRequest(loanRequest,loanRequestFunction:any){
  
-    this.httpClient
-      .post("http://localhost:4200/loan/loan-request",loanRequest)
+    this.http.post("http://localhost:8090/pecunianew/LoanRequestServlet",loanRequest)
+  
       .subscribe(
         data => {
-          
+          console.log("in subscribe");
+          loanRequestFunction(data);
           console.log("Response : "+JSON.stringify(data));
         },
         error => {
+          alert("Error");
           console.log("Error :"+JSON.stringify(error));
         }
       );
