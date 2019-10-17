@@ -14,11 +14,11 @@ export class UpdateContactService {
     console.log("Inside doUpdate");
 
     this.http
-      .post("http://localhost:9090/pecunianew/UpdateCustomerContact",updateContact)
+      .post("http://localhost:8061/pecunianew/UpdateCustomerContact",updateContact)
       .subscribe(
         data => {
           updateContactFunction(data);
-          // console.log("Response : "+JSON.stringify(data));
+          //console.log("Response : "+JSON.stringify(data));
         },
         error => {
           alert("Error");
