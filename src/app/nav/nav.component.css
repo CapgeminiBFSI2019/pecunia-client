@@ -1,4 +1,4 @@
-ul {
+/* ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -47,4 +47,18 @@ ul {
   
   .dropdown:hover .dropdown-content {
     display: block;
-  }
+  } */
+
+
+
+
+  .row {
+    padding-top: 50px;
+}
+.bg{
+    padding-top: 200px;
+    /* background-image: url("Logo.png"); */
+    background-repeat: no-repeat;
+    background-position: bottom;
+    
+}

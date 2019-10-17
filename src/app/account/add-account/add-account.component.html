@@ -3,7 +3,7 @@
   <h1>Add Account form</h1>
   <form (ngSubmit)="onSubmit()" #addAccount="ngForm">
 	  <label for="name">Name</label>
-	  <input type="text" class="form-control" title="Enter your name" pattern="[A-Za-z\s]*" id="name" required [(ngModel)]="customer.name" name="Only alphabets allowed" #name="ngModel">
+	  <input type="text" class="form-control" name= "name" title="Enter your name" pattern="[A-Za-z\s]*" id="name" required [(ngModel)]="customer.name" title ="Only alphabets allowed" #name="ngModel">
 	  <div *ngIf="!name.value &&name.touched " class="alert alert-danger ">
 		Field required
 	  </div>
@@ -12,8 +12,8 @@
 		</div>
 		
 		<div class="form-group col-md-6l">
-			<label for="gender">Gender</label> <select required id="gender"
-				class="form-control">
+			<label for="gender">Gender</label> <select required id="gender" [(ngModel)]="customer.gender"
+				name= "gender" class="form-control">
 				<option value="Male">Male</option>
 				<option value="Female">Female</option>
 			</select>
@@ -104,7 +104,7 @@
 	 </div>
 	 <div class="form-group col-md-61">
 		<label for="account-type">Account type</label> <select required
-			id="accounttype" name="accounttype" class="form-control">
+			id="accountType" name="accountType" class="form-control" [(ngModel)]="account.accountType">
 			<option value="Savings">Savings</option>
 			<option value="Current">Current</option>
 			<option value="FD">FD</option>
@@ -112,7 +112,7 @@
 		</select>
 	</div>
 	  <label for="Branch Id">Branch Id</label>
-	  <input type="text" class="form-control"  minlength="4" maxlength="4" pattern= "[0-9]*" title="Only 4 digit number allowed" id="branchId" required [(ngModel)]="customer.branchId" name="branchId" #branchId="ngModel">
+	  <input type="text" class="form-control"  minlength="4" maxlength="4" pattern= "[0-9]*" title="Only 4 digit number allowed" id="branchId" required [(ngModel)]="account.branchId" name="branchId" #branchId="ngModel">
 	  <div *ngIf="!branchId.value && branchId.touched " class="alert alert-danger ">
 		Field required
 	  </div>
