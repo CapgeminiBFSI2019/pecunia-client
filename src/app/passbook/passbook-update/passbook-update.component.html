@@ -1,10 +1,9 @@
 
 <div [hidden]="submitted">
-    <div class="form-group col-md-3 offset-md-4">
+    
     <h1 align="center">Update Passbook</h1>
-    </div>
     <form (ngSubmit)="onSubmit()" #passbook="ngForm">
-        <div class="form-group col-md-3 offset-md-4">
+        <div class="form-group col-md-4 offset-md-4">
         <label for="AccountID">Account ID</label>
         <input type="text" class="form-control" title="Enter Account ID" pattern="[0-9]*" minlength="12" maxlength="12" id="AccountID" required [(ngModel)]="model.accountID" name="Account ID" #accountID="ngModel">
         <div *ngIf="accountID.invalid && (accountID.touched || accountID.dirty)" class="alert alert-danger ">
@@ -18,6 +17,7 @@
                         Invalid Format. Only numbers allowed.
                       </div>             
         </div>
+        <br>
         <div class="d-flex justify-content-center ">
         <button type="submit " class="btn btn-success " [disabled]="!passbook.form.valid ">Submit</button>
         </div>
@@ -25,8 +25,11 @@
     </form>
 </div>
 
- <table *ngIf = "dataReceived" id="showcase-fixedcolumns" datatable=""  cellspacing="10" cellpadding="10" border="1" width=1200 align="center">
-    <thead>
+<div class="container" *ngIf = "dataReceived">
+<h2>Passbook Details</h2>
+<div class="table-responsive">
+ <table class="table table-striped table-hover table-bordered" id="showcase-fixedcolumns" datatable=""  cellspacing="10" cellpadding="10" width=1200 align="center">
+    <thead class="thead-dark">
     <tr align="center">
         <th>Id</th> 
         <th>Date</th>
@@ -38,25 +41,40 @@
         <th>Cheque ID</th> 
         <th>Closing Balance</th>
     </tr>
+  </thead>
+  <tbody>
     <tr *ngFor = "let trans of dataResponse">
-        <th>{{trans.id}}</th>
-        <th>{{trans.transDate}}</th>
-        <th>{{trans.amount}}</th>
-        <th>{{trans.transFrom}}</th>
-        <th>{{trans.transTo}}</th>
-        <th>{{trans.type}}</th>
-        <th>{{trans.option}}</th>
-        <th>{{trans.chequeId}}</th>
-        <th>{{trans.closingBalance}}</th>
+        <td>{{trans.id}}</td>
+        <td>{{trans.transDate}}</td>
+        <td>{{trans.amount}}</td>
+        <td>{{trans.transFrom}}</td>
+        <td>{{trans.transTo}}</td>
+        <td>{{trans.type}}</td>
+        <td>{{trans.option}}</td>
+        <td>{{trans.chequeId}}</td>
+        <td>{{trans.closingBalance}}</td>
     </tr>
-    </thead>
+  </tbody>
     </table> 
+  </div>
+</div>
 
-<div>
-  <h1>Hello</h1>
-  <ul>
-    <li *ngFor = "let tr of dataResponse; let i = index">
-      {{tr['name']}}
-    </li>
-    </ul>
+    <div *ngIf="isProcessing" class="spinner-container d-flex align-items-center justify-content-center flex-column">
+        <div class="spinner-border text-info" role="status">
+            <!-- <span class="sr-only">Loading...</span> -->
+        </div>
+    
+    </div>
+
+<div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
+    <div class="card text-center m-3">
+        <div class="card-header">
+            <b>Passbook</b>
+        </div>
+        <div class="card-body">
+            
+            <p class="card-text">{{dataResponse["message"]}}</p>
+            <button (click)="closeToast()" class="btn btn-primary text-white">Close</button>
+        </div>
+    </div>
 </div>

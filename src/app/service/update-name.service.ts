@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -11,20 +12,11 @@ export class UpdateNameService {
    
   }
 
-  doUpdate(updateName, updateNameFunction : any){
+  doUpdate(updateName): Observable<any>{
 
-    this.http
-      .post("http://localhost:8061/pecunianew/UpdateCustomerName",updateName)
-      .subscribe(
-        data => {
-          updateNameFunction(data);
-          // console.log("Response : "+JSON.stringify(data));
-        },
-        error => {
-          alert("Error");
-          console.log("Error :"+JSON.stringify(error));
-        }
-      );
+    return this.http
+      .post("http://localhost:8061/pecunianew/UpdateCustomerName",updateName);
+      
   }
 
   
