@@ -18,7 +18,7 @@ export class UpdateNameService {
       .subscribe(
         data => {
           updateNameFunction(data);
-          // console.log("Response : "+JSON.stringify(data));
+          console.log("Response : "+JSON.stringify(data));
         },
         error => {
           alert("Error");
