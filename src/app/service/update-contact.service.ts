@@ -18,7 +18,7 @@ export class UpdateContactService {
       .subscribe(
         data => {
           updateContactFunction(data);
-          console.log("Response : "+JSON.stringify(data));
+          //console.log("Response : "+JSON.stringify(data));
         },
         error => {
           alert("Error");
