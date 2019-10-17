@@ -15,8 +15,10 @@ export class LoanDisbursalComponent implements OnInit {
   isProcessing : boolean = false;
   dataReceived : boolean = false;
   dataReceived1 : boolean = false;
+  dataReceived2 : boolean = false;
   dataResponse : any;
   dataResponse1 : any;
+  dataResponse2 : any;
   submitted = false;
   constructor(private loanDisbursalservice : LoandisbursaldataserviceService) { }
 
@@ -29,6 +31,7 @@ export class LoanDisbursalComponent implements OnInit {
     alert(JSON.stringify(this.dataResponse))
     this.dataReceived = true;
     this.dataReceived1 = false;
+    this.dataReceived2 = false;
     console.log(JSON.stringify(this.dataResponse))
   }
 
@@ -38,7 +41,18 @@ export class LoanDisbursalComponent implements OnInit {
     alert(JSON.stringify(this.dataResponse1))
     this.dataReceived1 = true;
     this.dataReceived = false;
+    this.dataReceived2 = false;
     console.log(JSON.stringify(this.dataResponse1))
+  }
+
+  onDataReceived2(data)
+  {
+    this.dataResponse2 = this.getJson(data["data"]);
+    alert(JSON.stringify(this.dataResponse2))
+    this.dataReceived2 = true;
+    this.dataReceived = false;
+    this.dataReceived1 = false;
+    console.log(JSON.stringify(this.dataResponse2))
   }
 
   getJson(myData) {
@@ -75,6 +89,21 @@ onClick() {
     data => {
       this.isProcessing = false;
       this.onDataReceived1(data);
+    },
+    error => {
+      this.isProcessing = false;
+    }
+  );
+}
+
+onClicking() {
+  
+  this.isProcessing = true;
+  this.submitted = true;
+  this.loanDisbursalservice.update().subscribe(
+    data => {
+      this.isProcessing = false;
+      this.onDataReceived2(data);
     },
     error => {
       this.isProcessing = false;
