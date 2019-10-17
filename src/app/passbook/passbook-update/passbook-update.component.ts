@@ -32,8 +32,6 @@ export class PassbookUpdateComponent implements OnInit {
       this.dataResponse= data;
       this.showToast = true;
     }
-    
-    
   }
 
   getJson(myData) {
@@ -48,7 +46,7 @@ export class PassbookUpdateComponent implements OnInit {
       if(myDay<10)
       {
         myDay="0".concat(myDay);
-        }
+      }
       if(myMonth<10)
       {
       myMonth="0".concat(myMonth);
@@ -64,14 +62,11 @@ export class PassbookUpdateComponent implements OnInit {
       objectData['transDate'] = date;
       objectData['chequeId'] = myChequeId;
      myarr.push(objectData);
-      
     }
     return myarr;
   }
 
-
   onSubmit() {
-    
     this.isProcessing = true;
     this.submitted = true;
     this.passbookService.updatePassbook(this.model).subscribe(
@@ -87,5 +82,6 @@ export class PassbookUpdateComponent implements OnInit {
 
   closeToast() {
     this.showToast = false;
+    this.submitted= false;
   }
 }

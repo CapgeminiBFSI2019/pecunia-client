@@ -15,8 +15,7 @@ export class LoanRequestServiceService {
 
   doLoanRequest(loanRequest,loanRequestFunction:any){
  
-    this.http.post("http://localhost:8090/pecunianew/LoanRequestServlet",loanRequest)
-  
+    this.http.post("http://localhost:9080/pecunianew/LoanRequestServlet",loanRequest)
       .subscribe(
         data => {
           console.log("in subscribe");
