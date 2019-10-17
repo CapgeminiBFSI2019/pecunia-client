@@ -1,9 +1,16 @@
 <!-- <app-nav></app-nav> -->
-<div>
-    <h3 align="center">Debit With Slip</h3>
+<div class="card nopadding mt-3">
+    <!-- <h3 class = "style"></h3> -->
+    <div class="card-header  bg-info text-center text-light">
+            <strong>Debit With Slip</strong>
+    </div>
+
+
+
+    <div class="card-body  mt-1">
     <form (ngSubmit)="onSubmit()" #debitSlipForm="ngForm">
 
-        <div class="form-group col-md-4 offset-md-4">
+        <div class="form-group col-md-12">
             <label for="accountId">Account Id</label>
             <input type="text" class="form-control" title="12 digit account Id" pattern="[0-9]*" minlength=12 maxlength="12" id="accountId" required [(ngModel)]="model.accountNumber" name="accountId" #accountId="ngModel">
             <div *ngIf="!accountId.value && accountId.touched" class="alert alert-danger">
@@ -21,11 +28,12 @@
                 Amount invalid
             </div>
             <div class="d-flex justify-content-center ">
-                <button type="submit " class="btn btn-success " [disabled]="!debitSlipForm.form.valid ">Submit</button>
+                <button type="submit " class="btn btn-success " [disabled]="!creditSlipForm.form.valid ">Submit</button>
             </div>
         </div>
 
     </form>
+</div>
 </div>
 <div *ngIf="isProcessing" class="spinner-container d-flex align-items-center justify-content-center flex-column">
     <div class="spinner-border text-info" role="status">
@@ -35,12 +43,11 @@
 </div>
 
 <div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
-    <div class="card text-center m-3">
+    <div class="card text-center m-4 offset-md-4">
         <div class="card-header">
-            Slip Transaction
+            <b>Debit Using Slip</b>
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{dataResponse["message"]}}</h5>
             <p class="card-text">{{dataResponse["message"]}}</p>
             <button (click)="closeToast()" class="btn btn-primary text-white">Close</button>
         </div>
