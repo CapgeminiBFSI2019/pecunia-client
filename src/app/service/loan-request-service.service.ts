@@ -9,7 +9,7 @@ export class LoanRequestServiceService {
 
 
   constructor(private http: HttpClient) { 
-   console.log('http service inside LoanRequestServiceService ' + http);
+   
  
   }
 
