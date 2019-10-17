@@ -1,16 +1,16 @@
 <!-- <app-nav></app-nav> -->
-<div class="card ml-4 mr-4">
+<div class="card nopadding mt-3">
     <!-- <h3 class = "style"></h3> -->
-    <h5 class="card-header style">
+    <div class="card-header  bg-info text-center text-light">
             <strong>Credit With Slip</strong>
-    </h5>
+    </div>
 
 
 
-    <div class="card-body px-lg-5 pt-0">
+    <div class="card-body  mt-1">
     <form (ngSubmit)="onSubmit()" #creditSlipForm="ngForm">
 
-        <div class="form-group col-md-4 offset-md-4">
+        <div class="form-group col-md-12">
             <label for="accountId">Account Id</label>
             <input type="text" class="form-control" title="12 digit account Id" pattern="[0-9]*" minlength=12 maxlength="12" id="accountId" required [(ngModel)]="model.accountNumber" name="accountId" #accountId="ngModel">
             <div *ngIf="!accountId.value && accountId.touched" class="alert alert-danger">
