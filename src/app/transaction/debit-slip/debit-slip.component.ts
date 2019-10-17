@@ -5,7 +5,7 @@ import { DebitSlipService } from 'src/app/service/debit-slip.service';
 
 
 @Component({
-  selector: 'app-credit-slip',
+  selector: 'app-debit-slip',
   templateUrl: './debit-slip.component.html',
   styleUrls: ['./debit-slip.component.css']
 })
