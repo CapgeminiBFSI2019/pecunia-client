@@ -1,34 +1,84 @@
-<p>loan-disbursal works!</p>
-
 <form>
 
 
   <div class = "form-group">
     <label for="show-loan-requests">Show Loan Requests</label>
     <br>
-    <select name="show-loan-requests" class="custom-select" id="show-loan-requests">
+    <select name="show-loan-requests" required #name="ngModel" class="custom-select" id="show-loan-requests" [(ngModel)] = "menuOption">
       <option selected>Please Choose...</option>
       <option *ngFor = "let request of loanDataRetrievals">{{request}}</option> 
     </select>
     <br>
-    <button type="submit" class="btn btn-primary ">Submit</button>
+    <button type="submit" (click) = "onClick()" class="btn btn-primary">Submit</button>
+    <table *ngIf = "dataReceived" id="showcase-fixedcolumns" datatable=""  cellspacing="10" cellpadding="10" border="1" width=1200 align="center">
+    <thead>
+    <tr align="center">
+      <th>Loan Id</th>
+      <th>Account Id</th>
+      <th>Amount</th>
+      <th>Type</th> 
+      <th>Tenure</th> 
+      <th>ROI</th>
+      <th>EMI</th>
+      <th>Credit Score</th>
+    </tr>
+    <tr *ngFor = "let trans of dataResponse">
+        <th>{{trans.loanId}}</th>
+        <th>{{trans.accountId}}</th>
+        <th>{{trans.amount}}</th>
+        <th>{{trans.type}}</th>
+        <th>{{trans.tenure}}</th>
+        <th>{{trans.roi}}</th>
+        <th>{{trans.emi}}</th>
+        <th>{{trans.creditScore}}</th>
+        <th>{{trans.status}}</th>
+    </tr>
+    </thead>
+    </table> 
+  
+  
 
   </div>
 
 
   <div class = "form-group">
-    <label for="show-approved-loan-requests">Show Loan Disbursed Data</label>
     <br>
-    <button type="submit" class="btn btn-primary ">Yes</button>
-
+    <button type="submit" (click) = "onSubmit()" class="btn btn-primary">Show Loan Disbursed Data</button>
+    
   </div>
 
 
   <div class = "form-group">
-    <label for="update-account-balance">Update Account Balance</label>
     <br>
-    <button type="submit" class="btn btn-primary ">Yes</button>
+    <button type="submit" class="btn btn-primary">Update Account Balance</button>
   </div>
 
 
 </form>
+
+
+
+<table *ngIf = "dataReceived" id="showcase-fixedcolumns" datatable=""  cellspacing="10" cellpadding="10" border="1" width=1200 align="center">
+  <thead>
+  <tr align="center">
+      <th>Loan Disbursal Id</th> 
+      <th>Account Id </th>
+      <th>Loan Id</th>
+      <th>Disbursed Amount</th> 
+      <th>Due Amount</th> 
+      <th>Number Of Emi To Be Paid</th> 
+      <th>Loan Type</th>
+  </tr>
+  <tr *ngFor = "let trans of dataResponse">
+      <th>{{trans.loanDisbursalId}}</th>
+      <th>{{trans.loanId}}</th>
+      <th>{{trans.accountId}}</th>
+      <th>{{trans.disbursedAmount}}</th>
+      <th>{{trans.dueAmount}}</th>
+      <th>{{trans.numberOfEmiToBePaid}}</th>
+      <th>{{trans.loanType}}</th>
+  </tr>
+  </thead>
+  </table> 
+
+ 
