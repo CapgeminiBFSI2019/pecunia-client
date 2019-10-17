@@ -15,24 +15,28 @@ export class AddAccountComponent implements OnInit {
   account = new AccountModel();
   customer = new CustomerModel();
   address = new AddressModel();
+  showToast = false;
+  isProcessing: boolean = false;
+  dataResponse: object;
   submitted = false;
   todayFormat: string;
   httpClient: HttpClient;
-  isProcessing: boolean;
-  showToast: boolean;
-  dataResponse: object;
-  @ViewChild('addAccountForm' , {static: false}) form: any;
-  toastr: any;
+
+
+
+  @ViewChild('addAccountForm', { static: false }) form: any;
+  // toastr: any;
   constructor(private addAccount: AddAccountServiceService) { }
   ngOnInit() {
   }
+
   onDataReceived(data) {
     this.dataResponse = data;
     this.showToast = true;
   }
   obj: Object;
   onSubmit() {
-    this.isProcessing=true;
+    this.isProcessing = true;
     this.submitted = true;
     this.obj = {
       "name": this.customer.name,
@@ -62,6 +66,10 @@ export class AddAccountComponent implements OnInit {
       }
     );
   }
+  closeToast() {
+    this.showToast = false;
+    this.form.reset();
+  }
   public SetMaxDate() {
     let today = new Date();
     let dd = (today.getDate());
@@ -80,10 +88,7 @@ export class AddAccountComponent implements OnInit {
     else
       mmFormat = (mm).toString();
     this.todayFormat = yyyy + '-' + mmFormat + '-' + ddFormat;
-    console.log(this.todayFormat);
+  
   }
-  closeToast() {
-    this.showToast = false;
-    this.form.reset();
-  }
+
 }

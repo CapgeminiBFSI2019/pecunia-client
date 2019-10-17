@@ -17,7 +17,7 @@ export class LoanRequestComponent implements OnInit {
   loanobj: Object;
   httpClient : HttpClient;
   dataResponse : Object;
-  //loanRequestForm: FormGroup;
+  
   constructor(private loanRequest:LoanRequestServiceService) { 
 
   }
@@ -42,7 +42,7 @@ export class LoanRequestComponent implements OnInit {
   
     onSubmit() {
  
-      // let loanRequest= new LoanRequestServiceService(this.httpClient);
+      
       this.submitted = true;
       this.loanobj = {"accountId": this.model.accountId, "amount": this.model.amount,"type":this.model.type,"creditScore":this.model.creditScore,"status":this.model.status};
       this.loanRequest.doLoanRequest(this.model,this.onDataReceived);
