@@ -11,20 +11,11 @@ export class DeleteAccountService {
    
   }
 
-  doDelete(deleteAccount, deleteAccountFunction : any){
+  doDelete(deleteAccount){
 
-    this.http
-      .post("http://localhost:9090/pecunianew/DeleteAccountServlet",deleteAccount)
-      .subscribe(
-        data => {
-          deleteAccountFunction(data);
-          console.log("Response : "+JSON.stringify(data));
-        },
-        error => {
-          alert("Error");
-          console.log("Error :"+JSON.stringify(error));
-        }
-      );
+    return this.http
+      .post("http://localhost:9090/pecunianew/DeleteAccountServlet",deleteAccount);
+      
   }
 
   

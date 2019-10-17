@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoginModel } from '../model/LoginModel';
 import { LoginService } from 'src/app/service/login.service';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   // loginObject: any;
   // httpClient: HttpClient;
   @ViewChild('LoginForm' , {static: false}) form: any;
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService,private _router: Router,
+    private _route: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -51,6 +53,7 @@ export class LoginComponent implements OnInit {
   closeToast() {
     this.showToast = false;
     this.form.reset();
+    this._router.navigate(['/login']);
   }
     // this.loginObject = { "username": this.LoginModel.username, "password": this.LoginModel.password };
     // this.loginService.doLogin(this.loginObject);
