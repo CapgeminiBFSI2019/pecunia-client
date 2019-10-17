@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +10,11 @@ export class UpdateContactService {
 
   constructor(private http: HttpClient) { }
 
-  doUpdate(updateContact, updateContactFunction : any){
+  doUpdate(updateContact) : Observable<any> {
 
-    this.http
-      .post("http://localhost:8061/pecunianew/UpdateCustomerContact",updateContact)
-      .subscribe(
-        data => {
-          updateContactFunction(data);
-          console.log("Response : "+JSON.stringify(data));
-        },
-        error => {
-          alert("Error");
-          console.log("Error :"+JSON.stringify(error));
-        }
-      );
+    return this.http
+      .post("http://localhost:8061/pecunianew/UpdateCustomerContact",updateContact);
+      
   }
 
 }
