@@ -1,25 +1,60 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoginModel } from '../model/LoginModel';
-
+import { LoginService } from 'src/app/service/login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
- LoginModel = new LoginModel();
+  isProcessing : boolean = false;
+  showToast = false;
+  LoginModel = new LoginModel();
   submitted = false;
-  constructor() { }
+  dataResponse: any;
+  // loginObject: any;
+  // httpClient: HttpClient;
+  @ViewChild('LoginForm' , {static: false}) form: any;
+  constructor(private loginService: LoginService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
+
+  onDataReceived(data) {
+
+    this.dataResponse = data;
+    this.showToast = true;
     
+  }
+
+
+
   showLogin() {
     return JSON.stringify(this.LoginModel);
   }
 
   onSubmit() {
+    this.isProcessing = true;
     this.submitted = true;
-    alert(this.showLogin());
+    this.loginService.doLogin(this.LoginModel).subscribe(
+      data => {
+        this.isProcessing = false;
+        this.onDataReceived(data);
+      },
+      error => {
+        this.isProcessing = false;
+      }
+    );
   }
+
+  closeToast() {
+    this.showToast = false;
+    this.form.reset();
+  }
+    // this.loginObject = { "username": this.LoginModel.username, "password": this.LoginModel.password };
+    // this.loginService.doLogin(this.loginObject);
+    // alert(this.showLogin());
+
+  
 }
