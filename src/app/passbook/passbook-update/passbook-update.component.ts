@@ -14,6 +14,7 @@ export class PassbookUpdateComponent implements OnInit {
   dataReceived : boolean = false;
   dataResponse : any;
   submitted = false;
+ 
   constructor(private passbookService : PassbookService) { }
   
   ngOnInit() {}
@@ -23,19 +24,43 @@ export class PassbookUpdateComponent implements OnInit {
   {
     this.dataResponse = this.getJson(data["data"]);
     this.dataReceived = true;
-    console.log(JSON.stringify(this.dataResponse))
   }
 
   getJson(myData) {
     let myarr = []
+    
     for(var i=0;i<myData.length;i++)
     {
-      myarr.push(JSON.parse(myData[i]));
-      console.log(myarr[i]['id']);
+      let date = "";
+      let objectData= JSON.parse(myData[i]);
+      var myDay= objectData.transDate.day;
+      var myMonth= objectData.transDate.month;
+      if(myDay<10)
+      {
+        myDay="0".concat(myDay);
+        }
+      if(myMonth<10)
+      {
+      myMonth="0".concat(myMonth);
+      }
+      var myYear= objectData.transDate.year;
+      var myChequeId= objectData.chequeId;
+      if(myChequeId==0)
+      {
+        myChequeId="-";
+      }
+      date= date.concat(myDay).concat("/").concat(myMonth).concat("/").concat(myYear);
+      //console.log(myChequeId);
+      objectData['transDate'] = date;
+      objectData['chequeId'] = myChequeId;
+     myarr.push(objectData);
+      
     }
-    console.log("Full json object : "+myarr);
+   // console.log("Full json object : "+myarr);
     return myarr;
   }
+
+
   onSubmit() {
     
     this.isProcessing = true;

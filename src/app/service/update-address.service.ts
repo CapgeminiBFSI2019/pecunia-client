@@ -10,13 +10,12 @@ export class UpdateAddressService {
 
   doUpdate(updateAddress, updateAddressFunction : any){
 
-
     this.http
-      .post("http://localhost:9090/pecunianew/UpdateCustomerAddress",updateAddress)
+      .post("http://localhost:8061/pecunianew/UpdateCustomerAddress",updateAddress)
       .subscribe(
         data => {
           updateAddressFunction(data);
-          // console.log("Response : "+JSON.stringify(data));
+          console.log("Response : "+JSON.stringify(data));
         },
         error => {
           alert("Error");
