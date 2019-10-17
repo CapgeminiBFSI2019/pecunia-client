@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AccountModel } from 'src/app/model/AccountModel';
 import { CustomerModel } from 'src/app/model/CustomerModel';
 import { HttpClient } from '@angular/common/http';
@@ -17,38 +17,47 @@ export class UpdateNameComponent implements OnInit {
 
   account = new AccountModel();
   customer = new CustomerModel();
-  dataResponse : Object;
+  showToast = false;
+  isProcessing: boolean = false;
+  dataResponse: Object;
   updateNameObject: Object;
   submitted = false;
-  httpClient : HttpClient;
 
-  constructor(private updateName : UpdateNameService) { }
+
+  @ViewChild('updateNameForm', { static: false }) form: any;
+  toastr: any;
+
+  constructor(private updateName: UpdateNameService) { }
 
   ngOnInit() {
-    
+
   }
 
-  onDataReceived(data)
-  {
-    console.log(JSON.stringify(data));
-    // this.dataResponse = data;
-    alert(JSON.stringify(data));
-    if(data["success"])
-    {
-      console.log("Success");
-    }
-    else
-    {
-      console.log(data["message"]);
-    }
+  onDataReceived(data) {
+    this.dataResponse = data;
+    this.showToast = true;
   }
 
 
   onSubmit() {
+    this.isProcessing = true;
     this.submitted = true;
-    this.updateNameObject = {"accountId": this.account.id, "name": this.customer.name};
-    this.updateName.doUpdate(this.updateNameObject,this.onDataReceived);
+    this.updateNameObject = { "accountId": this.account.id, "name": this.customer.name };
+    this.updateName.doUpdate(this.updateNameObject)
+      .subscribe(
+        data => {
+          this.isProcessing = false;
+          this.onDataReceived(data);
+        },
+        error => {
+          this.isProcessing = false;
+        }
+      );;
+  }
+
+  closeToast() {
+    this.showToast = false;
+    this.form.reset();
   }
 
 }
-  

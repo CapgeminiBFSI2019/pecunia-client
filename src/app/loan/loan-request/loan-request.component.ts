@@ -3,6 +3,7 @@ import { Loan } from 'src/app/model/LoanModel';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms' ;
 import {RouterModule,Routes} from '@angular/router' ;
 import { LoanRequestServiceService } from 'src/app/service/loan-request-service.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -13,22 +14,38 @@ import { LoanRequestServiceService } from 'src/app/service/loan-request-service.
 export class LoanRequestComponent implements OnInit {
   model= new Loan();
   submitted = false;
-  httpClient: any;
+  loanobj: Object;
+  httpClient : HttpClient;
+  dataResponse : Object;
   //loanRequestForm: FormGroup;
-  constructor() { 
+  constructor(private loanRequest:LoanRequestServiceService) { 
 
   }
 
   ngOnInit() {
 
     }
-    loanobj: Object;
+    onDataReceived(data)
+    {
+      console.log(JSON.stringify(data));
+      // this.dataResponse = data;
+      alert(JSON.stringify(data));
+      if(data["success"])
+      {
+        console.log("Success");
+      }
+      else
+      {
+        console.log(data["message"]);
+      }
+    }
+  
     onSubmit() {
  
-      let loanRequest= new LoanRequestServiceService(this.httpClient);
+      // let loanRequest= new LoanRequestServiceService(this.httpClient);
       this.submitted = true;
       this.loanobj = {"accountId": this.model.accountId, "amount": this.model.amount,"type":this.model.type,"creditScore":this.model.creditScore,"status":this.model.status};
-      loanRequest.doLoanRequest(this.loanobj);
+      this.loanRequest.doLoanRequest(this.loanobj,this.onDataReceived);
     }
 
   }
