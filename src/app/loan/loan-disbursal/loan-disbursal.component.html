@@ -10,32 +10,8 @@
     </select>
     <br>
     <button type="submit" (click) = "onClick()" class="btn btn-primary">Submit</button>
-    <table *ngIf = "dataReceived" id="showcase-fixedcolumns" datatable=""  cellspacing="10" cellpadding="10" border="1" width=1200 align="center">
-    <thead>
-    <tr align="center">
-      <th>Loan Id</th>
-      <th>Account Id</th>
-      <th>Amount</th>
-      <th>Type</th> 
-      <th>Tenure</th> 
-      <th>ROI</th>
-      <th>EMI</th>
-      <th>Credit Score</th>
-    </tr>
-    <tr *ngFor = "let trans of dataResponse">
-        <th>{{trans.loanId}}</th>
-        <th>{{trans.accountId}}</th>
-        <th>{{trans.amount}}</th>
-        <th>{{trans.type}}</th>
-        <th>{{trans.tenure}}</th>
-        <th>{{trans.roi}}</th>
-        <th>{{trans.emi}}</th>
-        <th>{{trans.creditScore}}</th>
-        <th>{{trans.status}}</th>
-    </tr>
-    </thead>
-    </table> 
   
+    
   
 
   </div>
@@ -56,6 +32,7 @@
 
 </form>
 
+<br><br>
 
 
 <table *ngIf = "dataReceived" id="showcase-fixedcolumns" datatable=""  cellspacing="10" cellpadding="10" border="1" width=1200 align="center">
@@ -81,4 +58,31 @@
   </thead>
   </table> 
 
- 
+  <table *ngIf = "dataReceived1" id="showcase-fixedcolumns" datatable=""  cellspacing="10" cellpadding="10" border="1" width=1200 align="center">
+    <thead>
+    <tr align="center">
+      <th>Loan Id</th>
+      <th>Account Id</th>
+      <th>Amount</th>
+      <th>Type</th> 
+      <th>Tenure</th> 
+      <th>ROI</th>
+      <th>EMI</th>
+      <th>Credit Score</th>
+      <th>Loan Status</th>
+    </tr>
+    <tr *ngFor = "let trans of dataResponse1">
+        <th>{{trans.loanId}}</th>
+        <th>{{trans.accountId}}</th>
+        <th>{{trans.amount}}</th>
+        <th>{{trans.type}}</th>
+        <th>{{trans.tenure}}</th>
+        <th>{{trans.roi}}</th>
+        <th>{{trans.emi}}</th>
+        <th>{{trans.creditScore}}</th>
+        <th>{{trans.loanStatus}}</th>
+    </tr>
+    </thead>
+    </table> 
+
+  
