@@ -12,7 +12,7 @@
 }
 
 .spinner-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -26,7 +26,8 @@
     height: 3rem;
 }
 
-.toast-container {
+
+/* .toast-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -34,4 +35,4 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
     z-index: 10;
-}
+} */

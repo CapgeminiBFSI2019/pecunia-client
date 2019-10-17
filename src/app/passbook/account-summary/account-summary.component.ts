@@ -26,7 +26,7 @@ export class AccountSummaryComponent implements OnInit {
     console.log(JSON.stringify(this.dataResponse))
   }
 
-  getJson(myData) {
+  getJson(myData: string[]) {
     let myarr = []
     for(var i=0;i<myData.length;i++)
     {
@@ -46,6 +46,7 @@ export class AccountSummaryComponent implements OnInit {
         this.onDataReceived(data);
       },
       error => {
+        alert(JSON.stringify(error));
         this.isProcessing = false;
       }
     );
