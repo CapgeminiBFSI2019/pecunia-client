@@ -1,11 +1,11 @@
 <router-outlet> </router-outlet>
 <div [hidden]="submitted">
-    <h1>Loan Request Form</h1>
+    <h1 align="center">Loan Request Form</h1>
 
     <form (ngSubmit)="onSubmit()" #loanRequestForm="ngForm">
 
         <div class="row ">
-            <div class="col-md-4 offset-md-2 ">
+            <div class="col-md-8 offset-md-2 ">
                 <label for="accountId">Account Id</label>
                 <input type="text" class="form-control" title="Enter Account Id" id="accountId" required pattern= "[0-9]*" minlength="12" maxlength="12"
                     [(ngModel)]="model.accountId" name="accountId" #accountId="ngModel">
@@ -38,10 +38,10 @@
                     Amount must be a positive integer 
                 </div>
             </div>
-        </div>
+        
 
-        <div class="row ">
-            <div class="col-md-4 offset-md-2 ">
+        
+            <div class="col-md-4">
                 <label for="type">Loan Type</label>
                 <select class="form-control" id="type" name="type" required [(ngModel)]="model.type" #type="ngModel">
                         <option value="Personal Loan">Personal Loan</option>
@@ -69,10 +69,10 @@
                 </div>
                 
             </div>
-        </div>
+    
 
-        <div class="row ">
-            <div class="col-md-4 offset-md-2 ">
+        
+            <div class="col-md-4 ">
                 <label for="roi">Enter Rate of Interest </label>
                 <input type="text" class="form-control" id="roi" required pattern="[0-9]*" [(ngModel)]="model.roi" name="roi" minlength="1" maxlength="3" 
                     #roi="ngModel">
@@ -101,10 +101,10 @@
                     Credit Score must be a positive integer between 100 & 1000 
                 </div>
             </div>
-        </div>
 
-        <div class="row ">
-            <div class="col-md-4 offset-md-2 ">
+
+        
+            <div class="col-md-4  ">
                 <label for="status">Loan Status</label>
                 <select class="form-control" id="status" name="status" required [(ngModel)]="model.status" #status="ngModel">
                         <option>Pending</option>
@@ -116,8 +116,9 @@
         </div>
 
         <div class="row ">
-                <div class="col-md-4 offset-md-2 ">
-        <button type="submit" class="btn btn-success " [disabled]="!loanRequestForm.form.valid ">Submit</button>
+                <div class="col-md-4 offset-md-5 col-mb-4 ">
+                
+        <button type="submit" align="center" class="btn btn-success " [disabled]="!loanRequestForm.form.valid ">Submit</button>
                 </div>
         </div>
 
