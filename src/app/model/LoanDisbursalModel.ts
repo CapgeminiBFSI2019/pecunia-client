@@ -6,6 +6,7 @@ export class LoanDisbursal {
     dueAmount: number;
     numberOfEmiToBePaid: number ;
     loanType : String ;
+    loanStatus:String;
 
 }
 

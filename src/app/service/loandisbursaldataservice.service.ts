@@ -16,6 +16,7 @@ export class LoandisbursaldataserviceService {
       //.get("http://localhost:9090/pecunianew/loanDisbursalData?show-loan-requests="+parameter);
   }
   showRequests(menuOption): Observable<any>{
+    alert(menuOption);
     return this.http
     .get("http://localhost:9090/pecunianew/loandisbursal?show-loan-requests="+menuOption);
   }
