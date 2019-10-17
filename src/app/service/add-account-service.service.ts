@@ -24,7 +24,5 @@ export class AddAccountServiceService {
         alert("error");
         console.log("Error :"+JSON.stringify(error));
       }
-    );
-  
-}
+    ); }
 }
