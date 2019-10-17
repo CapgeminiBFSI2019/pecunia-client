@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AccountModel } from 'src/app/model/AccountModel';
 import { CustomerModel } from 'src/app/model/CustomerModel';
 import { AddressModel } from 'src/app/model/AddressModel';
 import { AddAccountServiceService } from 'src/app/service/add-account-service.service';
 import { HttpClient } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-account',
@@ -19,40 +18,22 @@ export class AddAccountComponent implements OnInit {
   submitted = false;
   todayFormat: string;
   httpClient: HttpClient;
-  constructor(private toastr: ToastrService, private addAccount: AddAccountServiceService) { }
+  isProcessing: boolean;
+  showToast: boolean;
+   form: any;
+  dataResponse: object;
+  @ViewChild('addAccountForm' , {static: false}) 
+  toastr: any;
+  constructor(private addAccount: AddAccountServiceService) { }
   ngOnInit() {
   }
   onDataReceived(data) {
-    console.log("aaya idhar" + JSON.stringify(data));
-    // this.dataResponse = data;
-    alert(JSON.stringify(data));
-    if (data["success"]) {
-      console.log("Success");
-    }
-    else {
-      console.log(data["message"]);
-    }
+    this.dataResponse = data;
+    this.showToast = true;
   }
-  //  name : String;
-  // gender :String;
-  // dob= Date;
-  // contact= String;
-  // addressLine1: String;
-  // addressLine2: String;
-  // city: String;
-  // state: String;
-  // country:String;
-  // zipcode:String;
-  // aadhar: String;
-  // pan: String;
-  // accountType: String;
-  // branchId: String;
-  // accountBalance: String;
-  // interest: String;
-
   obj: Object;
   onSubmit() {
-    console.log("onSubmit");
+    this.isProcessing=true;
     this.submitted = true;
     this.obj = {
       "name": this.customer.name,
@@ -72,7 +53,15 @@ export class AddAccountComponent implements OnInit {
       "balance": this.account.balance,
       "interest": this.account.interest
     };
-    this.addAccount.doAdd(this.obj, this.onDataReceived);
+    this.addAccount.addAccountFunction(this.obj).subscribe(
+      data => {
+        this.isProcessing = false;
+        this.onDataReceived(data);
+      },
+      error => {
+        this.isProcessing = false;
+      }
+    );
   }
   public SetMaxDate() {
     let today = new Date();
@@ -93,5 +82,9 @@ export class AddAccountComponent implements OnInit {
       mmFormat = (mm).toString();
     this.todayFormat = yyyy + '-' + mmFormat + '-' + ddFormat;
     console.log(this.todayFormat);
+  }
+  closeToast() {
+    this.showToast = false;
+    this.form.reset();
   }
 }
