@@ -25,3 +25,9 @@
     width: 3rem;
     height: 3rem;
 }
+
+.style {
+    background: white;
+    text-align: center;
+    color:rgb(20, 196, 209);
+}
