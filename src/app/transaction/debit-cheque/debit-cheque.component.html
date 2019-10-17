@@ -1,8 +1,12 @@
 <div>
     <h3 align="center">Debit Using Cheque</h3>
     <form (ngSubmit)="onSubmit()" #debitChequeForm="ngForm" class="align-items-center">
+
+        <div class="row">
+
       
             <div class="form-group col-md-4 offset-md-4 ">
+
                 <label for="accountId">Account Id</label>
                 <input type="text" class="form-control" title="12 digit account Id" pattern="[0-9]*" minlength=12
                     maxlength="12" id="accountId" required [(ngModel)]="model.accountNumber" name="accountId"
@@ -14,9 +18,11 @@
                     Account Id should only consists 12 digits
                 </div>
             </div>
+
         
         
             <div class="form-group col-md-4 offset-md-4">
+
                 <label for="Amount">Amount</label>
                 <input type="number" class="form-control" title="Amount" id="amount" pattern="[0-9]*" min="0" required
                     [(ngModel)]="model.debitChequeAmount " name="amount" #amount="ngModel" min="100" max="100000">
@@ -80,7 +86,7 @@
                 </div>
             </div>
        
-
+        </div>
         <br>
         <div class="d-flex justify-content-center ">
             <button type="submit " class="btn btn-success " [disabled]="!debitChequeForm.form.valid ">Submit</button>
@@ -103,7 +109,7 @@
         <div class="card-body">
             <h5 class="card-title">{{dataResponse["message"]}}</h5>
             <p class="card-text">{{dataResponse["message"]}}</p>
-            <a (click)="closeToast()" class="btn btn-primary text-white">Close</a>
+            <button (click)="closeToast()" class="btn btn-primary text-white">Close</button>
         </div>
     </div>
 </div>

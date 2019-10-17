@@ -20,9 +20,8 @@ export class AddAccountComponent implements OnInit {
   httpClient: HttpClient;
   isProcessing: boolean;
   showToast: boolean;
-   form: any;
   dataResponse: object;
-  @ViewChild('addAccountForm' , {static: false}) 
+  @ViewChild('addAccountForm' , {static: false}) form: any;
   toastr: any;
   constructor(private addAccount: AddAccountServiceService) { }
   ngOnInit() {
