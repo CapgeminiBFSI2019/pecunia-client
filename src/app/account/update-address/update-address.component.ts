@@ -28,7 +28,7 @@ export class UpdateAddressComponent implements OnInit {
 
   onDataReceived(data)
   {
-    console.log("aaya idhar"+JSON.stringify(data));
+    console.log(JSON.stringify(data));
     // this.dataResponse = data;
     alert(JSON.stringify(data));
     if(data["success"])
