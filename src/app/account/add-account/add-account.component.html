@@ -21,10 +21,13 @@
             </div>
             <div class="form-group col-md-12">
                 <label for="gender">Gender</label> <select required id="gender" [(ngModel)]="customer.gender"
-                    name="gender" class="form-control">
+                    name="gender" class="form-control" #gender="ngModel">
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
+                <div *ngIf="!gender.value && gender.touched" class="alert alert-danger ">
+                    Field required
+                </div>
             </div>
             <div class="form-group col-md-12">
                 <label for="dob">Date of birth</label>
@@ -92,6 +95,35 @@
                 </div>
 
 
+
+        <div *ngIf="branchId.invalid && branchId.dirty && branchId.value" class="alert alert-danger">
+            Invalid branch Id
+        </div>
+    </div>
+    <div class="form-group col-md-6 offset-md-3">
+        <label for="Account Balance">Account Balance</label>
+        <input type="text" class="form-control" title="Enter only monetary value" pattern="[0-9]*" id="balance"
+            required [(ngModel)]="account.balance" name="balance" #balance="ngModel">
+        <div *ngIf="!balance.value && balance.touched " class="alert alert-danger ">
+            Field required
+        </div>
+        <div *ngIf="balance.invalid && balance.dirty && balance.value" class="alert alert-danger">
+            Only positive values accepted
+        </div>
+    </div>
+    <div class="form-group col-md-6 offset-md-3">
+        <label for="interest">Interest</label>
+        <input type="text" class="form-control" title="Enter valid account interest" pattern="[0-9]*"  id="interest" required [(ngModel)]="account.interest" name="interest" #interest="ngModel">
+        <div *ngIf="!interest.value && interest.touched " class="alert alert-danger ">
+            Field required
+        </div>
+        <div *ngIf="interest.invalid && interest.dirty && interest.value" class="alert alert-danger">
+            Only positive values accepted
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button type="submit " class="btn btn-info " [disabled]="!addAccountForm.form.valid ">Add account</button>
+
                 <div *ngIf="state.invalid && state.dirty && state.value" class="alert alert-danger">
                     Only alphabets allowed
                 </div>
@@ -145,12 +177,15 @@
             </div>
             <div class="form-group col-md-12">
                 <label for="account-type">Account type</label> <select required id="accountType" name="accountType"
-                    class="form-control" [(ngModel)]="account.accountType">
+                    class="form-control" [(ngModel)]="account.accountType" #accountType="ngModel">
                     <option value="Savings">Savings</option>
                     <option value="Current">Current</option>
                     <option value="FD">FD</option>
                     <option value="Loan">Loan</option>
                 </select>
+                <div *ngIf="!accountType.value && accountType.touched" class="alert alert-danger ">
+                    Field required
+                </div>
             </div>
             <div class="form-group col-md-12">
                 <label for="Branch Id">Branch Id</label>
@@ -160,6 +195,7 @@
                 <div *ngIf="!branchId.value && branchId.touched " class="alert alert-danger ">
                     Field required
                 </div>
+
 
                 <div *ngIf="branchId.invalid && branchId.dirty && branchId.value" class="alert alert-danger">
                     Invalid branch Id

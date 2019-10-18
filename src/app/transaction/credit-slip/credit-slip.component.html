@@ -15,7 +15,7 @@
         <form (ngSubmit)="onSubmit()" #creditSlipForm="ngForm">
 
             <div class="form-group col-md-12 ">
-
+                    
                 <label for="accountId">Account Id</label>
                 <input type="text" class="form-control" title="12 digit account Id" pattern="[0-9]*" minlength=12
                     maxlength="12" id="accountId" required [(ngModel)]="model.accountNumber" name="accountId"
@@ -26,6 +26,7 @@
                 <div *ngIf="accountId.invalid && accountId.touched && accountId.value" class="alert alert-danger">
                     Account Id should only consists 12 digits
                 </div>
+                
                 <label for="Amount">Amount</label>
                 <input type="number" class="form-control" title="Amount" id="amount" pattern="[0-9]*" min="0" required
                     [(ngModel)]="model.creditSlipAmount " name="amount" #amount="ngModel" min="100" max="100000"><br>
