@@ -2,7 +2,7 @@
 <div [hidden]="submitted">
     <h1 align="center">Loan Request Form</h1>
 
-    <form (ngSubmit)="onSubmit()" #loanRequestForm="ngForm">
+    <form (ngSubmit)="onSubmit()" #loanRequestForm="ngForm" ngNativeValidate>
 
         <div class="row ">
             <div class="col-md-8 offset-md-2 ">
@@ -26,7 +26,7 @@
         <div class="row ">
             <div class="col-md-4 offset-md-2 ">
                 <label for="amount">Enter Loan Amount </label>
-                <input type="text" class="form-control" id="amount" required pattern="[0-9]*" [(ngModel)]="model.amount" name="amount" minlength="4" maxlength="10"
+                <input type="text" class="form-control" id="amount" required pattern="[0-9]*" [(ngModel)]="model.amount" name="amount" minlength="4" max="10"
                     #amount="ngModel">
                     
 
@@ -61,7 +61,7 @@
         <div class="row ">
             <div class="col-md-4 offset-md-2 ">
                 <label for="tenure">Tenure(in months)</label>
-                <input type="number" class="form-control" id="tenure" required [(ngModel)]="model.tenure"  pattern="[0-9]*" name="tenure" 
+                <input type="number" class="form-control" id="tenure" required [(ngModel)]="model.tenure" name="tenure" 
                     #tenure="ngModel" min="12" max="240" required>
                 
                 <div *ngIf="!tenure.value && tenure.touched " class="alert alert-danger ">
@@ -78,16 +78,16 @@
         
             <div class="col-md-4 ">
                 <label for="roi">Enter Rate of Interest </label>
-                <input type="text" class="form-control" id="roi" required pattern="[0-9]*" [(ngModel)]="model.roi" name="roi" minlength="1" maxlength="3" 
+                <input type="number" class="form-control" id="roi" required  [(ngModel)]="model.roi" name="roi" min="4.00" max="15.00" step="0.01" 
                     #roi="ngModel">
                     
                 <div *ngIf="!roi.value && roi.touched " class="alert alert-danger ">
                     Rate of Interest is required
                 </div>
-
                 <div *ngIf="roi.invalid && roi.dirty && roi.value" class="alert alert-danger ">
                     Rate of Interest must be a number between 4 & 15 
                 </div>
+               
             </div>
         </div>
 
