@@ -32,11 +32,11 @@ export class LoanRequestComponent implements OnInit {
       alert(JSON.stringify(data));
       if(data["success"])
       {
-        console.log("Success");
+        console.log("Loan Data added successfully");
       }
       else
       {
-        console.log(data["message"]);
+        console.log(data["Some error occured,please try again"]);
       }
     }
   
