@@ -15,6 +15,7 @@ export class PassbookUpdateComponent implements OnInit {
   dataResponse : any;
   submitted = false;
   showToast = false;
+  closed= false;
  
   constructor(private passbookService : PassbookService) { }
   
@@ -83,5 +84,11 @@ export class PassbookUpdateComponent implements OnInit {
   closeToast() {
     this.showToast = false;
     this.submitted= false;
+  }
+
+  onClose(){
+     this.closed= true;
+     this.dataReceived=false;
+     this.submitted=false;
   }
 }
