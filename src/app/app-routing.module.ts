@@ -38,7 +38,7 @@ const routes: Routes = [
   {path: 'loan/loan-menu', component: LoanMenuComponent},
   {path: 'passbook/account-summary', component: AccountSummaryComponent},
   {path: 'passbook/passbook-update', component: PassbookUpdateComponent},
-
+  {path: 'login', component : LoginComponent}
 ];
 
 @NgModule({

@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoginModel } from '../model/LoginModel';
 import { LoginService } from 'src/app/service/login.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,13 +14,15 @@ export class LoginComponent implements OnInit {
   LoginModel = new LoginModel();
   submitted = false;
   dataResponse: any;
+  cookieValue = 'UNKNOWN';
   // loginObject: any;
   // httpClient: HttpClient;
   @ViewChild('LoginForm' , {static: false}) form: any;
-  constructor(private loginService: LoginService,private _router: Router,
-    private _route: ActivatedRoute) { }
+  constructor(private loginService: LoginService,private _router: Router) { }
 
   ngOnInit() {
+    
+
 
   }
 
@@ -43,6 +46,7 @@ export class LoginComponent implements OnInit {
       data => {
         this.isProcessing = false;
         this.onDataReceived(data);
+        
       },
       error => {
         this.isProcessing = false;
@@ -52,8 +56,16 @@ export class LoginComponent implements OnInit {
 
   closeToast() {
     this.showToast = false;
-    this.form.reset();
-    this._router.navigate(['']);
+    
+    if(this.dataResponse['success']) {
+      this.form.reset();
+      localStorage.setItem('isLoggedIn', "true");
+      console.log('Login success');
+      this._router.navigate(['account/account-menu']);
+    }
+    else {
+      console.log('Login fail');
+    }
   }
     // this.loginObject = { "username": this.LoginModel.username, "password": this.LoginModel.password };
     // this.loginService.doLogin(this.loginObject);
