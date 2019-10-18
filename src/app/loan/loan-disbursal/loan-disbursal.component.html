@@ -94,6 +94,20 @@
   </thead>
 </table>
 
+<table *ngIf="dataReceived2" class="table table-striped table-hover table-bordered" id="showcase-fixedcolumns" datatable="" cellspacing="10" cellpadding="10" border="1"
+  width=1200 align="center">
+  <thead class="thead-dark">
+    <tr align="center">
+      <th>Report</th>
+
+    </tr>
+    <tr *ngFor="let trans of dataResponse2">
+      <th>{{trans}}</th>
+      
+    </tr>
+  </thead>
+</table>
+
 
 
 
