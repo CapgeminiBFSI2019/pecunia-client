@@ -20,7 +20,7 @@ export class LoanRequestComponent implements OnInit {
   isProcessing: boolean = false;
   dataResponse : Object;
   
-  @ViewChild('updateloanRequestForm', { static: false }) form: any;
+  @ViewChild('loanRequestForm', { static: false }) form: any;
   toastr: any;
 
   constructor(private loanRequest:LoanRequestServiceService) { 
@@ -34,17 +34,7 @@ export class LoanRequestComponent implements OnInit {
     {
       this.dataResponse = data;
       this.showToast = true;
-      // console.log(JSON.stringify(data));
-      // // this.dataResponse = data;
-      // alert(JSON.stringify(data));
-      // if(data["success"])
-      // {
-      //   console.log("Loan Data added successfully");
-      // }
-      // else
-      // {
-      //   console.log(data["Some error occured,please try again"]);
-      // }
+      
     }
    
     onSubmit() {
