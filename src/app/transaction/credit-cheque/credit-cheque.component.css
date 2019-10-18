@@ -25,3 +25,33 @@
     width: 3rem;
     height: 3rem;
 }
+
+.form-header-container {
+    width: 200px;
+}
+
+.header-arrow {
+    position: relative;
+    box-sizing: content-box;
+    border: 50px solid #17a2b8;
+}
+
+.header-arrow-border {
+    box-sizing: content-box;
+    border-top: 50px solid #17a2b8;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 50px solid transparent;
+}
+
+.form-title {
+    font-weight: bold;
+    font-size: 25px;
+    width: 200px;
+    line-height: 30px;
+    text-align: center;
+    display: block;
+    position: absolute;
+    top: -25px;
+    left: -50px;
+}
