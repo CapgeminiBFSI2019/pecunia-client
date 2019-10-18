@@ -28,31 +28,28 @@ export class LoanDisbursalComponent implements OnInit {
   onDataReceived(data)
   {
     this.dataResponse = this.getJson(data["data"]);
-    alert(JSON.stringify(this.dataResponse))
     this.dataReceived = true;
     this.dataReceived1 = false;
     this.dataReceived2 = false;
-    console.log(JSON.stringify(this.dataResponse))
   }
 
   onDataReceived1(data)
   {
     this.dataResponse1 = this.getJson(data["data"]);
-    alert(JSON.stringify(this.dataResponse1))
     this.dataReceived1 = true;
     this.dataReceived = false;
     this.dataReceived2 = false;
-    console.log(JSON.stringify(this.dataResponse1))
+    
   }
 
   onDataReceived2(data)
   {
     this.dataResponse2 = this.getJson(data["data"]);
-    alert(JSON.stringify(this.dataResponse2))
+    
     this.dataReceived2 = true;
     this.dataReceived = false;
     this.dataReceived1 = false;
-    console.log(JSON.stringify(this.dataResponse2))
+    
   }
 
   getJson(myData) {
@@ -98,16 +95,15 @@ onClick() {
 
 onClicking() {
   
-  // this.isProcessing = true;
+  this.isProcessing = true;
   this.submitted = true;
   this.loanDisbursalservice.update().subscribe(
     data => {
-      console.log(JSON.stringify(data));
+   
       this.isProcessing = false;
       this.onDataReceived2(data);
     },
     error => {
-      console.log(JSON.stringify(error));
       this.isProcessing = false;
     }
   );
