@@ -4,9 +4,9 @@
     </div>
     <div class="card-body  mt-1">
 
-        <form (ngSubmit)="onSubmit()" class="row p-0" #creditChequeForm="ngForm">
+        <form (ngSubmit)="onSubmit()"  #creditChequeForm="ngForm">
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
                 <label for="payeeAccountNumber">Payee Account Number</label>
                 <input type="text" class="form-control" title="Numeric account Id" pattern="[0-9]*" minlength=10
                     maxlength="15" id="payeeAccountNumber" required [(ngModel)]="model.payeeAccountNumber"
@@ -19,7 +19,7 @@
                     Payee Account Id should only contain only digits
                 </div>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
                 <label for="beneficiaryAccountNumber">Beneficiary Account Number</label>
                 <input type="text" class="form-control" title="Numeric account Id" pattern="[0-9]*" minlength="12"
                     maxlength="12" id="beneficiaryAccountNumber" required [(ngModel)]="model.beneficiaryAccountNumber"
@@ -33,7 +33,7 @@
                     Beneficiary Account numbrt should only contain only 12 digits
                 </div>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
                 <label for="creditChequeNumber">Cheque Number</label>
                 <input type="text" class="form-control" title="Numeric account Id" pattern="[0-9]*" minlength="6"
                     maxlength="6" id="creditChequeNumber" required [(ngModel)]="model.creditChequeNumber"
@@ -46,7 +46,7 @@
                     Cheque number should only contain only 6 digits
                 </div>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
                 <label for="payeeName">Payee Name</label>
                 <input type="text" class="form-control" title="Numeric account Id" pattern="[a-zA-Z ]*" id="payeeName"
                     required [(ngModel)]="model.payeeName" name="payeeName" #payeeName="ngModel">
@@ -57,7 +57,7 @@
                     Payee name should only contain alphabets
                 </div>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
                 <label for="creditChequeAmount">Transaction Amount</label>
                 <input type="number" class="form-control" title="Numeric account Id" pattern="[0-9]*"
                     id="creditChequeAmount" required [(ngModel)]="model.creditChequeAmount" name="creditChequeAmount"
@@ -70,7 +70,7 @@
                     Transaction Amount should only contain alphabets
                 </div>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
                 <label for="creditChequeIssueDate">Cheque Issue Date</label>
                 <input type="date" class="form-control" title="Numeric account Id" id="creditChequeIssueDate" required
                     [(ngModel)]="model.creditChequeIssueDate" name="creditChequeIssueDate"
@@ -83,7 +83,7 @@
                     Invalid date
                 </div>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
                 <label for="bankName">Bank Name</label>
                 <select id="inputBank" name="bankName" class="form-control " id="bankName" required
                     [(ngModel)]="model.bankName" #bankName="ngModel">
@@ -100,7 +100,7 @@
                     Invalid bank Name
                 </div>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-12">
                 <label for="payeeIfsc">IFSC </label>
                 <input type="text" class="form-control" title="Numeric account Id" minlength="11" maxlength="11"
                     pattern="[A-Z]{4}[0-9]{7}" id="payeeIfsc" required [(ngModel)]="model.payeeIfsc" name="payeeIfsc"

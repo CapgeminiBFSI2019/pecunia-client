@@ -14,7 +14,7 @@ export class DeleteAccountService {
   doDelete(deleteAccount){
 
     return this.http
-      .post("http://localhost:9090/pecunianew/DeleteAccountServlet",deleteAccount);
+      .post("http://localhost:8063/pecunianew/DeleteAccountServlet",deleteAccount);
       
   }
 
