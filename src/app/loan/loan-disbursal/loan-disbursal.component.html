@@ -43,9 +43,10 @@
 </div>
 
 <br><br>
-
-
-<table *ngIf="dataReceived"  class="table table-striped table-hover table-bordered" id="showcase-fixedcolumns" datatable="" cellspacing="10" cellpadding="10" border="1"
+<div class="container" *ngIf = "dataReceived">
+  <h2>Loan Disbursal</h2>
+  <div class="table-responsive"> 
+<table  class="table table-striped table-hover table-bordered" id="showcase-fixedcolumns" datatable="" cellspacing="10" cellpadding="10" border="1"
   width=1200 align="center">
   <thead class="thead-dark">
     <tr align="center">
@@ -57,6 +58,8 @@
       <th>Number Of Emi To Be Paid</th>
       <th>Loan Type</th>
     </tr>
+  </thead>
+  <tbody>
     <tr *ngFor="let trans of dataResponse">
       <th>{{trans.loanDisbursalId}}</th>
       <th>{{trans.loanId}}</th>
@@ -66,10 +69,16 @@
       <th>{{trans.numberOfEmiToBePaid}}</th>
       <th>{{trans.loanType}}</th>
     </tr>
-  </thead>
+  </tbody>
 </table>
+</div>
+</div>
 
-<table *ngIf="dataReceived1" class="table table-striped table-hover table-bordered" id="showcase-fixedcolumns" datatable="" cellspacing="10" cellpadding="10" border="1"
+<div class="container" *ngIf = "dataReceived1">
+  <h2>Loan Requests</h2>
+  <div class="table-responsive"> 
+
+<table class="table table-striped table-hover table-bordered" id="showcase-fixedcolumns" datatable="" cellspacing="10" cellpadding="10" border="1"
   width=1200 align="center">
   <thead class="thead-dark">
     <tr align="center">
@@ -81,8 +90,10 @@
       <th>ROI</th>
       <th>EMI</th>
       <th>Credit Score</th>
-
+    
     </tr>
+  </thead>
+    <tbody>
     <tr *ngFor="let trans of dataResponse1">
       <th>{{trans.loanId}}</th>
       <th>{{trans.accountId}}</th>
@@ -94,22 +105,32 @@
       <th>{{trans.creditScore}}</th>
 
     </tr>
-  </thead>
+  </tbody>
 </table>
+</div>
+</div>
 
-<table *ngIf="dataReceived2" class="table table-striped table-hover table-bordered" id="showcase-fixedcolumns" datatable="" cellspacing="10" cellpadding="10" border="1"
+<div class="container" *ngIf = "dataReceived2">
+  <h2>Loan Requests</h2>
+  <div class="table-responsive"> 
+
+<table class="table table-striped table-hover table-bordered" id="showcase-fixedcolumns" datatable="" cellspacing="10" cellpadding="10" border="1"
   width=1200 align="center">
   <thead class="thead-dark">
     <tr align="center">
       <th>Report</th>
 
     </tr>
+  </thead>
+  <tbody>
     <tr *ngFor="let trans of dataResponse2">
       <th>{{trans}}</th>
       
     </tr>
-  </thead>
+  </tbody>
 </table>
+</div>
+</div>
 
 
 
