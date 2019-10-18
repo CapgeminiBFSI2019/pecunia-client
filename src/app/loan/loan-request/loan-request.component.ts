@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Loan } from 'src/app/model/LoanModel';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms' ;
 import {RouterModule,Routes} from '@angular/router' ;
@@ -16,8 +16,13 @@ export class LoanRequestComponent implements OnInit {
   submitted = false;
   loanobj: Object;
   httpClient : HttpClient;
+  showToast = false;
+  isProcessing: boolean = false;
   dataResponse : Object;
   
+  @ViewChild('updateloanRequestForm', { static: false }) form: any;
+  toastr: any;
+
   constructor(private loanRequest:LoanRequestServiceService) { 
 
   }
@@ -27,27 +32,42 @@ export class LoanRequestComponent implements OnInit {
     }
     onDataReceived(data)
     {
-      console.log(JSON.stringify(data));
-      // this.dataResponse = data;
-      alert(JSON.stringify(data));
-      if(data["success"])
-      {
-        console.log("Loan Data added successfully");
-      }
-      else
-      {
-        console.log(data["Some error occured,please try again"]);
-      }
+      this.dataResponse = data;
+      this.showToast = true;
+      // console.log(JSON.stringify(data));
+      // // this.dataResponse = data;
+      // alert(JSON.stringify(data));
+      // if(data["success"])
+      // {
+      //   console.log("Loan Data added successfully");
+      // }
+      // else
+      // {
+      //   console.log(data["Some error occured,please try again"]);
+      // }
     }
-  
+   
     onSubmit() {
  
-      
+      this.isProcessing = true;
       this.submitted = true;
       this.loanobj = {"accountId": this.model.accountId, "amount": this.model.amount,"type":this.model.type,"creditScore":this.model.creditScore,"status":this.model.status};
-      this.loanRequest.doLoanRequest(this.model,this.onDataReceived);
+      this.loanRequest.doLoanRequest(this.model)
+      .subscribe(
+        data => {
+          this.isProcessing = false;
+          this.onDataReceived(data);
+        },
+        error => {
+          this.isProcessing = false;
+        }
+      );;
     }
 
+    closeToast() {
+      this.showToast = false;
+      this.form.reset();
+    }
   }
   
 
