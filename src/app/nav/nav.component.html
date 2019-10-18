@@ -1,6 +1,6 @@
 <header>
 
-  <!-- <div class = "container">
+    <!-- <div class = "container">
         <a routerLink = "/" class = "logo">Pecunia</a>
         <nav>
             <ul>
@@ -26,85 +26,92 @@
     </div> -->
 
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
-    <a class="navbar-brand active" href="#"><i class="fas fa-home text-light mr-2 active"></i>Pecunia</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <a class="navbar-brand active" href="#"><i class="fas fa-home text-light mr-2 active"></i>Pecunia</a>
 
-    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div id="navbarNavDropdown" class="navbar-collapse collapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown active">
-          
-          <a class="nav-link dropdown-toggle " href="#" id="navbardrop" data-toggle="dropdown"><span
+        <div id="navbarNavDropdown" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown active">
+
+                    <a class="nav-link dropdown-toggle " href="#" id="navbardrop" data-toggle="dropdown"><span
             class="fa fa-address-card"></span>
             Account
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" routerLink='account/add-account'>Add Account</a><div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink='account/update-name'>Update Customer Name</a><div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink='account/update-contact'>Update Customer Contact</a><div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink='account/update-address'>Update Customer Address</a><div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink='account/delete-account'>Delete Account</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" routerLink='account/add-account'>Add Account</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink='account/update-name'>Update Customer Name</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink='account/update-contact'>Update Customer Contact</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink='account/update-address'>Update Customer Address</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink='account/delete-account'>Delete Account</a>
 
-          </div>
-        </li>
+                    </div>
+                </li>
 
-        <li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><span
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><span
             class="fa fa-coins"></span>
             Transaction
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" routerLink='transaction/credit-slip'>Credit Slip</a><div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink='transaction/credit-cheque'>Credit Cheque</a><div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink='transaction/debit-slip'>Debit Slip</a><div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink='transaction/debit-cheque'>Debit Cheque</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" routerLink='transaction/credit-slip'>Credit Slip</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink='transaction/credit-cheque'>Credit Cheque</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink='transaction/debit-slip'>Debit Slip</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink='transaction/debit-cheque'>Debit Cheque</a>
 
 
-          </div>
-        </li>
-        <li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><span
+                    </div>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><span
             class="fa fa-donate"></span>
             Loan
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" routerLink='loan/loan-request'>Loan Request</a><div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink='loan/loan-disbursal'>Loan Disbursal</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" routerLink='loan/loan-request'>Loan Request</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink='loan/loan-disbursal'>Loan Disbursal</a>
 
-          </div>
-        </li>
-        <li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false"><span
+                    </div>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
             class="fa fa-wallet"></span>
             Passbook
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" routerLink='passbook/account-summary'>Account Summary</a><div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink='passbook/passbook-update'>Passbook Update</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" routerLink='passbook/account-summary'>Account Summary</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink='passbook/passbook-update'>Passbook Update</a>
 
-          </div>
-        </li>
-      </ul>
-      <ul class="navbar-nav">
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
 
-        <li class="nav-item">
-          <form action="logout" method="POST">
-            <button type="submit" class="btn btn-info"><span
+                <li class="nav-item">
+                    <form action="logout" method="POST">
+                        <button type="submit" class="btn btn-info" (click)="logout()"><span
               class="fa fa-power-off mr-2"></span>Logout</button>
-          </form>
-        </li>
-      </ul>
-    </div>
-  </nav>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 
 
-  <div class="bg"></div>
-  <!-- <div class="row offset-md-4">
+    <div class="bg"></div>
+    <!-- <div class="row offset-md-4">
     <h1 align="center">Welcome to Pecunia Bank!</h1>
   </div> -->
 

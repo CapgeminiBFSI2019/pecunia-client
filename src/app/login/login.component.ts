@@ -14,7 +14,6 @@ export class LoginComponent implements OnInit {
   LoginModel = new LoginModel();
   submitted = false;
   dataResponse: any;
-  cookieValue = 'UNKNOWN';
   // loginObject: any;
   // httpClient: HttpClient;
   @ViewChild('LoginForm' , {static: false}) form: any;
