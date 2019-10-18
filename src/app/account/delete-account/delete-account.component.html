@@ -1,4 +1,4 @@
-<div class="card nopadding mt-3">
+<div class="card nopadding mt-3  mb-4">
     <!-- <h3 class = "style"></h3> -->
     <div class="card-header  bg-info text-center text-light">
             <strong>Delete account</strong>
@@ -6,7 +6,7 @@
 
     <div class="card-body  mt-1">
 <form (ngSubmit)="onSubmit()" #accountDeletionForm="ngForm">
-    <div class="form-group col-md-8 offset-md-2">
+    <div class="form-group col-md-12">
         <label for="accountId">Account Id</label>
         <input type="text" class="form-control" title="12 digit account id" pattern="[0-9]*" minlength=12 maxlength="12"
             id="accountId" required [(ngModel)]="account.id" name="accountId" #accountId="ngModel">
@@ -32,7 +32,7 @@
 <div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
     <div class="card text-center m-4 offset-md-4">
         <div class="card-header">
-            <b>Account deleted successfully!</b>
+            <b>Delete Account</b>
         </div>
         <div class="card-body">
             <p class="card-text">{{dataResponse["message"]}}</p>
