@@ -16,34 +16,57 @@ export class LoanDisbursalComponent implements OnInit {
   dataReceived : boolean = false;
   dataReceived1 : boolean = false;
   dataReceived2 : boolean = false;
+  showToast = false;
   dataResponse : any;
   dataResponse1 : any;
   dataResponse2 : any;
   submitted = false;
+
+
+
+  
   constructor(private loanDisbursalservice : LoandisbursaldataserviceService) { }
 
   ngOnInit() {
   }
 
+
   onDataReceived(data)
+ 
   {
+    if(data["data"])
+    {
     this.dataResponse = this.getJson(data["data"]);
     this.dataReceived = true;
     this.dataReceived1 = false;
     this.dataReceived2 = false;
   }
+  else{
+         this.dataResponse= data;
+          this.showToast = true;
+     }
+}
 
   onDataReceived1(data)
   {
+    if(data["data"])
+    {
     this.dataResponse1 = this.getJson(data["data"]);
     this.dataReceived1 = true;
     this.dataReceived = false;
     this.dataReceived2 = false;
     
   }
+  else{
+    this.dataResponse= data;
+     this.showToast = true;
+   }
+}
 
   onDataReceived2(data)
   {
+    if(data["data"])
+    {
     this.dataResponse2 = this.getJson(data["data"]);
     
     this.dataReceived2 = true;
@@ -51,6 +74,11 @@ export class LoanDisbursalComponent implements OnInit {
     this.dataReceived1 = false;
     
   }
+  else{
+    this.dataResponse= data;
+     this.showToast = true;
+   }
+}
 
   getJson(myData) {
   let myarr = []
@@ -109,6 +137,13 @@ onClicking() {
   );
 }
 
+closeToast() {
+  this.showToast = false;
+  this.submitted= false;
+}
+
 
 }
+
+
 
