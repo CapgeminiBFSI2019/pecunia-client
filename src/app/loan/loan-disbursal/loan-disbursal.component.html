@@ -44,6 +44,7 @@
 </div>
 </div>
 <br><br>
+<div [hidden]="!submitted">
 <div class="container" *ngIf = "dataReceived">
   <h2>Loan Disbursal</h2>
   <div class="table-responsive"> 
@@ -72,9 +73,15 @@
     </tr>
   </tbody>
 </table>
+<br>
+<div class="d-flex justify-content-center ">
+    <button type="submit" (click)="close()" class="btn btn-info">Close</button>
+  </div>
+</div>
 </div>
 </div>
 
+<div [hidden]="!submitted">
 <div class="container" *ngIf = "dataReceived1">
   <h2>Loan Requests</h2>
   <div class="table-responsive"> 
@@ -108,9 +115,15 @@
     </tr>
   </tbody>
 </table>
+<br>
+<div class="d-flex justify-content-center ">
+    <button type="submit" (click)="close1()" class="btn btn-info">Close</button>
+  </div>
+</div>
 </div>
 </div>
 
+<div [hidden]="!submitted">
 <div class="container" *ngIf = "dataReceived2">
   <h2>Loan Requests</h2>
   <div class="table-responsive"> 
@@ -130,9 +143,13 @@
     </tr>
   </tbody>
 </table>
+<br>
+<div class="d-flex justify-content-center ">
+    <button type="submit" (click)="close2()" class="btn btn-info">Close</button>
+  </div>
 </div>
 </div>
-
+</div>
 
 
 

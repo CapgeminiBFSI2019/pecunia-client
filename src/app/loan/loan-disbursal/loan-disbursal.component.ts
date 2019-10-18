@@ -141,8 +141,18 @@ closeToast() {
   this.showToast = false;
   this.submitted= false;
 }
-
-
+close(){
+  this.submitted = false;
+  this.dataReceived = false;
+}
+close1(){
+  this.submitted = false;
+  this.dataReceived2 = false;
+}
+close2(){
+  this.submitted = false;
+  this.dataReceived1 = false;
+}
 }
 
 
