@@ -69,3 +69,12 @@
  .th {
     vertical-align: middle;
   }
+
+  .card-header {
+      position: relative;
+  }
+  #close-btn {
+      position: absolute;
+      top : 0;
+      right :0;
+  }

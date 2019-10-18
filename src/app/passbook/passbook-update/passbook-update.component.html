@@ -4,7 +4,7 @@
     <strong>Passbook Update</strong>
   </div>
 
-  <div >
+  <div>
     <div class="card-body mt-1">
       <form (ngSubmit)="onSubmit()" #passbook="ngForm">
         <div class="form-group col-md-12 ">
@@ -33,45 +33,46 @@
 </div>
 
 <div [hidden]="!submitted" class="card table mt-3 mb-4">
-    <div class="card-header bg-info text-center text-light">
-      <strong>Passbook Details</strong>
-    </div>
-    <br>
-<div class="container bg-light p-0 " *ngIf="dataReceived">
-  <!-- <h2>Passbook Details</h2> -->
-  <div class="table-responsive">
-    <table class="table table-striped table-hover table-bordered" id="showcase-fixedcolumns" datatable=""
-      cellspacing="20" cellpadding="10" width=1200 align="center">
-      <thead class="bg-info text-white th">
-        <tr align="center">
-          <th>Id</th>
-          <th>Date</th>
-          <th>Amount</th>
-          <th>From</th>
-          <th>To</th>
-          <th>Type</th>
-          <th>Option</th>
-          <th>Cheque ID</th>
-          <th>Closing Balance</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let trans of dataResponse">
-          <td>{{trans.id}}</td>
-          <td>{{trans.transDate}}</td>
-          <td>{{trans.amount}}</td>
-          <td>{{trans.transFrom}}</td>
-          <td>{{trans.transTo}}</td>
-          <td>{{trans.type}}</td>
-          <td>{{trans.option}}</td>
-          <td>{{trans.chequeId}}</td>
-          <td>{{trans.closingBalance}}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="card-header bg-info text-light">
+    <strong class="d-flex justify-content-center ">Passbook Details</strong>
+    <button (click)="onClose()" type="button" class="btn btn-info mr-2 " id="close-btn">Close</button>
   </div>
-</div>
-<br>
+  
+  <br>
+  <div class="container bg-light p-0 " *ngIf="dataReceived">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover table-bordered" id="showcase-fixedcolumns" datatable=""
+        cellspacing="20" cellpadding="10" width=1200 align="center">
+        <thead class="bg-info text-white th">
+          <tr align="center">
+            <th>Id</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Type</th>
+            <th>Option</th>
+            <th>Cheque ID</th>
+            <th>Closing Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let trans of dataResponse">
+            <td>{{trans.id}}</td>
+            <td>{{trans.transDate}}</td>
+            <td>{{trans.amount}}</td>
+            <td>{{trans.transFrom}}</td>
+            <td>{{trans.transTo}}</td>
+            <td>{{trans.type}}</td>
+            <td>{{trans.option}}</td>
+            <td>{{trans.chequeId}}</td>
+            <td>{{trans.closingBalance}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br>
 </div>
 
 <div *ngIf="isProcessing" class="spinner-container d-flex align-items-center justify-content-center flex-column">
@@ -88,7 +89,7 @@
     <div class="card-body">
 
       <p class="card-text">{{dataResponse["message"]}}</p>
-      <button (click)="closeToast()" class="btn btn-primary text-white">Close</button>
+      <button (click)="closeToast()" class="btn btn-info text-white">Close</button>
     </div>
   </div>
 </div>
