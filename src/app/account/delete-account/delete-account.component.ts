@@ -41,6 +41,7 @@ export class DeleteAccountComponent implements OnInit {
 
 
   onSubmit() {
+    this.isProcessing = true;
     this.submitted = true;
     this.deleteAccountObject = {"accountId": this.account.id};
     this.deleteAccount.doDelete(this.deleteAccountObject)
