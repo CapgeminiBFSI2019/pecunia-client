@@ -4,7 +4,7 @@
     </div>
     <div class="card-body  mt-1">
         <form (ngSubmit)="onSubmit()" #updateContactForm="ngForm">
-            <div class="form-group col-md-6 offset-md-3">
+            <div class="form-group col-md-12">
                 <label for="accountId">Account Id</label>
                 <input type="text" class="form-control" title="12 digit account id" pattern="[0-9]*" minlength=12
                     maxlength="12" id="accountId" required [(ngModel)]="account.id" name="accountId"
