@@ -4,7 +4,7 @@
     </div>
     <div class="card-body  mt-1">
         <form (ngSubmit)="onSubmit()" #updateAddressForm="ngForm">
-            <div class="form-group col-md-6 offset-md-3">
+            <div class="form-group col-md-12">
                 <label for="accountId">Account Id</label>
                 <input type="text" class="form-control" title="12 digit account id" pattern="[0-9]*" id="accountId"
                     required [(ngModel)]="account.id" name="accountId" #accountId="ngModel">
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-success"
+                <button type="submit" class="btn btn-info"
                     [disabled]="!updateAddressForm.form.valid ">Submit</button>
             </div>
         </form>
@@ -101,7 +101,7 @@
             <b>Update Customer Address</b>
         </div>
         <div class="card-body">
-            <p class="card-title">{{dataResponse["message"]}}</p>
+            <p class="card-text">{{dataResponse["message"]}}</p>
             <button (click)="closeToast()" class="btn btn-primary text-white">Close</button>
         </div>
     </div>
