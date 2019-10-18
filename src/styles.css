@@ -1,12 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
 .row {
     padding-top: 50px;
 }
-.bg{
+
+.bg {
     background-image: url("src\app\assets\images\logo.png");
-    
     /* background-repeat: no-repeat;
     background-position: bottom; */
-    
 }
-
