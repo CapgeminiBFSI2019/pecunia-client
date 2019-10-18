@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
   closeToast() {
     this.showToast = false;
     this.form.reset();
-    this._router.navigate(['/login']);
+    this._router.navigate(['']);
   }
     // this.loginObject = { "username": this.LoginModel.username, "password": this.LoginModel.password };
     // this.loginService.doLogin(this.loginObject);

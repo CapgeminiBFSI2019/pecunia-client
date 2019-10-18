@@ -19,7 +19,6 @@ export class AccountSummaryComponent implements OnInit {
   
   ngOnInit() {}
 
-
   onDataReceived(data)
   {
     if(data["data"])
@@ -73,7 +72,6 @@ export class AccountSummaryComponent implements OnInit {
         this.onDataReceived(data);
       },
       error => {
-        alert(JSON.stringify(error));
         this.isProcessing = false;
       }
     );
