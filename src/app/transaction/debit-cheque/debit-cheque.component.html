@@ -1,11 +1,14 @@
-<div>
-    <h3 align="center">Debit Using Cheque</h3>
-    <form (ngSubmit)="onSubmit()" #debitChequeForm="ngForm" class="align-items-center">
+<div class="card nopadding mt-3">
+    <!-- <h3 class = "style"></h3> -->
+    <div class="card-header  bg-info text-center text-light">
+        <strong>Debit Using Cheque</strong>
+    </div>
 
-        <div class="row">
+    <div class="card-body  mt-1">
+        <form (ngSubmit)="onSubmit()" #debitChequeForm="ngForm">
 
-      
-            <div class="form-group col-md-4 offset-md-4 ">
+
+            <div class="form-group col-md-12">
 
                 <label for="accountId">Account Id</label>
                 <input type="text" class="form-control" title="12 digit account Id" pattern="[0-9]*" minlength=12
@@ -17,11 +20,6 @@
                 <div *ngIf="accountId.invalid && accountId.dirty && accountId.value" class="alert alert-danger">
                     Account Id should only consists 12 digits
                 </div>
-            </div>
-
-        
-        
-            <div class="form-group col-md-4 offset-md-4">
 
                 <label for="Amount">Amount</label>
                 <input type="number" class="form-control" title="Amount" id="amount" pattern="[0-9]*" min="0" required
@@ -32,10 +30,6 @@
                 <div *ngIf="amount.invalid && amount.dirty" class="alert alert-danger">
                     Amount invalid
                 </div>
-            </div>
-        
-      
-            <div class="form-group col-md-4 offset-md-4">
                 <label for="chequeNum">Cheque Number</label>
                 <input type="text" class="form-control" title="Cheque Number" id="chequeNum" pattern="[0-9]*" required
                     [(ngModel)]="model.debitChequeNumber " name="chequeNum" #chequeNum="ngModel" minlength="6"
@@ -46,10 +40,6 @@
                 <div *ngIf="amount.invalid && amount.dirty" class="alert alert-danger ">
                     Cheque number is invalid
                 </div>
-            </div>
-        
-        
-            <div class="form-group col-md-4 offset-md-4">
                 <label for="name">Cheque Holder Name</label>
                 <input type="text" class="form-control" title="Enter your name" pattern="[A-Za-z\s]*" id="name" required
                     [(ngModel)]="model.holderName" name="Only alphabets allowed" #name="ngModel">
@@ -59,22 +49,16 @@
                 <div *ngIf="name.invalid && name.dirty && name.value" class="alert alert-danger">
                     Alphabets allowed
                 </div>
-            </div>
-        
-            <div class="form-group col-md-4 offset-md-4">
                 <label for="ifsc">IFSC</label>
-                <input type="text" class="form-control" title="Enter cheque IFSC" minlength="11" maxlength="11" pattern="[A-Z]{4}[0-9]{7}" id="ifsc"
-                    required [(ngModel)]="model.ifsc" name="Only alphabets and digits allowed" #ifsc="ngModel">
+                <input type="text" class="form-control" title="Enter cheque IFSC" minlength="11" maxlength="11"
+                    pattern="[A-Z]{4}[0-9]{7}" id="ifsc" required [(ngModel)]="model.ifsc"
+                    name="Only alphabets and digits allowed" #ifsc="ngModel">
                 <div *ngIf="!ifsc.value &&ifsc.touched " class="alert alert-danger ">
                     IFSC required
                 </div>
                 <div *ngIf="ifsc.invalid && ifsc.dirty && ifsc.value" class="alert alert-danger">
                     Alphabets and digits allowed
                 </div>
-            </div>
-        
-        
-            <div class="form-group col-md-4 offset-md-4">
                 <label for="issueDate">Cheque Issue Date </label>
                 <input type="date" (click)="SetMaxDate()" [max]="todayFormat" class="form-control" id="issueDate"
                     required [(ngModel)]="model.issueDate" name="issueDate" #issueDate="ngModel">
@@ -83,17 +67,14 @@
                 </div>
                 <div *ngIf="issueDate.invalid && issueDate.dirty && issueDate.value" class="alert alert-danger">
                     Date allowed
+                </div><br>
+                <div class="d-flex justify-content-center ">
+                    <button type="submit " class="btn btn-info"[disabled]="!debitChequeForm.form.valid ">Submit</button>
                 </div>
             </div>
-       
-        </div>
-        <br>
-        <div class="d-flex justify-content-center ">
-            <button type="submit " class="btn btn-success " [disabled]="!debitChequeForm.form.valid ">Submit</button>
-        </div><br>
-
-    </form>
-</div>
+        </form>
+    </div>
+</div><br>
 <div *ngIf="isProcessing" class="spinner-container d-flex align-items-center justify-content-center flex-column">
     <div class="spinner-border text-info" role="status">
         <!-- <span class="sr-only">Loading...</span> -->
@@ -104,10 +85,10 @@
 <div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
     <div class="card text-center m-3">
         <div class="card-header">
-            Cheque Transaction
+           <strong>Cheque Transaction</strong>
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{dataResponse["message"]}}</h5>
+            <!-- <h5 class="card-title">{{dataResponse["message"]}}</h5> -->
             <p class="card-text">{{dataResponse["message"]}}</p>
             <button (click)="closeToast()" class="btn btn-primary text-white">Close</button>
         </div>

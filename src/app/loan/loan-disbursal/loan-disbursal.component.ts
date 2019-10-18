@@ -98,14 +98,16 @@ onClick() {
 
 onClicking() {
   
-  this.isProcessing = true;
+  // this.isProcessing = true;
   this.submitted = true;
   this.loanDisbursalservice.update().subscribe(
     data => {
+      console.log(JSON.stringify(data));
       this.isProcessing = false;
       this.onDataReceived2(data);
     },
     error => {
+      console.log(JSON.stringify(error));
       this.isProcessing = false;
     }
   );
