@@ -26,67 +26,35 @@
     height: 3rem;
 }
 
-.form-header-container {
-    width: 200px;
-}
 
-.header-arrow {
-    position: relative;
-    box-sizing: content-box;
-    border: 50px solid #17a2b8;
-}
 
-.header-arrow-border {
-    box-sizing: content-box;
-    border-top: 50px solid #17a2b8;
-    border-left: 100px solid transparent;
-    border-right: 100px solid transparent;
-    border-bottom: 50px solid transparent;
-}
-
-.form-title {
-    font-weight: bold;
-    font-size: 25px;
-    width: 200px;
-    line-height: 30px;
+.style {
+    background: white;
     text-align: center;
-    display: block;
-    position: absolute;
-    top: -25px;
-    left: -50px;
+    color:rgb(20, 196, 209);
+}
+.pecuniaforms{
+    margin:2% 10%;
+    padding :5%;
+    background-color:#dbdbdb;
+    border-radius: 5px;
+    width : 60%
 }
 
-.card {
+.nopadding {
+    width:70%;
+    padding: 0 !important;
+    margin: 0 auto;
+ }
+
+ @media only screen and (max-width: 600px) {
+    .nopadding {
+        width:80%;
+
+    }
+ }
+ .card {
     /* border: 5px solid rgba(0, 0, 0, 0.3); */
+    border: none;
     box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-#pointer {
-    height: 40px;
-    position: relative;
-    background: #17a2b8;
-}
-
-#pointer:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 0;
-    border-left: 20px solid white;
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-}
-
-#pointer:before {
-    content: "";
-    position: absolute;
-    right: -20px;
-    bottom: 0;
-    width: 0;
-    height: 0;
-    border-left: 20px solid #17a2b8;
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
 }
