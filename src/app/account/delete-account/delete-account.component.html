@@ -6,7 +6,7 @@
 
     <div class="card-body  mt-1">
 <form (ngSubmit)="onSubmit()" #accountDeletionForm="ngForm">
-    <div class="form-group col-md-4 offset-md-4">
+    <div class="form-group col-md-8 offset-md-2">
         <label for="accountId">Account Id</label>
         <input type="text" class="form-control" title="12 digit account id" pattern="[0-9]*" minlength=12 maxlength="12"
             id="accountId" required [(ngModel)]="account.id" name="accountId" #accountId="ngModel">
@@ -18,7 +18,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-success" [disabled]="!accountDeletionForm.form.valid ">Delete
+        <button type="submit" class="btn btn-info" [disabled]="!accountDeletionForm.form.valid ">Delete
             Account</button>
     </div>
 </form>
