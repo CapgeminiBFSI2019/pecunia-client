@@ -29,28 +29,35 @@
 .style {
     background: white;
     text-align: center;
-    color:rgb(20, 196, 209);
+    color: rgb(20, 196, 209);
 }
 
-.pecuniaforms{
-    margin:5% 20%;
-    padding :5%;
-    background-color:#dbdbdb;
+.pecuniaforms {
+    margin: 5% 20%;
+    padding: 5%;
+    background-color: #dbdbdb;
     border-radius: 5px;
-    width : 60%
+    width: 60%
 }
 
 .nopadding {
-    width:40%;
+    width: 40%;
     padding: 0 !important;
     margin: 0 auto;
- }
+}
 
- @media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
     .nopadding {
-        width:80%;
+        width: 90%;
     }
 }
+
+@media only screen and (min-width: 601px) and (max-width:900px) {
+    .nopadding {
+        width: 60%;
+    }
+}
+
 .card {
     /* border: 5px solid rgba(0, 0, 0, 0.3); */
     border: none;

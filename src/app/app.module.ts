@@ -26,6 +26,7 @@ import { LoanMenuComponent } from './loan/loan-menu/loan-menu.component';
 import { DemoServiceService } from './service/demo-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
+import { SessionService } from './service/session.service';
 
 @NgModule({
   declarations: [
