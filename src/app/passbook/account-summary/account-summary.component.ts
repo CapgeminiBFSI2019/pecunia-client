@@ -15,6 +15,7 @@ export class AccountSummaryComponent implements OnInit {
   dataResponse : any;
   submitted = false;
   showToast = false;
+  closed = false;
   constructor(private accountSummaryService : AccountSummaryService) { }
   
   ngOnInit() {}
@@ -80,4 +81,10 @@ export class AccountSummaryComponent implements OnInit {
     this.showToast = false;
     this.submitted= false;
   }
+
+  onClose(){
+    this.closed= true;
+    this.dataReceived=false;
+    this.submitted=false;
+ }
 }

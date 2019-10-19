@@ -11,15 +11,8 @@
     /* red */
 }
 
-
-textarea {
-    outline: none !important;
-    box-shadow: none !important;
-    border: 1px solid #ccc !important;
-}     
-
 .spinner-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -32,3 +25,56 @@ textarea {
     width: 3rem;
     height: 3rem;
 }
+
+.style {
+    background: white;
+    text-align: center;
+    color:rgb(20, 196, 209);
+}
+
+.pecuniaforms{
+    margin:5% 20%;
+    padding :5%;
+    background-color:#dbdbdb;
+    border-radius: 5px;
+    width : 60%
+}
+
+.nopadding {
+    
+    width:30%;
+    padding: 0 !important;
+    margin: 0 auto;
+ }
+
+ @media only screen and (max-width: 600px) {
+    .nopadding {
+        width:80%;
+
+    }
+ }
+
+ .card {
+    border: none;
+    box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.table {
+    
+    width:95%;
+    padding: 30 !important;
+    margin: 0 auto;
+ }
+
+ .th {
+    vertical-align: middle;
+  }
+
+  .card-header {
+      position: relative;
+  }
+  #close-btn {
+      position: absolute;
+      top : 0;
+      right :0;
+  }
