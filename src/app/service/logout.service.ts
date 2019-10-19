@@ -9,5 +9,6 @@ export class LogoutService {
 
   logout(): void {
     localStorage.setItem('isLoggedIn', "false");
-  } 
+  }
+  
 }

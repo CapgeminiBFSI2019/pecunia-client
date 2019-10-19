@@ -1,6 +1,7 @@
 import { Component, OnInit ,ViewChild} from '@angular/core';
 import { DebitChequeModel } from 'src/app/model/DebitChequeModel';
 import { DebitChequeService } from 'src/app/service/debit-cheque.service';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-debit-cheque',
@@ -18,9 +19,10 @@ export class DebitChequeComponent implements OnInit {
 
   @ViewChild('debitChequeForm' , {static: false}) form: any;
 
-  constructor(private debitService : DebitChequeService) { }
+  constructor(private debitService : DebitChequeService, private sessionService : SessionService) { }
 
   ngOnInit() {
+    this.sessionService.doSessionRouting();
   }
 
   onDataReceived(data)
