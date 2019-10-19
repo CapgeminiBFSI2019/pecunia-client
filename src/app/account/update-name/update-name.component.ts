@@ -31,7 +31,7 @@ export class UpdateNameComponent implements OnInit {
   constructor(private updateName: UpdateNameService, private sessionService : SessionService) { }
 
   ngOnInit() {
-    this.sessionService.doSessionRouting();
+    //this.sessionService.doSessionRouting();
   }
 
   onDataReceived(data) {
