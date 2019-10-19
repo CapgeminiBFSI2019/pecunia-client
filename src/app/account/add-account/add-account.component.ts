@@ -4,6 +4,7 @@ import { CustomerModel } from 'src/app/model/CustomerModel';
 import { AddressModel } from 'src/app/model/AddressModel';
 import { AddAccountServiceService } from 'src/app/service/add-account-service.service';
 import { HttpClient } from '@angular/common/http';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-add-account',
@@ -26,8 +27,10 @@ export class AddAccountComponent implements OnInit {
 
   @ViewChild('addAccountForm', { static: false }) form: any;
   // toastr: any;
-  constructor(private addAccount: AddAccountServiceService) { }
+  
+  constructor(private addAccount: AddAccountServiceService, private sessionService : SessionService) { }
   ngOnInit() {
+     this.sessionService.doSessionRouting();
   }
 
   onDataReceived(data) {

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AccountModel } from 'src/app/model/AccountModel';
 import { HttpClient } from '@angular/common/http';
 import { DeleteAccountService } from 'src/app/service/delete-account.service';
+import { SessionService } from 'src/app/service/session.service';
 
 
 
@@ -27,10 +28,10 @@ export class DeleteAccountComponent implements OnInit {
   @ViewChild('accountDeletionForm' , {static: false}) form: any;
   toastr: any;
 
-  constructor(private deleteAccount : DeleteAccountService) { }
+  constructor(private deleteAccount : DeleteAccountService, private sessionService : SessionService) { }
 
   ngOnInit() {
-    
+    this.sessionService.doSessionRouting();
   }
 
   onDataReceived(data)

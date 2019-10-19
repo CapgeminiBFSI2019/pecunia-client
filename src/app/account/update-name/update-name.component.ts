@@ -3,6 +3,7 @@ import { AccountModel } from 'src/app/model/AccountModel';
 import { CustomerModel } from 'src/app/model/CustomerModel';
 import { HttpClient } from '@angular/common/http';
 import { UpdateNameService } from 'src/app/service/update-name.service';
+import { SessionService } from 'src/app/service/session.service';
 
 
 
@@ -27,10 +28,10 @@ export class UpdateNameComponent implements OnInit {
   @ViewChild('updateNameForm', { static: false }) form: any;
   toastr: any;
 
-  constructor(private updateName: UpdateNameService) { }
+  constructor(private updateName: UpdateNameService, private sessionService : SessionService) { }
 
   ngOnInit() {
-
+    //this.sessionService.doSessionRouting();
   }
 
   onDataReceived(data) {

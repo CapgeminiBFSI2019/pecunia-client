@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AddAccountComponent } from './account/add-account/add-account.component';
-import { AccountMenuComponent } from './account/account-menu/account-menu.component';
+
 import { UpdateNameComponent } from './account/update-name/update-name.component';
 import { UpdateContactComponent } from './account/update-contact/update-contact.component';
 import { UpdateAddressComponent } from './account/update-address/update-address.component';
@@ -23,7 +23,7 @@ const routes: Routes = [
   //add your routes here
   
   {path: '', component: LoginComponent},
-  {path: 'account/account-menu', component: AccountMenuComponent},
+
   {path: 'account/add-account', component: AddAccountComponent},
   {path: 'account/update-name', component: UpdateNameComponent},
   {path: 'account/update-contact', component: UpdateContactComponent},

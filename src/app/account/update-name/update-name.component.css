@@ -53,12 +53,15 @@ textarea {
 
  @media only screen and (max-width: 600px) {
     .nopadding {
-        width:80%;
-
+        width: 90%;
     }
- }
+}
 
-
+@media only screen and (min-width: 601px) and (max-width:900px) {
+    .nopadding {
+        width: 60%;
+    }
+}
  .card {
     /* border: 5px solid rgba(0, 0, 0, 0.3); */
     border: none;

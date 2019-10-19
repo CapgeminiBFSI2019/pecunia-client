@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CrediSlipModel } from 'src/app/model/CreditSlipModel';
 import { CreditSlipService } from 'src/app/service/credit-slip.service';
+import { SessionService } from 'src/app/service/session.service';
 
 
 
@@ -18,10 +19,11 @@ export class CreditSlipComponent implements OnInit {
   
   @ViewChild('creditSlipForm' , {static: false}) form: any;
   
-  constructor(private creditService : CreditSlipService) { }
+  constructor(private creditService : CreditSlipService,  private sessionService : SessionService) { }
 
 
   ngOnInit() {
+    this.sessionService.doSessionRouting();
   }
 
   onDataReceived(data)
