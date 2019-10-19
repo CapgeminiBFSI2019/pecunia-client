@@ -3,6 +3,7 @@ import { AccountModel } from 'src/app/model/AccountModel';
 import { AddressModel } from 'src/app/model/AddressModel';
 import { HttpClient } from '@angular/common/http';
 import { UpdateAddressService } from 'src/app/service/update-address.service';
+import { SessionService } from 'src/app/service/session.service';
 
 
 @Component({
@@ -25,9 +26,10 @@ export class UpdateAddressComponent implements OnInit {
   toastr: any;
 
 
-  constructor(private updateAddress : UpdateAddressService) { }
+  constructor(private updateAddress : UpdateAddressService, private sessionService : SessionService) { }
 
   ngOnInit() {
+    this.sessionService.doSessionRouting();
   }
 
 
