@@ -1,6 +1,6 @@
-.footer {
+ .footer {
     
-    position: -ms-page;
+    position: fixed;
     left:0;
     bottom :0;
     width: 100%;
@@ -8,14 +8,10 @@
     background-color: #17a2b8;
     color: white;
     text-align: center;
-  }
+  } 
 
   p{
       line-height: 30px;
       padding: 0 !important;
   }
 
-  
-#sticky-footer {
-    flex-shrink: none;
-  }

@@ -1,3 +1,4 @@
+<div id="container">
 <div class="card nopadding mt-3  mb-4">
     <!-- <h3 class = "style"></h3> -->
     <div class="card-header  bg-info text-center text-light">
@@ -25,25 +26,23 @@
         </form>
     </div>
 </div>
-        <div *ngIf="isProcessing"
-            class="spinner-container d-flex align-items-center justify-content-center flex-column">
-            <div class="spinner-border text-info" role="status">
-                <!-- <span class="sr-only">Loading...</span> -->
-            </div>
+</div>
 
+<div *ngIf="isProcessing" class="spinner-container d-flex align-items-center justify-content-center flex-column">
+    <div class="spinner-border text-info" role="status">
+        <!-- <span class="sr-only">Loading...</span> -->
+    </div>
+
+</div>
+<div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
+    <div class="card text-center m-4 offset-md-4">
+        <div class="card-header">
+            <b>Delete Account</b>
         </div>
-
-        <div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
-            <div class="card text-center m-4 offset-md-4">
-                <div class="card-header">
-                    <b>Delete Account</b>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">{{dataResponse["message"]}}</p>
-                    <button (click)="closeToast()" class="btn btn-info text-white">Close</button>
-                </div>
-            </div>
+        <div class="card-body">
+            <p class="card-text">{{dataResponse["message"]}}</p>
+            <button (click)="closeToast()" class="btn btn-info text-white">Close</button>
         </div>
-
-
-        <app-footer></app-footer>
+    </div>
+</div>
+<!-- <app-footer></app-footer> -->
