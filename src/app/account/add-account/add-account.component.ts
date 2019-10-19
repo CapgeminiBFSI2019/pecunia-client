@@ -30,7 +30,7 @@ export class AddAccountComponent implements OnInit {
   
   constructor(private addAccount: AddAccountServiceService, private sessionService : SessionService) { }
   ngOnInit() {
-    // this.sessionService.doSessionRouting();
+     this.sessionService.doSessionRouting();
   }
 
   onDataReceived(data) {
