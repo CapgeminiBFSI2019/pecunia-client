@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AddAccountComponent } from './account/add-account/add-account.component';
-
 import { UpdateNameComponent } from './account/update-name/update-name.component';
 import { UpdateContactComponent } from './account/update-contact/update-contact.component';
 import { UpdateAddressComponent } from './account/update-address/update-address.component';
@@ -17,7 +16,7 @@ import { LoanRequestComponent } from './loan/loan-request/loan-request.component
 import { LoanMenuComponent } from './loan/loan-menu/loan-menu.component';
 import { AccountSummaryComponent } from './passbook/account-summary/account-summary.component';
 import { PassbookUpdateComponent } from './passbook/passbook-update/passbook-update.component';
-import { IndexComponent } from './index/index.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 const routes: Routes = [
@@ -40,7 +39,7 @@ const routes: Routes = [
   {path: 'passbook/account-summary', component: AccountSummaryComponent},
   {path: 'passbook/passbook-update', component: PassbookUpdateComponent},
   {path: 'login', component : LoginComponent},
-  {path: 'index', component: IndexComponent}
+  {path: 'home-page', component: HomePageComponent}
 ];
 
 @NgModule({

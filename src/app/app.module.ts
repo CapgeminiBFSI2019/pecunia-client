@@ -27,7 +27,8 @@ import { DemoServiceService } from './service/demo-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
-import { IndexComponent } from './index/index.component';
+import { HomePageComponent } from './home-page/home-page.component';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import { IndexComponent } from './index/index.component';
     LoanMenuComponent,
     NavComponent,
     FooterComponent,
-    IndexComponent
+    HomePageComponent
     
   ],
   imports: [
