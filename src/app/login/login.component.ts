@@ -57,13 +57,14 @@ export class LoginComponent implements OnInit {
     this.showToast = false;
     
     if(this.dataResponse['success']) {
-      this.form.reset();
+     
       localStorage.setItem('isLoggedIn', "true");
       console.log('Login success');
-      this._router.navigate(['account/add-account']);
+      this._router.navigate(['home-page']);
     }
     else {
       console.log('Login fail');
+      this.form.reset();
     }
   }
     // this.loginObject = { "username": this.LoginModel.username, "password": this.LoginModel.password };
