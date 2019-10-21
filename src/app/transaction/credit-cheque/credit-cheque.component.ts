@@ -38,6 +38,11 @@ export class CreditChequeComponent implements OnInit {
         this.onDataReceived(data);
       },
       error => {
+        let errorObject = {
+          "success" : false,
+          "message" : "Could not connect to server"
+        }
+        this.onDataReceived(errorObject);
         this.isProcessing = false;
       }
     );
