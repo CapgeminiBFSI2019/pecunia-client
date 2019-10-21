@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DebitSlipModel } from 'src/app/model/DebitSlipModel';
 import { DebitSlipService } from 'src/app/service/debit-slip.service';
+import { SessionService } from 'src/app/service/session.service';
 
 
 
@@ -19,10 +20,11 @@ export class DebitSlipComponent implements OnInit {
   @ViewChild('debitSlipForm' , {static: false}) form: any;
   toastr: any;
 
-  constructor(private debitService : DebitSlipService) { }
+  constructor(private debitService : DebitSlipService, private sessionService : SessionService) { }
 
 
   ngOnInit() {
+    this.sessionService.doSessionRouting();
   }
 
   onDataReceived(data)

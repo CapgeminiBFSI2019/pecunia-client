@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
       this.form.reset();
       localStorage.setItem('isLoggedIn', "true");
       console.log('Login success');
-      this._router.navigate(['account/account-menu']);
+      this._router.navigate(['account/add-account']);
     }
     else {
       console.log('Login fail');

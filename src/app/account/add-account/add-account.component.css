@@ -1,3 +1,5 @@
+/* You can add global styles to this file, and also import other style files */
+
 .ng-valid[required],
 .ng-valid.required {
     border-left: 5px solid #42A948;
@@ -7,12 +9,6 @@
 .ng-invalid:not(form) {
     border-left: 5px solid #a94442;
     /* red */
-}
-
-textarea {
-    outline: none !important;
-    box-shadow: none !important;
-    border: 1px solid #ccc !important;
 }
 
 .spinner-container {
@@ -26,37 +22,43 @@ textarea {
 }
 
 .spinner-border {
-    width: 5rem;
-    height: 5rem;
+    width: 3rem;
+    height: 3rem;
 }
+
 .style {
     background: white;
     text-align: center;
-    color:rgb(20, 196, 209);
+    color: rgb(20, 196, 209);
 }
-.pecuniaforms{
-    margin:2% 10%;
-    padding :5%;
-    background-color:#dbdbdb;
+
+.pecuniaforms {
+    margin: 5% 20%;
+    padding: 5%;
+    background-color: #dbdbdb;
     border-radius: 5px;
-    width : 60%
+    width: 60%
 }
 
 .nopadding {
-    width:40%;
+    width: 40%;
     padding: 0 !important;
     margin: 0 auto;
- }
+}
 
- @media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
     .nopadding {
-        width:80%;
-
+        width: 90%;
     }
- }
+}
 
+@media only screen and (min-width: 601px) and (max-width:900px) {
+    .nopadding {
+        width: 60%;
+    }
+}
 
- .card {
+.card {
     /* border: 5px solid rgba(0, 0, 0, 0.3); */
     border: none;
     box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.4);

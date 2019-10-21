@@ -4,6 +4,7 @@ import { AccountModel } from 'src/app/model/AccountModel';
 import { CustomerModel } from 'src/app/model/CustomerModel';
 import { UpdateContactService } from 'src/app/service/update-contact.service';
 import { HttpClient } from '@angular/common/http';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-update-contact',
@@ -24,9 +25,10 @@ export class UpdateContactComponent implements OnInit {
   @ViewChild('updateContactForm' , {static: false}) form: any;
   toastr: any;
 
-  constructor(private updateContact : UpdateContactService) { }
+  constructor(private updateContact : UpdateContactService, private sessionService : SessionService) { }
 
   ngOnInit() {
+    this.sessionService.doSessionRouting();
   }
 
   onDataReceived(data)

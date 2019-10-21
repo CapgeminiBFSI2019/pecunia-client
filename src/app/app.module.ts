@@ -21,12 +21,12 @@ import { AccountSummaryComponent } from './passbook/account-summary/account-summ
 import { PassbookUpdateComponent } from './passbook/passbook-update/passbook-update.component';
 import { LoanRequestComponent } from './loan/loan-request/loan-request.component';
 import { LoanDisbursalComponent } from './loan/loan-disbursal/loan-disbursal.component';
-import { AccountMenuComponent } from './account/account-menu/account-menu.component';
+
 import { LoanMenuComponent } from './loan/loan-menu/loan-menu.component';
 import { DemoServiceService } from './service/demo-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
-import { SessionService } from './service/session.service';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -45,9 +45,10 @@ import { SessionService } from './service/session.service';
     PassbookUpdateComponent,
     LoanRequestComponent,
     LoanDisbursalComponent,
-    AccountMenuComponent,
+    
     LoanMenuComponent,
-    NavComponent
+    NavComponent,
+    FooterComponent
     
   ],
   imports: [
