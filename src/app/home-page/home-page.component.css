@@ -9,10 +9,13 @@ background: linear-gradient(to left, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Fi
 	background-image : url("src\app\assets\images\newindex.jpg");
 	background-repeat : no-repeat;
 	background-size: 100%;
-	background-size: cover;
-}
+    background-size: cover;
+    scroll-margin-bottom: 0px; 
+    background-position: bottom;
+    
+ } 
 
-.blur {
+ .blur {
 	background-color:rgba(0,0,0,0.5);
 }
 .logo-container
