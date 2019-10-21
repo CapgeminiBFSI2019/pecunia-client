@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Passbook } from "src/app/model/Passbook";
 import { AccountSummaryService } from 'src/app/service/account-summaryService';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-account-summary',
@@ -16,9 +17,11 @@ export class AccountSummaryComponent implements OnInit {
   submitted = false;
   showToast = false;
   closed = false;
-  constructor(private accountSummaryService : AccountSummaryService) { }
+  constructor(private accountSummaryService : AccountSummaryService, private sessionService : SessionService) { }
   
-  ngOnInit() {}
+  ngOnInit() {
+    this.sessionService.doSessionRouting();
+  }
 
   onDataReceived(data)
   {
