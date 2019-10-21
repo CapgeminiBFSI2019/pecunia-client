@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { LoanRequestServiceService } from 'src/app/service/loan-request-service.service';
 import { HttpClient } from '@angular/common/http';
+import { SessionService } from 'src/app/service/session.service';
 
 
 @Component({
@@ -23,12 +24,12 @@ export class LoanRequestComponent implements OnInit {
   @ViewChild('loanRequestForm', { static: false }) form: any;
   toastr: any;
 
-  constructor(private loanRequest: LoanRequestServiceService) {
+  constructor(private loanRequest: LoanRequestServiceService, private sessionService: SessionService) {
 
   }
 
   ngOnInit() {
-
+    this.sessionService.doSessionRouting();
   }
   onDataReceived(data) {
     this.dataResponse = data;
