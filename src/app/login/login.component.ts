@@ -59,11 +59,9 @@ export class LoginComponent implements OnInit {
     if(this.dataResponse['success']) {
      
       localStorage.setItem('isLoggedIn', "true");
-      console.log('Login success');
       this._router.navigate(['home-page']);
     }
     else {
-      console.log('Login fail');
       this.form.reset();
     }
   }

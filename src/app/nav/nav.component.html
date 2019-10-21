@@ -98,8 +98,8 @@
             </ul>
             <ul class="navbar-nav">
 
-                <li class="nav-item">
-                    <form action="logout" method="POST">
+                <li *ngIf="this.sessionService.isLoggedIn()" class="nav-item">
+                    <form  action="logout" method="POST">
                         <button type="submit" class="btn btn-info" (click)="logout()"><span
               class="fa fa-power-off mr-2"></span>Logout</button>
                     </form>
