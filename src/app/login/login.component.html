@@ -39,15 +39,14 @@
         </div>
 
     </div>
-
     <div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
         <div class="card text-center m-3">
             <div class="card-header">
                 <b>Login</b>
             </div>
             <div class="card-body">
-                <p class="card-text">{{dataResponse["message"]}}</p>
-                <button (click)="closeToast()" class="btn btn-info text-white">Click next to continue</button>
+                <p class="card-text" id="popup-id">{{dataResponse["message"]}}</p>
+                <button (click)="closeToast()" id="popup-btn" class="btn btn-info text-white">Click next to continue</button>
             </div>
         </div>
     </div>
