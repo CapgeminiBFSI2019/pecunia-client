@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoanDisbursal } from 'src/app/model/LoanDIsbursalModel';
 import { LoandisbursaldataserviceService } from 'src/app/service/loandisbursaldataservice.service';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-loan-disbursal',
@@ -25,9 +26,10 @@ export class LoanDisbursalComponent implements OnInit {
 
 
   
-  constructor(private loanDisbursalservice : LoandisbursaldataserviceService) { }
+  constructor(private loanDisbursalservice : LoandisbursaldataserviceService,, private sessionService : SessionService) { }
 
   ngOnInit() {
+    this.sessionService.doSessionRouting();
   }
 
 
