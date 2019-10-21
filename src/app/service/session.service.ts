@@ -23,7 +23,7 @@ export class SessionService {
     let loggedIn = this.isLoggedIn();
     if(loggedIn) {
       console.log('in logged in true')
-      this.router.navigate(['account/account-menu']);
+      //this.router.navigate(['home-page']);
     }
     else {
       console.log('in logged in false')

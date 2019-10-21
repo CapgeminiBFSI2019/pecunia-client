@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Passbook } from 'src/app/model/Passbook';
 import { PassbookService } from 'src/app/service/passbook.service';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-passbook-update',
@@ -17,9 +18,11 @@ export class PassbookUpdateComponent implements OnInit {
   showToast = false;
   closed= false;
  
-  constructor(private passbookService : PassbookService) { }
+  constructor(private passbookService : PassbookService, private sessionService : SessionService) { }
   
-  ngOnInit() {}
+  ngOnInit() {
+    this.sessionService.doSessionRouting();
+  }
 
 
   onDataReceived(data)

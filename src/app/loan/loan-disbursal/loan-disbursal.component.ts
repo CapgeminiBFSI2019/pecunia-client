@@ -26,7 +26,7 @@ export class LoanDisbursalComponent implements OnInit {
 
 
   
-  constructor(private loanDisbursalservice : LoandisbursaldataserviceService,, private sessionService : SessionService) { }
+  constructor(private loanDisbursalservice : LoandisbursaldataserviceService, private sessionService : SessionService) { }
 
   ngOnInit() {
     this.sessionService.doSessionRouting();
