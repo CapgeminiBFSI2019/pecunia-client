@@ -26,7 +26,7 @@ export class SessionService {
       this.router.navigate(['account/account-menu']);
     }
     else {
-      console.log('in logged in true')
+      console.log('in logged in false')
       this.router.navigate(['login']);
     }
   }
