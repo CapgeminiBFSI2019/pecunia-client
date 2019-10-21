@@ -8,6 +8,8 @@ export class SessionService {
 
   constructor(private router : Router) { }
 
+
+
   isLoggedIn(): boolean {
     let status = false;
     if (localStorage.getItem('isLoggedIn') == "true") {
@@ -21,12 +23,7 @@ export class SessionService {
 
   doSessionRouting() {
     let loggedIn = this.isLoggedIn();
-    if(loggedIn) {
-      console.log('in logged in true')
-      //this.router.navigate(['home-page']);
-    }
-    else {
-      console.log('in logged in false')
+    if(!loggedIn) {
       this.router.navigate(['login']);
     }
   }
