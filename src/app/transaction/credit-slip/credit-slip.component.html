@@ -1,7 +1,7 @@
 <!-- <app-nav></app-nav> -->
 
 
-<div class="card nopadding mt-3">
+<div class="card nopadding mt-3 mb-4">
 
 
     <!-- <h3 class = "style"></h3> -->
@@ -14,7 +14,7 @@
     <div class="card-body mt-1">
         <form (ngSubmit)="onSubmit()" #creditSlipForm="ngForm">
 
-            <div class="form-group col-md-12 ">
+            <div class="form-group ">
                     
                 <label for="accountId">Account Id</label>
                 <input type="text" class="form-control" title="12 digit account Id" pattern="[0-9]*" minlength=12
@@ -53,7 +53,7 @@
 </div>
 
 <div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
-    <div class="card text-center m-4 offset-md-4">
+    <div class="card text-center m-3">
         <div class="card-header">
             <b>Credit Using Slip</b>
         </div>
