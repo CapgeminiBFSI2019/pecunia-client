@@ -15,7 +15,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    console.log('in app init');
+   
     this.sessionService.doSessionRouting();
   }
   
