@@ -17,6 +17,7 @@ import { LoanRequestComponent } from './loan/loan-request/loan-request.component
 import { LoanMenuComponent } from './loan/loan-menu/loan-menu.component';
 import { AccountSummaryComponent } from './passbook/account-summary/account-summary.component';
 import { PassbookUpdateComponent } from './passbook/passbook-update/passbook-update.component';
+import { IndexComponent } from './index/index.component';
 
 
 const routes: Routes = [
@@ -38,7 +39,8 @@ const routes: Routes = [
   {path: 'loan/loan-menu', component: LoanMenuComponent},
   {path: 'passbook/account-summary', component: AccountSummaryComponent},
   {path: 'passbook/passbook-update', component: PassbookUpdateComponent},
-  {path: 'login', component : LoginComponent}
+  {path: 'login', component : LoginComponent},
+  {path: 'index', component: IndexComponent}
 ];
 
 @NgModule({
