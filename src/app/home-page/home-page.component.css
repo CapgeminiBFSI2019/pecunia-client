@@ -6,11 +6,10 @@ background: linear-gradient(to left, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Fi
 }
 
 .bg-image {
-	background-image : url("src\app\assets\images\newindex.jpg");
+	background-image : url("src\app\assets\images\bg.jpg");
 	background-repeat : no-repeat;
 	background-size: 100%;
     background-size: cover;
-    scroll-margin-bottom: 0px; 
     background-position: bottom;
     
  } 
