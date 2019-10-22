@@ -11,22 +11,7 @@ export class AddAccountServiceService {
   constructor(private http: HttpClient) {
     
   }
-//   doAdd(objectName,addAccountFunction : any) {
-//     // console.log("doAdd()");
-//     this.http
-//     .post("http://localhost:9090/pecunianew/AddAccountServlet",objectName)
-//     .subscribe(
-//       data => {
-//         console.log("in subscribe");
-//         addAccountFunction(data);
-//         console.log("Response : "+JSON.stringify(data));
-//       },
-//       error => {
-//         alert("error");
-//         console.log("Error :"+JSON.stringify(error));
-//       }
-//     ); }
-// }
+
 addAccountFunction(objectName): Observable<any> {
   return this.http
     .post("http://localhost:9090/pecunianew/AddAccountServlet",objectName);
