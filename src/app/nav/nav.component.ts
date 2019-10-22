@@ -11,7 +11,7 @@ import { SessionService } from '../service/session.service';
 export class NavComponent implements OnInit {
 
   loggedIn:boolean = false;
-  constructor(private router: Router,private logoutService: LogoutService, private sessionService: SessionService) { }
+  constructor(private router: Router,private logoutService: LogoutService, public sessionService: SessionService) { }
 
   ngOnInit() {
     

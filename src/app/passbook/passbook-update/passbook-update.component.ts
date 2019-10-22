@@ -62,7 +62,6 @@ export class PassbookUpdateComponent implements OnInit {
         myChequeId="-";
       }
       date= date.concat(myDay).concat("/").concat(myMonth).concat("/").concat(myYear);
-      //console.log(myChequeId);
       objectData['transDate'] = date;
       objectData['chequeId'] = myChequeId;
      myarr.push(objectData);
