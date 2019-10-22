@@ -77,7 +77,12 @@ export class PassbookUpdateComponent implements OnInit {
         this.isProcessing = false;
         this.onDataReceived(data);
       },
-      error => {
+      error =>  {
+        let errorObject = {
+          "success" : false,
+          "message" : "Could not connect to server"
+        }
+        this.onDataReceived(errorObject);
         this.isProcessing = false;
       }
     );
