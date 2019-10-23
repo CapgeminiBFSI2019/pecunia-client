@@ -32,6 +32,7 @@ export class DebitSlipComponent implements OnInit {
     this.dataResponse = data;
     this.showToast = true;
   }
+  
 
   onSubmit() {
     this.isProcessing = true;
