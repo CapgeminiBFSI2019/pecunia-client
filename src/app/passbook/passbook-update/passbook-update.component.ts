@@ -16,7 +16,7 @@ export class PassbookUpdateComponent implements OnInit {
   dataResponse : any;
   submitted = false;
   showToast = false;
-  closed= false;
+  printToast = false;
  
   constructor(private passbookService : PassbookService, private sessionService : SessionService) { }
   
@@ -93,8 +93,13 @@ export class PassbookUpdateComponent implements OnInit {
     this.submitted= false;
   }
 
+  showPrint() {
+    this.printToast = false;
+    this.submitted= false;
+  }
+
   onClose(){
-     this.closed= true;
+     this.printToast = true;
      this.dataReceived=false;
      this.submitted=false;
   }
