@@ -34,7 +34,7 @@
 <div [hidden]="!submitted" class="card table mt-3 mb-4">
   <div class="card-header bg-info text-light">
     <strong class="d-flex justify-content-center ">Passbook Details</strong>
-    <button (click)="onClose()" type="button" class="btn btn-info mr-2 " id="close-btn">Close</button>
+    <button (click)="onClose()" type="button" class="btn btn-info mr-2 " id="close-btn">Print</button>
   </div>
   
   <br>
@@ -89,6 +89,19 @@
 
       <p class="card-text">{{dataResponse["message"]}}</p>
       <button (click)="closeToast()" class="btn btn-info text-white">Close</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="printToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
+  <div class="card text-center m-3">
+    <div class="card-header">
+      <b>Passbook</b>
+    </div>
+    <div class="card-body">
+
+      <p class="card-text">Passbook printed successfully.</p>
+      <button (click)="showPrint()" class="btn btn-info text-white">Close</button>
     </div>
   </div>
 </div>
