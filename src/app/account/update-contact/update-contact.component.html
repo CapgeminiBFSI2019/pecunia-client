@@ -6,9 +6,7 @@
         <form (ngSubmit)="onSubmit()" #updateContactForm="ngForm">
             <div class="form-group col-md-12">
                 <label for="accountId">Account Id</label>
-                <input type="text" class="form-control" title="12 digit account id" pattern="[0-9]*" minlength=12
-                    maxlength="12" id="accountId" required [(ngModel)]="account.id" name="accountId"
-                    #accountId="ngModel">
+                <input type="text" class="form-control" title="12 digit account id" pattern="[0-9]*" minlength=12 maxlength="12" id="accountId" required [(ngModel)]="account.id" name="accountId" #accountId="ngModel">
                 <div *ngIf="!accountId.value && accountId.touched" class="alert alert-danger">
                     Account Id is required
                 </div>
@@ -17,9 +15,7 @@
                 </div>
 
                 <label for="contact">Contact</label>
-                <input type="text" class="form-control" title="Contact should only contain numbers" pattern="[0-9]*"
-                    minlength=10 maxlength="10" id="contact" required [(ngModel)]="customer.contact" name="contact"
-                    #contact="ngModel">
+                <input type="text" class="form-control" title="Contact should only contain numbers" pattern="[0-9]*" minlength=10 maxlength="10" id="contact" required [(ngModel)]="customer.contact" name="contact" #contact="ngModel">
                 <div *ngIf="!contact.value && contact.touched" class="alert alert-danger">
                     Contact is required
                 </div>
@@ -28,8 +24,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-info"
-                    [disabled]="!updateContactForm.form.valid ">Submit</button>
+                <button type="submit" class="btn btn-info" [disabled]="!updateContactForm.form.valid ">Submit</button>
             </div>
         </form>
     </div>
@@ -49,7 +44,7 @@
             <b>Update Customer Contact</b>
         </div>
         <div class="card-body">
-            <p class="card-text">{{dataResponse["message"]}}</p>
+            <p class="card-text" id="popup-acc-update-btn">{{dataResponse["message"]}}</p>
             <button (click)="closeToast()" class="btn btn-primary text-white">Close</button>
         </div>
     </div>
