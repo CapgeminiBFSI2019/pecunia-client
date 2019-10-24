@@ -3,6 +3,7 @@ import { AccountModel } from 'src/app/model/AccountModel';
 import { HttpClient } from '@angular/common/http';
 import { DeleteAccountService } from 'src/app/service/delete-account.service';
 import { SessionService } from 'src/app/service/session.service';
+import { AccountDetailsService } from 'src/app/service/account-details.service';
 
 
 
@@ -18,7 +19,9 @@ export class DeleteAccountComponent implements OnInit {
 
 
   account = new AccountModel();
-  dataResponse : Object;
+  accountRequested = new AccountModel();
+  firstdataResponse : Object;
+  seconddataResponse : Object;
   showToast = false;
   isProcessing : boolean = false;
   deleteAccountObject: Object;
@@ -28,35 +31,66 @@ export class DeleteAccountComponent implements OnInit {
   @ViewChild('accountDeletionForm' , {static: false}) form: any;
   toastr: any;
 
-  constructor(private deleteAccount : DeleteAccountService, private sessionService : SessionService) { }
+  constructor(private deleteAccount : DeleteAccountService, private accountService : AccountDetailsService, private sessionService : SessionService) { }
 
   ngOnInit() {
     this.sessionService.doSessionRouting();
   }
 
-  onDataReceived(data)
+  onFirstDataReceived(data)
   {
-    this.dataResponse = data;
+    this.firstdataResponse = JSON.parse(data["data"]);
     this.showToast = true;
+    alert("ONFIRSTDATARECEICVED :"+JSON.stringify(this.firstdataResponse));
+    console.log(this.firstdataResponse);
+  }
+
+  
+  onSecondDataReceived(data){
+    seconddataResponse : Object;this.seconddataResponse = JSON.parse(data["data"]);
+    this.showToast = true;
+    alert("ONSECONDDATARECEICVED :"+JSON.stringify(this.seconddataResponse));
+    console.log(this.seconddataResponse["id"]);
   }
 
 
   onSubmit() {
     this.isProcessing = true;
     this.submitted = true;
-    this.deleteAccountObject = {"accountId": this.account.id};
-    this.deleteAccount.doDelete(this.deleteAccountObject)
-    .subscribe(
+    this.deleteAccountObject = {"accountId": this.accountRequested.id};
+    
+    this.accountService.showAccountDetails(this.deleteAccountObject).subscribe(
       data => {
         this.isProcessing = false;
-        this.onDataReceived(data);
+        this.onFirstDataReceived(data);
+        console.log(data);
       },
       error => {
         let errorObject = {
           "success" : false,
           "message" : "Could not connect to server"
         }
-        this.onDataReceived(errorObject);
+        this.onFirstDataReceived(errorObject);
+        this.isProcessing = false;
+      }
+    );
+  }
+
+  closeAccount(){
+    this.isProcessing = true;
+    this.deleteAccountObject = {"accountId": this.accountRequested.id};
+    this.deleteAccount.doDelete(this.deleteAccountObject)
+    .subscribe(
+      data => {
+        this.isProcessing = false;
+        this.onSecondDataReceived(data);
+      },
+      error => {
+        let errorObject = {
+          "success" : false,
+          "message" : "Could not connect to server"
+        }
+        this.onSecondDataReceived(errorObject);
         this.isProcessing = false;
       }
     );
