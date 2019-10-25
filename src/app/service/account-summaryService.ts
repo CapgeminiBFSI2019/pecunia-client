@@ -12,8 +12,8 @@ export class AccountSummaryService {
 
 
   accountSummary(dataObject): Observable<any> {
-    return this.http.post("http://localhost:9091/pecunianew/AccountSummaryServlet", dataObject);
-    //return this.http.post("http://localhost:9090/pecunianew/AccountSummaryServlet", dataObject);
+   // return this.http.post("http://localhost:9091/pecunianew/AccountSummaryServlet", dataObject);
+    return this.http.post("http://localhost:9090/pecunianew/AccountSummaryServlet", dataObject);
 
   }
 }

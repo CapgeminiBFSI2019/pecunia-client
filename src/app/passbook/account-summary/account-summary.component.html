@@ -9,7 +9,7 @@
         <div class="form-group col-md-12">
           <label for="accountID">Account ID</label>
           <input type="text" class="form-control" title="Enter Account ID" pattern="[0-9]*" minlength=12 maxlength=12
-            id="accountID" required [(ngModel)]="model.accountID" name="account ID" #accountID="ngModel"><br>
+            id="accountID" required [(ngModel)]="model.accountID" name="account ID" #accountID="ngModel">
 
           <div *ngIf="accountID.invalid && accountID.touched" class="alert alert-danger">
             <div *ngIf="accountID.errors.required">

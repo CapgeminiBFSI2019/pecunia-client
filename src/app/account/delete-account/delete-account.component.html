@@ -10,7 +10,7 @@
             <div class="form-group col-md-12">
                 <label for="accountId">Account Id</label>
                 <input type="text" class="form-control" title="12 digit account id" pattern="[0-9]*" minlength=12
-                    maxlength="12" id="accountId" required [(ngModel)]="account.id" name="accountId"
+                    maxlength="12" id="accountId" required [(ngModel)]="accountRequested.id" name="accountId"
                     #accountId="ngModel">
                 <div *ngIf="!accountId.value && accountId.touched" class="alert alert-danger">
                     Account Id is required
@@ -37,11 +37,15 @@
 <div *ngIf="showToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
     <div class="card text-center m-4 offset-md-4">
         <div class="card-header">
-            <b>Delete Account</b>
+            <b>Are you sure to delete the Account?</b>
         </div>
         <div class="card-body">
-            <p class="card-text">{{dataResponse["message"]}}</p>
-            <button (click)="closeToast()" class="btn btn-info text-white">Close</button>
+            <p class="card-text">Account Id: {{firstdataResponse.id}}</p>
+            <p class="card-text">Account Status: {{firstdataResponse.status}}</p>
+            <p class="card-text">Account Balance: {{firstdataResponse.balance}}</p>
+            <button (click)="closeAccount()" class="btn btn-info text-white">Yes</button>
+            <button (click)="closeToast()" class="btn btn-info text-white">No</button>
         </div>
     </div>
 </div>
+
