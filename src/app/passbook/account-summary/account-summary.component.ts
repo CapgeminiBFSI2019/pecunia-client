@@ -38,12 +38,14 @@ export class AccountSummaryComponent implements OnInit {
 
   getJson(myData: string[]) {
     let myarr = []
+    
     for(var i=0;i<myData.length;i++)
     {
       let date = "";
       let objectData= JSON.parse(myData[i]);
-      var myDay= objectData.transDate.day;
-      var myMonth= objectData.transDate.month;
+      console.log(myData[i]);
+      var myDay= objectData.transDate.date.day;
+      var myMonth= objectData.transDate.date.month;
       if(myDay<10)
       {
         myDay="0".concat(myDay);
@@ -52,14 +54,13 @@ export class AccountSummaryComponent implements OnInit {
       {
       myMonth="0".concat(myMonth);
       }
-      var myYear= objectData.transDate.year;
+      var myYear= objectData.transDate.date.year;
       var myChequeId= objectData.chequeId;
       if(myChequeId==0)
       {
         myChequeId="-";
       }
       date= date.concat(myDay).concat("/").concat(myMonth).concat("/").concat(myYear);
-      //console.log(myChequeId);
       objectData['transDate'] = date;
       objectData['chequeId'] = myChequeId;
      myarr.push(objectData);
