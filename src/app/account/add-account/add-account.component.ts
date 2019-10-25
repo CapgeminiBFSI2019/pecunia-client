@@ -61,10 +61,12 @@ export class AddAccountComponent implements OnInit {
     };
     this.addAccount.addAccountFunction(this.obj).subscribe(
       data => {
+        // console.log("recieved data");
         this.isProcessing = false;
         this.onDataReceived(data);
       },
       error => {
+        // console.log("error");
         this.isProcessing = false;
       }
     );

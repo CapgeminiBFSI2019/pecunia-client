@@ -13,6 +13,7 @@ export class AddAccountServiceService {
   }
 
 addAccountFunction(objectName): Observable<any> {
+  // console.log("aaraha hu me")
   return this.http
     .post("http://localhost:9090/pecunianew/AddAccountServlet",objectName);
 }}
