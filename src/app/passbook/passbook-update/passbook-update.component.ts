@@ -45,8 +45,9 @@ export class PassbookUpdateComponent implements OnInit {
     {
       let date = "";
       let objectData= JSON.parse(myData[i]);
-      var myDay= objectData.transDate.day;
-      var myMonth= objectData.transDate.month;
+      console.log(myData[i]);
+      var myDay= objectData.transDate.date.day;
+      var myMonth= objectData.transDate.date.month;
       if(myDay<10)
       {
         myDay="0".concat(myDay);
@@ -55,7 +56,7 @@ export class PassbookUpdateComponent implements OnInit {
       {
       myMonth="0".concat(myMonth);
       }
-      var myYear= objectData.transDate.year;
+      var myYear= objectData.transDate.date.year;
       var myChequeId= objectData.chequeId;
       if(myChequeId==0)
       {
