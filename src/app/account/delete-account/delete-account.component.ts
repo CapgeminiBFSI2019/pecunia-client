@@ -41,32 +41,38 @@ export class DeleteAccountComponent implements OnInit {
   {
     this.firstdataResponse = JSON.parse(data["data"]);
     this.showToast = true;
+    console.log("inside data2");
     alert("ONFIRSTDATARECEICVED :"+JSON.stringify(this.firstdataResponse));
     console.log(this.firstdataResponse);
   }
 
   
   onSecondDataReceived(data){
-    seconddataResponse : Object;this.seconddataResponse = JSON.parse(data["data"]);
+    seconddataResponse : Object;
+    this.seconddataResponse = JSON.parse(data["data"]);
     this.showToast = true;
+    console.log("inside data");
     alert("ONSECONDDATARECEICVED :"+JSON.stringify(this.seconddataResponse));
     console.log(this.seconddataResponse["id"]);
   }
 
 
   onSubmit() {
+    console.log("inside button");
     this.isProcessing = true;
     this.submitted = true;
     this.deleteAccountObject = {"accountId": this.accountRequested.id};
     
     this.accountService.showAccountDetails(this.deleteAccountObject).subscribe(
       data => {
+        console.log("inside data");
         this.isProcessing = false;
         this.onFirstDataReceived(data);
         console.log(data);
       },
       error => {
         let errorObject = {
+         
           "success" : false,
           "message" : "Could not connect to server"
         }
@@ -83,7 +89,10 @@ export class DeleteAccountComponent implements OnInit {
     .subscribe(
       data => {
         this.isProcessing = false;
+        console.log("inside second data");
+        console.log(data);
         this.onSecondDataReceived(data);
+        console.log("inside second data received");
       },
       error => {
         let errorObject = {
