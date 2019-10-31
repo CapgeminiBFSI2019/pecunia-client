@@ -11,7 +11,7 @@ export class CreditChequeService {
 
   creditAmount(dataObject): Observable<any> {
     return this.http
-      .post("http://localhost:9090/pecunianew/CreditUsingChequeServlet",dataObject);
+      .post("http://localhost:9090/pecunianew/creditCheque",dataObject);
       
   }
 }
