@@ -16,7 +16,7 @@ export class LoanRequestServiceService {
 
   doLoanRequest(loanRequest) {
 
-    return this.http.post("http://localhost:9090/pecunianew/LoanRequestServlet", loanRequest);
+    return this.http.post("http://localhost:9090/pecunianew/LoanRequest", loanRequest);
 
 
   }
