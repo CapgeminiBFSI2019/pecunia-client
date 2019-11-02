@@ -13,7 +13,7 @@ export class DebitSlipService {
 
    debitAmount(dataObject): Observable<any> {
     return this.http
-      .post("http://localhost:9090/pecunianew/debitslip",dataObject);
+      .post("http://localhost:9090/pecunianew/debitSlip",dataObject);
       
   }
 }

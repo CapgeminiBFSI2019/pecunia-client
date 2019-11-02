@@ -13,7 +13,7 @@ export class UpdateContactService {
   doUpdate(updateContact) : Observable<any> {
 
     return this.http
-      .post("http://localhost:9090/pecunianew/UpdateCustomerContact",updateContact);
+      .post("http://localhost:9090/pecunianew/updateContact",updateContact);
       
   }
 
