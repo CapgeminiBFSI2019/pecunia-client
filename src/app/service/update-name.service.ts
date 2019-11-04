@@ -15,7 +15,7 @@ export class UpdateNameService {
   doUpdate(updateName): Observable<any>{
 
     return this.http
-      .post("http://localhost:9090/pecunianew/UpdateCustomerName",updateName);
+      .post("http://localhost:9090/pecunianew/updateName",updateName);
       
   }
 
