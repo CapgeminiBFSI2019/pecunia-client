@@ -48,7 +48,7 @@ export class DeleteAccountComponent implements OnInit {
 
   
   onSecondDataReceived(data){
-    this.seconddataResponse = data;
+    this.seconddataResponse = JSON.parse(data["data"]);
     this.showToast = true;
     console.log("inside data");
     alert("ONSECONDDATARECEICVED :"+JSON.stringify(this.seconddataResponse));
