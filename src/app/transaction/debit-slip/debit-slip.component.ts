@@ -24,7 +24,7 @@ export class DebitSlipComponent implements OnInit {
 
 
   ngOnInit() {
-    // this.sessionService.doSessionRouting();
+     this.sessionService.doSessionRouting();
   }
 
   onDataReceived(data)

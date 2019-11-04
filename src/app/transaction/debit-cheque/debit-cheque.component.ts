@@ -22,7 +22,7 @@ export class DebitChequeComponent implements OnInit {
   constructor(private debitService : DebitChequeService, private sessionService : SessionService) { }
 
   ngOnInit() {
-    //this.sessionService.doSessionRouting();
+    this.sessionService.doSessionRouting();
   }
 
   onDataReceived(data)
