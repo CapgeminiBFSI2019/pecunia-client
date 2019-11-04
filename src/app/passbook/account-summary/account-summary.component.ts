@@ -17,6 +17,7 @@ export class AccountSummaryComponent implements OnInit {
   submitted = false;
   showToast = false;
   closed = false;
+  todayFormat: string;
   constructor(private accountSummaryService : AccountSummaryService, private sessionService : SessionService) { }
   
   ngOnInit() {
@@ -86,6 +87,28 @@ export class AccountSummaryComponent implements OnInit {
       }
     );
   }
+
+  public SetMaxDate() {
+    let today = new Date();
+    let dd = (today.getDate());
+    let mm = today.getMonth() + 1;
+    let yyyy = today.getFullYear();
+    let ddFormat: string;
+    let mmFormat: string;
+    if (dd < 10) {
+      ddFormat = ('0' + dd).toString();
+    }
+    else
+      ddFormat = (dd).toString();
+    if (mm < 10) {
+      mmFormat = '0' + mm
+    }
+    else
+      mmFormat = (mm).toString();
+    this.todayFormat = yyyy + '-' + mmFormat + '-' + ddFormat;
+  
+  }
+  
   closeToast() {
     this.showToast = false;
     this.submitted= false;
