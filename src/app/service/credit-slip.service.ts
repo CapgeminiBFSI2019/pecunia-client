@@ -13,7 +13,7 @@ export class CreditSlipService {
 
    creditAmount(dataObject): Observable<any> {
     return this.http
-      .post("http://localhost:9090/pecunianew/creditslip",dataObject);
+      .post("http://localhost:9090/pecunianew/creditSlip",dataObject);
       
   }
 }

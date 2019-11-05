@@ -37,7 +37,7 @@
         </div>
         <div class="form-group col-md-12">
           <label for="endDate">End Date</label>
-          <input type="date" class="form-control" title="Enter End Date" id="endDate" required
+          <input type="date" (click)="SetMaxDate()" [max]="todayFormat" class="form-control" title="Enter End Date" id="endDate" required
             [(ngModel)]="model.endDate" name="endDate" #endDate="ngModel"><br>
 
           <div *ngIf="endDate.valid && endDate.pristine " class="alert alert-danger ">
