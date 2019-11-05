@@ -13,7 +13,7 @@ export class DeleteAccountService {
 
   doDelete(deleteAccount){
     return this.http
-      .post("http://localhost:9091/pecunianew/deleteAccount",deleteAccount);
+      .post("http://localhost:9090/pecunianew/deleteAccount",deleteAccount);
       
   }
 
