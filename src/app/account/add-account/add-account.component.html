@@ -53,7 +53,7 @@
             </div>
             <div class="form-group col-md-12">
                 <label for="Address line 1">Address line 1</label>
-                <input type="text" class="form-control" pattern="[A-Za-z0-9\s/'-]*"
+                <input type="text" class="form-control" pattern="[A-Za-z0-9\s/'()-]*"
                     title="Only alphabets, numbers and / and - allowed" id="line1" required [(ngModel)]="address.line1"
                     name="line1" #line1="ngModel">
                 <div *ngIf="!line1.value && line1.touched " class="alert alert-danger ">
@@ -65,7 +65,7 @@
             </div>
             <div class="form-group col-md-12">
                 <label for="Address line 2">Address line 2</label>
-                <input type="text" class="form-control" pattern="[A-Za-z0-9\s/'-]*"
+                <input type="text" class="form-control" pattern="[A-Za-z0-9\s/'()-]*"
                     title="Only alphabets, numbers and / and - allowed" id="line2" required [(ngModel)]="address.line2"
                     name="line2" #line2="ngModel">
                 <div *ngIf="!line2.value && line2.touched " class="alert alert-danger ">

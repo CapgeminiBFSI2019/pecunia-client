@@ -17,7 +17,7 @@
 
                 <label for="line1">Address Line 1</label>
                 <input type="text" class="form-control" title="Only alphabets, numbers and / and - allowed"
-                    pattern="[A-Za-z0-9\s/'-]*" id="line1" required [(ngModel)]="address.line1" name="line1"
+                    pattern="[A-Za-z0-9\s/'()-]*" id="line1" required [(ngModel)]="address.line1" name="line1"
                     #line1="ngModel">
                 <div *ngIf="!line1.value && line1.touched" class="alert alert-danger">
                     Address Line 1 is required
@@ -28,7 +28,7 @@
 
                 <label for="line2">Address Line 2</label>
                 <input type="text" class="form-control" title="Only alphabets, numbers and / and - allowed"
-                    pattern="[A-Za-z0-9\s/'-]*" id="line2" required [(ngModel)]="address.line2" name="line2"
+                    pattern="[A-Za-z0-9\s/'()-]*" id="line2" required [(ngModel)]="address.line2" name="line2"
                     #line2="ngModel">
                 <div *ngIf="!line2.value && line2.touched" class="alert alert-danger">
                     Address Line 2 is required
