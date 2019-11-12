@@ -23,7 +23,7 @@ export class CreditSlipComponent implements OnInit {
 
 
   ngOnInit() {
-    this.sessionService.doSessionRouting();
+   // this.sessionService.doSessionRouting();
   }
 
   onDataReceived(data)

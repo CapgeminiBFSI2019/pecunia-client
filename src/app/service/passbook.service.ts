@@ -13,7 +13,7 @@ export class PassbookService {
 
   updatePassbook(dataObject): Observable<any> {
     return this.http
-      .post("http://localhost:9090/pecunianew/updatePassbook",dataObject);
+      .post("http://localhost:9090/updatePassbook",dataObject);
       
   }
 }
