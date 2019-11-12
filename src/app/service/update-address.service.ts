@@ -12,7 +12,7 @@ export class UpdateAddressService {
   doUpdate(updateAddress): Observable<any>{
 
     return this.http
-      .post("http://localhost:9090/pecunianew/updateAddress",updateAddress);
+      .post("http://localhost:9090/updateAddress",updateAddress);
       
   }
 

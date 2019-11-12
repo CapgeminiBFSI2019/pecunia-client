@@ -14,5 +14,5 @@ export class AddAccountServiceService {
 
 addAccountFunction(objectName): Observable<any> {
   return this.http
-    .post("http://localhost:9090/pecunianew/addAccount",objectName);
+    .post("http://localhost:9090/addAccount",objectName);
 }}

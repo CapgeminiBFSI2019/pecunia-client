@@ -11,14 +11,14 @@ export class LoandisbursaldataserviceService {
   }
   showData(): Observable<any> {
     return this.http
-      .get("http://localhost:9090/pecunianew/loandisbursaldata");
+      .get("http://localhost:9090/loandisbursaldata");
   }
   showRequests(menuOption): Observable<any>{
     return this.http
-    .get("http://localhost:9090/pecunianew/loandisbursal/"+menuOption);
+    .get("http://localhost:9090/loandisbursal/"+menuOption);
   }
   update(): Observable<any> {
     return this.http
-      .get("http://localhost:9090/pecunianew/loandisbursalbalanceupdation");
+      .get("http://localhost:9090/loandisbursalbalanceupdation");
   }
 }
