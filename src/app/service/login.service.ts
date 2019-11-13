@@ -18,7 +18,7 @@ export class LoginService {
 
 
     return this.http
-      .post("http://localhost:9090/pecunianew/login", loginCredential)
+      .post("http://localhost:9090/login", loginCredential)
      
   }}
   
