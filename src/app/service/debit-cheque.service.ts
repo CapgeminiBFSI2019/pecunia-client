@@ -13,7 +13,7 @@ export class DebitChequeService {
 
    debitAmount(dataObject): Observable<any> {
     return this.http
-      .post("http://localhost:9090/pecunianew/debitCheque",dataObject);
+      .post("http://localhost:9090/debitCheque",dataObject);
       
   }
 }
