@@ -38,11 +38,22 @@
             <b>Are you sure to delete the Account?</b>
         </div>
         <div class="card-body">
-            <p class="card-text">Account Id: {{firstdataResponse.id}}</p>
-            <p class="card-text">Account Status: {{firstdataResponse.status}}</p>
-            <p class="card-text">Account Balance: {{firstdataResponse.balance}}</p>
+            <p class="card-text">Account Id: {{firstdataResponse['accountId']}}</p>
+            <p class="card-text">Account Status: {{firstdataResponse['status']}}</p>
+            <p class="card-text">Account Balance: {{firstdataResponse['balance']}}</p>
             <button (click)="closeAccount()" class="btn btn-info text-white">Yes</button>
             <button (click)="closeToast()" class="btn btn-info text-white">No</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="showDeleteToast" class="spinner-container d-flex align-items-center justify-content-center flex-column ">
+    <div class="card text-center m-4 offset-md-4">
+        <div class="card-header">
+            <b>Delete Account</b>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{seconddataResponse["message"]}}</p>
+            <button (click)="closeDeleteToast()" class="btn btn-info text-white">Close</button>
         </div>
     </div>
 </div>

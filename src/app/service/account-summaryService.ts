@@ -12,7 +12,7 @@ export class AccountSummaryService {
 
 
   accountSummary(dataObject): Observable<any> {
-   return this.http.post("http://localhost:9090/pecunianew/accountSummary", dataObject);
+   return this.http.post("http://localhost:9090/accountSummary", dataObject);
     
 
   }

@@ -12,7 +12,7 @@ export class AccountDetailsService {
     // console.log("Service mai obj : "+JSON.stringify(account))
     return this.http
 
-      .get("http://localhost:9090/pecunianew/accountDetail/"+ account.accountId);
+      .get("http://localhost:9090/accountDetail/"+ account.accountId);
 
 
       

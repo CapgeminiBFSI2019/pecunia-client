@@ -23,6 +23,7 @@ export class DeleteAccountComponent implements OnInit {
   firstdataResponse : Object;
   seconddataResponse : Object;
   showToast = false;
+  showDeleteToast = false;
   isProcessing : boolean = false;
   deleteAccountObject: Object;
   submitted = false;
@@ -52,8 +53,8 @@ export class DeleteAccountComponent implements OnInit {
 
     // this.seconddataResponse = JSON.parse(data["data"]);
     this.seconddataResponse = data;
-    this.showToast = true;
-  
+    this.showDeleteToast = true;
+    
   }
 
 
@@ -108,6 +109,11 @@ export class DeleteAccountComponent implements OnInit {
   }
   closeToast() {
     this.showToast = false;
+    this.form.reset();
+  }
+
+  closeDeleteToast() {
+    this.showDeleteToast = false;
     this.form.reset();
   }
 }
