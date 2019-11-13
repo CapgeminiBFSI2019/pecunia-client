@@ -14,9 +14,6 @@ export class LoginService {
   }
 
   doLogin(loginCredential):Observable<any>  {
-
-
-
     return this.http
       .post("http://localhost:9090/login", loginCredential)
      
