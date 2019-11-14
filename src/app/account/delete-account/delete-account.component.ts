@@ -40,18 +40,22 @@ export class DeleteAccountComponent implements OnInit {
 
   onFirstDataReceived(data)
   {
-    this.firstdataResponse = JSON.parse(data["data"]);
-    this.showToast = true;
+
+    if(data["data"]){
+      this.firstdataResponse = JSON.parse(data["data"]);
+      this.showToast = true;
+    }
+  
+    else{
+      this.closeAccount();
+    }
     
   }
 
   
   onSecondDataReceived(data){
 
-    // seconddataResponse : Object;
-
-
-    // this.seconddataResponse = JSON.parse(data["data"]);
+  
     this.seconddataResponse = data;
     this.showDeleteToast = true;
     
@@ -92,9 +96,8 @@ export class DeleteAccountComponent implements OnInit {
         this.isProcessing = false;
       
         this.onSecondDataReceived(data);
-        
         this.showToast = false;
-    this.form.reset();
+        this.form.reset();
       },
       error => {
         let errorObject = {
